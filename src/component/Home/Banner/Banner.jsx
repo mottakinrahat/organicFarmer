@@ -9,11 +9,11 @@ const Banner = ({ upText, title, paratext,img,smText }) => {
 
                 height: 'full'
             }}>
-                 <div className="md:hero-overlay md:bg-opacity-60"></div>
+                 <div className="md:hero-overlay md:bg-opacity-30 bg-black"></div>
                 <div>
                     <div className="hero-content  text-white">
                         <div className="max-w-full md:flex md:gap-[168px]">
-                            <div className='md:mr-20 '>
+                            <div className='md:mr-20 mt-20'>
                                 <p className='md:text-[24px] text-[14px] mt-[10px] mb-2 md:mb-[40px] md:mt-6'>{upText}</p>
                                 <h2 className='md:text-[56px] md:mb-[16px] font-semibold'>{title}</h2>
 
