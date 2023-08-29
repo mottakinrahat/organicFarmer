@@ -19,7 +19,7 @@ const Navbar = () => {
                         <ul className=' hidden md:space-x-8 text-[16px] lg:flex'>
                             <li>
                                 <NavLink
-                                    to='/aboutUs'
+                                    to='/about'
                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                 >
                                     About Us
