@@ -27,18 +27,18 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to='/buyersConnect'
+                                    to='/product'
                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                 >
-                                    Buyers Connect
+                                    Products
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink
-                                    to='/harvestManagement'
+                                    to='/community'
                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                 >
-                                    Harvest Management
+                                    Community
                                 </NavLink>
                             </li>
                            

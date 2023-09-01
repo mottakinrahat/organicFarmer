@@ -3,6 +3,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     fontFamily: {
@@ -15,6 +16,6 @@ export default {
       ],
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require('flowbite/plugin')],
 }
 

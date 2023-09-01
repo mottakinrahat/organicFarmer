@@ -9,6 +9,11 @@ import {
 import Main from './Layout/Main.jsx';
 import Home from './component/Home/Home/Home.jsx';
 import About from './component/Pages/AboutUs/About/About.jsx';
+import CommunityPage from './component/Pages/AboutUs/CommunityPage/CommunityPage/CommunityPage.jsx';
+import ListMember from './component/Pages/AboutUs/ListMember/ListMember.jsx';
+import Dashboard from './Dashboard/Dashboard/Dashboard.jsx';
+import Traders from './Dashboard/Traders/Traders.jsx';
+import Farmers from './Dashboard/Farmers/Farmers.jsx';
 
 
 
@@ -25,8 +30,26 @@ const router = createBrowserRouter([
         path:'about',
         element:<About/>
       },
+      {
+        path:'community',
+        element:<CommunityPage/>
+      }
     ]
   },
+  {
+    path:'dashboard',
+    element:<Dashboard/>,
+    children:[
+      {
+        path:'traders',
+        element:<Traders/>
+      },
+      {
+        path:'farmers',
+        element:<Farmers/>
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
