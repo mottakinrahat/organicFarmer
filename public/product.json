@@ -1,0 +1,45 @@
+[
+    {
+      "image": "https://i.ibb.co/Pjvx3st/irene-kredenets-z-Ns-SGYXae-P8-unsplash.jpg",
+      "product_name": "Cauliflower",
+      "product_description": "A white, leafy vegetable that is grown without pesticides or herbicides. It is a good source of fiber and vitamin C",
+      "product_quantity": "600 Ton",
+      "price": "60 per kilogram"
+    },
+    {
+      "image": "https://i.ibb.co/n8w8BhJ/natasha-skov-ujh4h-U9-S-KA-unsplash.jpg",
+      "product_name": "Cabbage",
+      "product_description": "A leafy vegetable that is grown without pesticides or herbicides. It is a nutrient-rich vegetable that is low in calories and fat.",
+      "product_quantity": "600 Ton",
+      "price": "60 per kilogram"
+    },
+    {
+      "image": "https://i.ibb.co/X7ND4kR/engin-akyurt-eb26e-V-ys-k-unsplash.jpg",
+      "product_name": "Tomato",
+      "product_description": "Juicy and flavorful organic tomatoes grown using sustainable practices.",
+      "product_quantity": "600 Ton",
+      "price": "60 per kilogram"
+    },
+    {
+      "image": "https://i.ibb.co/gScZM7z/avinash-kumar-Ov-UAL6-Vx3u-Y-unsplash.jpg",
+      "product_name": "Wheat",
+      "product_description": "A staple food that is grown without pesticides or herbicides. It is a good source of carbohydrates, protein, and fiber.",
+      "product_quantity": "600 Ton",
+      "price": "60 per kilogram"
+    },
+    {
+      "image": "https://i.ibb.co/cg3yHLD/pierre-bamin-Ldilh-Dx3sk-unsplash.jpg",
+      "product_name": "Rice",
+      "product_description": "A versatile grain that is grown without pesticides or herbicides. It is a good source of carbohydrates and fiber.",
+      "product_quantity": "600 Ton",
+      "price": "60 per kilogram"
+    },
+    {
+      "image": "https://i.ibb.co/9bkkPZH/artie-kostenko-Sgnhru4-z78-unsplash.jpg",
+      "product_name": "Peas",
+      "product_description": "A legume that is grown without pesticides or herbicides. It is a good source of protein, fiber, and vitamins.",
+      "product_quantity": "600 Ton",
+      "price": "60 per kilogram"
+    }
+  ]
+  

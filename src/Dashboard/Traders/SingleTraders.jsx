@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleFarmers = (sData) => {
+const SingleTraders = (sData) => {
     const{image,name,location,organization,crops_name}=sData.sData;
     console.log(sData.sData);
     return (
@@ -21,4 +21,4 @@ const SingleFarmers = (sData) => {
     );
 };
 
-export default SingleFarmers;
+export default SingleTraders;

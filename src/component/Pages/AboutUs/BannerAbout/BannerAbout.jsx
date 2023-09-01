@@ -3,7 +3,7 @@ const BannerAbout = ({ upText, title, paratext,img,smText }) => {
     const bannerImgUrl = {img};
     return (
         <div className=''>
-            <div className="hero h-[244px] w-full md:h-[320px]" style={{
+            <div className="hero h-[244px] w-full md:h-[450px]" style={{
                 backgroundImage: `url(${img})`,
 
                 height: 'full'

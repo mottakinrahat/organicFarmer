@@ -27,27 +27,27 @@ const ComSlider = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                   <div  className='grid grid-cols-2 gap-6'>
-                   <img src="https://i.ibb.co/D9WQ3B6/community-1.jpg" className=' h-[260px] w-[260px] rounded-xl'/>
-                   <img src="https://i.ibb.co/ydLq6b6/community-4.jpg" className=' h-[260px] w-[260px] rounded-xl'/>
-                   <img src="https://i.ibb.co/vj7QcLh/community-3.jpg" className=' h-[260px] w-[260px] rounded-xl'/>
-                   <img src="https://i.ibb.co/FVgRV2r/community-2.png" className='  h-[260px] w-[260px] rounded-xl'/>
+                   <div  className='grid grid-cols-2 gap-6 '>
+                   <img src="https://i.ibb.co/D9WQ3B6/community-1.jpg" className=' h-[260px] w-[260px] object-cover rounded-xl'/>
+                   <img src="https://i.ibb.co/ydLq6b6/community-4.jpg" className=' h-[260px] w-[260px] object-cover rounded-xl'/>
+                   <img src="https://i.ibb.co/vj7QcLh/community-3.jpg" className=' h-[260px] w-[260px] object-cover rounded-xl'/>
+                   <img src="https://i.ibb.co/FVgRV2r/community-2.png" className='  h-[260px] w-[260px] object-cover rounded-xl'/>
                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
                    <div  className='grid grid-cols-2 gap-6'>
-                   <img src="https://i.ibb.co/ydLq6b6/community-4.jpg" className='  h-[260px] w-[260px] rounded-xl'/>
-                   <img src="https://i.ibb.co/D9WQ3B6/community-1.jpg" className='  h-[260px] w-[260px]  rounded-xl'/>
-                   <img src="https://i.ibb.co/FVgRV2r/community-2.png" className='  h-[260px] w-[260px] rounded-xl'/>
-                   <img src="https://i.ibb.co/vj7QcLh/community-3.jpg" className='  h-[260px] w-[260px] rounded-xl'/>
+                   <img src="https://i.ibb.co/ydLq6b6/community-4.jpg" className='  h-[260px] w-[260px] object-cover rounded-xl'/>
+                   <img src="https://i.ibb.co/D9WQ3B6/community-1.jpg" className='  h-[260px] w-[260px] object-cover  rounded-xl'/>
+                   <img src="https://i.ibb.co/FVgRV2r/community-2.png" className='  h-[260px] w-[260px] object-cover rounded-xl'/>
+                   <img src="https://i.ibb.co/vj7QcLh/community-3.jpg" className='  h-[260px] w-[260px] object-cover rounded-xl'/>
                    </div>
                 </SwiperSlide>
                 <SwiperSlide>
                    <div  className='grid grid-cols-2 gap-6'>
-                   <img src="https://i.ibb.co/vj7QcLh/community-3.jpg" className='  h-[260px] w-[260px] rounded-xl'/>
-                   <img src="https://i.ibb.co/D9WQ3B6/community-1.jpg" className='  h-[260px] w-[260px]  rounded-xl'/>
-                   <img src="https://i.ibb.co/ydLq6b6/community-4.jpg" className='  h-[260px] w-[260px] rounded-xl'/>
-                   <img src="https://i.ibb.co/FVgRV2r/community-2.png" className='  h-[260px] w-[260px] rounded-xl'/>
+                   <img src="https://i.ibb.co/vj7QcLh/community-3.jpg" className='  h-[260px] w-[260px] object-cover rounded-xl'/>
+                   <img src="https://i.ibb.co/D9WQ3B6/community-1.jpg" className='  h-[260px] w-[260px] object-cover  rounded-xl'/>
+                   <img src="https://i.ibb.co/ydLq6b6/community-4.jpg" className='  h-[260px] w-[260px] object-cover rounded-xl'/>
+                   <img src="https://i.ibb.co/FVgRV2r/community-2.png" className='  h-[260px] w-[260px] object-cover rounded-xl'/>
                    </div>
                 </SwiperSlide>
                

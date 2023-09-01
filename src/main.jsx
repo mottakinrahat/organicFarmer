@@ -14,6 +14,7 @@ import ListMember from './component/Pages/AboutUs/ListMember/ListMember.jsx';
 import Dashboard from './Dashboard/Dashboard/Dashboard.jsx';
 import Traders from './Dashboard/Traders/Traders.jsx';
 import Farmers from './Dashboard/Farmers/Farmers.jsx';
+import Product from './component/Pages/Product/Poduct/Product.jsx';
 
 
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path:'community',
         element:<CommunityPage/>
+      },
+      {
+        path:'products',
+        element:<Product/>
       }
     ]
   },
@@ -48,6 +53,7 @@ const router = createBrowserRouter([
         path:'farmers',
         element:<Farmers/>
       }
+     
     ]
   }
 ]);

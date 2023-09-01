@@ -16,7 +16,7 @@ const Community = () => {
                     </div>
 
                     <div className=' w-1/2 h-auto'>
-                       <ComSlider/>
+                        <ComSlider />
                     </div>
                 </div>
             </div>
