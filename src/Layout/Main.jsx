@@ -1,14 +1,18 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from '../component/Navbar/Navbar';
 import Footer from '../component/Footer/Footer';
 
 const Main = () => {
+    const location = useLocation();
+    const pathsToHideNavbar = ['/login', '/register'];
+    const shouldHideNavbar = pathsToHideNavbar.includes(location.pathname);
+
     return (
         <div>
-            <Navbar/>
-            <Outlet></Outlet>
-            <Footer/>
+            {!shouldHideNavbar && <Navbar />}
+            <Outlet />
+            <Footer />
         </div>
     );
 };

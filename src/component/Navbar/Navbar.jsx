@@ -45,7 +45,7 @@ const Navbar = () => {
                         </ul></div>
                     <div className='md:flex justify-end gap-2 items-center hidden'>
                     <button className='md:py-[6px]  md:px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button>
-                    <button className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]  '>Login</button>
+                   <Link to='/login'> <button className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]  '>Login</button></Link>
                         
 
                     </div>

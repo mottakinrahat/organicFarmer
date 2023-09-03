@@ -15,6 +15,12 @@ import Dashboard from './Dashboard/Dashboard/Dashboard.jsx';
 import Traders from './Dashboard/Traders/Traders.jsx';
 import Farmers from './Dashboard/Farmers/Farmers.jsx';
 import Product from './component/Pages/Product/Poduct/Product.jsx';
+import Login from './component/Login/Login.jsx';
+import Register from './component/Register/Register.jsx';
+import ProfileDashboard from './ProfileDashboard/ProfileDashboard/ProfileDashboard.jsx';
+import PersonalInfo from './ProfileDashboard/PersonalInfo/PersonalInfo.jsx';
+import BuisnessDetails from './ProfileDashboard/BuisnessDetails/BuisnessDetails.jsx';
+import Crops from './ProfileDashboard/Crops/Crops.jsx';
 
 
 
@@ -38,7 +44,17 @@ const router = createBrowserRouter([
       {
         path:'products',
         element:<Product/>
+      },
+      
+      {
+        path:'login',
+        element:<Login/>
+      },
+      {
+        path:'register',
+        element:<Register/>
       }
+
     ]
   },
   {
@@ -54,6 +70,24 @@ const router = createBrowserRouter([
         element:<Farmers/>
       }
      
+    ]
+  },
+  {
+    path:'profileDashboard',
+    element:<ProfileDashboard/>,
+    children:[
+      {
+        path:'personalInfo',
+        element:<PersonalInfo/>
+      },
+      {
+        path:'businessDetails',
+        element:<BuisnessDetails/>
+      },
+      {
+        path:'crops',
+        element:<Crops/>
+      }
     ]
   }
 ]);
