@@ -36,7 +36,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <Link to='/profileDashboard/personalInfo'><button className="btn bg-[#159122] text-white rounded-full">Login</button></Link>
+                            <Link to='/profileDashboard/personalInfo'><button className="btn bg-[#159122] text-white w-full rounded-full">Login</button></Link>
                         </div>
                     <h2 className='mt-4'>Don't have an account? <Link to='/register' className='text-blue-600'>Register</Link></h2>
                     </form>
