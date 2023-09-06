@@ -1,13 +1,13 @@
 import React from 'react';
 
 const SingleTraders = (sData) => {
-    const{image,name,location,organization,crops_name}=sData.sData;
+    const{photo,nameOf,location,areaOfFarm,organization,crops_name}=sData.sData;
     console.log(sData.sData);
     return (
         <div className='w-[302px]'>
-        <div><img src={image} className='h-[168px] w-full rounded-xl object-cover' alt="" /></div>
+        <div><img src={photo} className='h-[168px] w-full rounded-xl object-cover' alt="" /></div>
         <div className='text-[18px] mt-[16px]'>
-            <h2>{name}</h2>
+            <h2>{nameOf}</h2>
             <h2>{location}</h2>
             <h2>{organization}</h2>
             <h2>{crops_name}</h2>

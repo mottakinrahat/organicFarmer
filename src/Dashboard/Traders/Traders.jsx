@@ -4,12 +4,14 @@ import SingleTraders from './SingleTraders';
 
 const Traders = () => {
     const [arrayData, setArrayData] = useState([]);
-
     useEffect(() => {
-        fetch('/traders.json')
+        fetch('http://localhost:3000/personalInfo')
             .then(res => res.json())
-            .then(data => setArrayData(data))
-    }, [])
+            .then(data => {
+                const filteredData = data.filter(item => item.role === 'business');
+                setArrayData(filteredData);
+            })
+            }, [])
     return (
         <div>
             <div className='flex justify-around pt-[32px]'>

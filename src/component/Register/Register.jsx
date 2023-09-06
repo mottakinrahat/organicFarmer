@@ -1,7 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../AuthProviders/AuthProviders';
+import Swal from 'sweetalert2'
 
 const Register = () => {
+    const { createUser,updateUserData } = useContext(AuthContext)
+    const navigate=useNavigate();
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const Name = form.Name.value;
+        const Email = form.Email.value;
+        const Password = form.Password.value;
+        const ConfirmPassword = form.ConfirmPassword.value;
+        const loginData = { Name, Email, Password, ConfirmPassword }
+        console.log(loginData);
+        if (Password !== ConfirmPassword) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Password do not match.Please enter same password',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            return;
+        }
+
+        createUser(Email, Password)
+        .then(result => {
+            const createdUser = result.user;
+            updateUserData(Name)
+            if(createdUser.email){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'user created successfully',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+                navigate('/login');
+            }
+        })
+        
+        .catch(err => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: `${err.message}`,
+                showConfirmButton: false,
+                timer: 2000
+            })
+        })
+    }
     return (
         <div>
             <div className='flex justify-evenly  bg-[#FBFFED]'>
@@ -24,30 +75,30 @@ const Register = () => {
 
                         </div>
                         <div className="divider">OR</div>
-                        <form className="card-body">
+                        <form onSubmit={handleRegister} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" placeholder="Name" className="input input-bordered rounded-full bg-[#E8F0CA]" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Add Image</span>
-                                </label>
-                                <input type="file" placeholder="email" className="input input-bordered rounded-full bg-[#E8F0CA]" />
+                                <input type="text" placeholder="Name" name="Name" className="input input-bordered rounded-full bg-[#E8F0CA]" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" className="input input-bordered rounded-full bg-[#E8F0CA]" />
+                                <input type="text" placeholder="email" name="Email" className="input input-bordered rounded-full bg-[#E8F0CA]" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="password" className="input input-bordered rounded-full bg-[#E8F0CA]" />
+                                <input type="password" placeholder="password" name="Password" className="input input-bordered rounded-full bg-[#E8F0CA]" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Confirm Password</span>
+                                </label>
+                                <input type="password" placeholder="Confirm Password" name="ConfirmPassword" className="input input-bordered rounded-full bg-[#E8F0CA]" />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn bg-[#159122] text-white rounded-full">Register</button>

@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { BoltIcon, Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import logo from '../../assets/logo/Organic Farmer.png';
+import { useContext } from 'react';
+import { AuthContext } from '../AuthProviders/AuthProviders';
 
 const Navbar = () => {
+    const location = useLocation();
+    const pathsToHideNavbar = ['/contact/:id'];
+    const shouldHideNavbar = pathsToHideNavbar.includes(location.pathname);
+    const { user, logOut } = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const handleLogOut = () => {
+        logOut()
+            .then(result => {
+                console.log(result);
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
+    }
     return (
-        <div className=' md:w-[1280px]   mx-auto  sticky md:-mb-[100px]   '>
-            <div className='  py-5  mx-auto sm:max-w-xl rounded-full  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#FBFFED] text-black'>
+        <div className={`md:w-[1280px] mx-auto sticky ${shouldHideNavbar ?'md:-mb-[0px]' : 'md:-mb-[100px]'}`}>
+            <div className={'py-5 mx-auto sm:max-w-xl rounded-full  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#FBFFED] text-black'}>
                 <div className='relative flex md:justify-between md:items-center md:px-[10px]  '>
 
                     <div className='flex justify-between items-center md:gap-[60px]'><Link to='/' className='inline-flex items-center'>
@@ -41,12 +56,17 @@ const Navbar = () => {
                                     Community
                                 </NavLink>
                             </li>
-                           
+
                         </ul></div>
                     <div className='md:flex justify-end gap-2 items-center hidden'>
-                    <button className='md:py-[6px]  md:px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button>
-                   <Link to='/login'> <button className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]  '>Login</button></Link>
-                        
+                        <button className='md:py-[6px]  md:px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button>
+                        {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
+                            <img src={user?.photoURL} className='h-10 w-10 rounded-full' alt="" />
+                            <h2>{user?.displayName}</h2>
+                        </div>}
+                        {user ? <button onClick={handleLogOut} className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
+                            <button className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
+
 
                     </div>
                     {/* Mobile Navbar Section */}

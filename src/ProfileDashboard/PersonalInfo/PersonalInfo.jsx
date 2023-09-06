@@ -1,68 +1,87 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../component/AuthProviders/AuthProviders';
 
 const PersonalInfo = () => {
+    const { user, updateUserData } = useContext(AuthContext)
+
+    const navigate = useNavigate()
+    const handleUserProfile = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const image = form.image.value;
+        const firstName = form.firstName.value;
+        const lastName = form.lastName.value;
+        const phoneNumber = form.phoneNumber.value;
+        const location = form.location.value;
+        console.log(firstName, lastName, image, phoneNumber, location);
+        updateUserData(firstName, lastName, image, phoneNumber, location)
+        .then(result=>{
+           if(result){
+            navigate('/profileDashboard/businessDetails')
+           }
+        })           
+   
+
+    }
+
+
     return (
         <div className='mx-[200px]'>
             <h2 className='text-[32px] font-semibold '>Personal Information</h2>
 
-            <div className='flex items-center gap-6 mt-[32px]'>
-                <div className="avatar">
-                    <div className="w-24 rounded-full">
-                        <img src="https://i.ibb.co/ZYRRjD9/team-1.jpg" />
-                    </div>
-                </div>
-                <div>
-                    <button className='px-[16px] py-[8px] text-white bg-[#159122] rounded-full'>Change</button>
-                </div>
-            </div>
-
             <div className='w-[550px]'>
-                <form className="">
-                    <div className='flex items-center justify-between '>
+                <form onSubmit={handleUserProfile} className="card-body">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">First Name</span>
+                        </label>
+                        <input type="text" placeholder="imageUrl" name="image" className="input input-bordered rounded-full bg-[#E8F0CA]" required />
+                    </div>
+                    <div className='flex justify-between items-center'>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">First Name</span>
                             </label>
-                            <input type="text" name='firstName' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                            <input type="text" placeholder="Name" name="firstName" className="input input-bordered rounded-full bg-[#E8F0CA]" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Last Name</span>
                             </label>
-                            <input type="text" name='lastName' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
-
+                            <input type="text" placeholder="Last Name" name="lastName" className="input input-bordered rounded-full bg-[#E8F0CA]" required />
                         </div>
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email-id</span>
+                            <span className="label-text">Email_id</span>
                         </label>
-                        <input type="text" name='email' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
-
+                        <input type="email" value={user?.email} placeholder="email" name="email" className="input input-bordered rounded-full bg-[#E8F0CA]" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Phone Number</span>
                         </label>
-                        <input type="text" name='phoneNumber' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
-
+                        <input type="text" placeholder="Phone Number" name="phoneNumber" className="input input-bordered rounded-full bg-[#E8F0CA]" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Location</span>
                         </label>
-                        <input type="text" name='location' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
-
+                        <input type="text" placeholder="Location" name="location" className="input input-bordered rounded-full bg-[#E8F0CA]" required />
                     </div>
                     <div className="form-control text-center mt-6">
-                        <Link to='/profileDashboard/businessDetails'><button className="btn bg-[#159122] px-[61px] py-[16px] text-white  rounded-xl">Next</button></Link>
+                        <button className="btn bg-[#159122] px-[61px] py-[16px] text-white  rounded-xl">Next</button>
                     </div>
-                    
+
+
                 </form>
+
+            </div>
+            <div>
             </div>
         </div>
     );
 };
-
 export default PersonalInfo;

@@ -21,6 +21,8 @@ import ProfileDashboard from './ProfileDashboard/ProfileDashboard/ProfileDashboa
 import PersonalInfo from './ProfileDashboard/PersonalInfo/PersonalInfo.jsx';
 import BuisnessDetails from './ProfileDashboard/BuisnessDetails/BuisnessDetails.jsx';
 import Crops from './ProfileDashboard/Crops/Crops.jsx';
+import AuthProviders from './component/AuthProviders/AuthProviders.jsx';
+import Contact from './component/Contact/Contact.jsx';
 
 
 
@@ -28,65 +30,70 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    children:[
+    children: [
       {
-        path:'/',
-        element:<Home></Home>
+        path: '/',
+        element: <Home></Home>
       },
       {
-        path:'about',
-        element:<About/>
+        path: 'about',
+        element: <About />
       },
       {
-        path:'community',
-        element:<CommunityPage/>
+        path: 'community',
+        element: <CommunityPage />
       },
       {
-        path:'products',
-        element:<Product/>
+        path: 'products',
+        element: <Product />
       },
-      
+
       {
-        path:'login',
-        element:<Login/>
+        path: 'login',
+        element: <Login />
       },
       {
-        path:'register',
-        element:<Register/>
+        path: 'register',
+        element: <Register />
+      },
+      {
+        path:'contact/:id',
+        element:<Contact/>,
+        loader:({params})=>fetch(`http://localhost:3000/personalInfo/${params.id}`)
       }
 
     ]
   },
   {
-    path:'dashboard',
-    element:<Dashboard/>,
-    children:[
+    path: 'dashboard',
+    element: <Dashboard />,
+    children: [
       {
-        path:'traders',
-        element:<Traders/>
+        path: 'traders',
+        element: <Traders />
       },
       {
-        path:'farmers',
-        element:<Farmers/>
+        path: 'farmers',
+        element: <Farmers />
       }
-     
+
     ]
   },
   {
-    path:'profileDashboard',
-    element:<ProfileDashboard/>,
-    children:[
+    path: 'profileDashboard',
+    element: <ProfileDashboard />,
+    children: [
       {
-        path:'personalInfo',
-        element:<PersonalInfo/>
+        path: 'personalInfo',
+        element: <PersonalInfo />
       },
       {
-        path:'businessDetails',
-        element:<BuisnessDetails/>
+        path: 'businessDetails',
+        element: <BuisnessDetails />
       },
       {
-        path:'crops',
-        element:<Crops/>
+        path: 'crops',
+        element: <Crops />
       }
     ]
   }
@@ -94,6 +101,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProviders>
+      <RouterProvider router={router} />
+    </AuthProviders>
   </React.StrictMode>,
 )

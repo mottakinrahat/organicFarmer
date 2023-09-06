@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import { AuthContext } from '../../component/AuthProviders/AuthProviders';
+import Swal from 'sweetalert2'
 const Crops = () => {
+    const { user } = useContext(AuthContext)
+    const handleSubmitCrops = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const productName = form.name.value;
+        const ProductImage = form.image.value;
+        const quantity = form.quantity.value;
+        const price = form.price.value;
+        const Variety = form.variety.value;
+
+        const cropsData = { productName, ProductImage, quantity, price, Variety, email: user?.email, name: user?.displayName }
+        console.log(cropsData);
+        fetch('http://localhost:3000/crops', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(cropsData)
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'crops added successfully',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                }
+            });
+    }
     return (
         <div className='mx-[100px]'>
             <h2 className='text-[32px] font-semibold '>Upload Your Crops</h2>
@@ -13,7 +45,7 @@ const Crops = () => {
                     <div className='w-[611px] bg-[#E8F0CA] px-[32px] py-[32px] rounded-xl'>
 
                         <h2 className='text-[24px] font-semibold mb-[24px]'>Listing Details</h2>
-                        <form className="">
+                        <form onSubmit={handleSubmitCrops}>
 
                             <div className="form-control">
                                 <label className="label">
@@ -23,9 +55,9 @@ const Crops = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Product Image</span>
+                                    <span className="label-text">Product Image URL</span>
                                 </label>
-                                <input type="file" name='image' className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                <input type="text" name='image' className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -46,12 +78,12 @@ const Crops = () => {
                                 <label className="label">
                                     <span className="label-text">Variety (Optional)</span>
                                 </label>
-                                <input type="text" name='phoneNumber' className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                <input type="text" name='variety' className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
 
                             </div>
 
                             <div className="form-control text-center mt-6">
-                                <Link to='/profileDashboard/crops'><button className="btn bg-[#159122] px-[61px] py-[16px] text-white  rounded-xl">Submit</button></Link>
+                                <button className="btn bg-[#159122] px-[61px] py-[16px] text-white  rounded-xl">Next</button>
                             </div>
 
                         </form>
