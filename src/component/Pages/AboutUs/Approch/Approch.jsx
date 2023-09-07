@@ -12,7 +12,7 @@ const Approch = () => {
     return (
         <div className='md:mt-[98px]'>
             <h2 className='text-[32px] mb-[40px] font-semibold text-center'>Our Approach</h2>
-            <div className='md:flex justify-evenly items-center'>
+            <div className='md:flex sm:grid grid-cols-2 justify-evenly items-center'>
                 {
                     arrayData.map((sData, index) => <SingleApproch key={index} sData={sData}></SingleApproch>)
                 }

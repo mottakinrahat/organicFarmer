@@ -23,6 +23,7 @@ import BuisnessDetails from './ProfileDashboard/BuisnessDetails/BuisnessDetails.
 import Crops from './ProfileDashboard/Crops/Crops.jsx';
 import AuthProviders from './component/AuthProviders/AuthProviders.jsx';
 import Contact from './component/Contact/Contact.jsx';
+import OurFarms from './Dashboard/OurFarms/OurFarms.jsx';
 
 
 
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register />
+      },
+      {
+        path: 'ourFarms',
+        element: <OurFarms/>
       },
       {
         path:'contact/:id',

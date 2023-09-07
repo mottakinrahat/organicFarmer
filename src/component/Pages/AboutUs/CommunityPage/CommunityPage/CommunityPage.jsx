@@ -13,7 +13,7 @@ const CommunityPage = () => {
             <ExistingMamber/>
 
        
-           <Link to='/dashboard/farmers'> <div className='text-[32px] text-center text-[#159122] font-semibold mt-[104px] pb-10 cursor-pointer'><h2 className='border-2 border-[#159122] mx-[180px] rounded-full'>Join Us to view our complete list of members</h2></div></Link>
+           <Link to='/dashboard/farmers'> <div className='md:text-[32px] sm:text-[28px] text-[18px] text-center text-[#159122] font-semibold mt-[104px] pb-10 cursor-pointer'><h2 className='border-2 border-[#159122] md:mx-[180px] mx-[40px] rounded-full'>Join Us to view our complete list of members</h2></div></Link>
            </div>
 
     

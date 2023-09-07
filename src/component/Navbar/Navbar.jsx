@@ -21,13 +21,13 @@ const Navbar = () => {
             })
     }
     return (
-        <div className={`md:w-[1280px] mx-auto sticky ${shouldHideNavbar ?'md:-mb-[0px]' : 'md:-mb-[100px]'}`}>
-            <div className={'py-5 mx-auto sm:max-w-xl rounded-full  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#FBFFED] text-black'}>
+        <div className='md:w-[1280px] mx-auto sticky  sm:-mb-[80px] md:-mb-[100px]'>
+            <div className={'py-5 mx-auto sm:max-w-xl sm:rounded-full md:rounded-full  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#FBFFED] text-black'}>
                 <div className='relative flex md:justify-between md:items-center md:px-[10px]  '>
 
                     <div className='flex justify-between items-center md:gap-[60px]'><Link to='/' className='inline-flex items-center'>
 
-                        <img className='' src={logo} alt="" />
+                        <img className='ml-10 sm:ml-5' src={logo} alt="" />
                     </Link>
 
 
@@ -46,6 +46,14 @@ const Navbar = () => {
                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                 >
                                     Products
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to='/ourFarms'
+                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
+                                >
+                                    OurFarms
                                 </NavLink>
                             </li>
                             <li>
@@ -77,7 +85,7 @@ const Navbar = () => {
                             title='Open Menu'
                             onClick={() => setIsMenuOpen(true)}
                         >
-                            <Bars3BottomRightIcon className='w-8  ml-[180px] text-white' />
+                            <Bars3BottomRightIcon className='w-8  ml-[150px] sm:ml-80 text-black' />
                         </button>
                         {isMenuOpen && (
                             <div className='absolute top-0 left-0 w-full z-10'>
@@ -88,11 +96,14 @@ const Navbar = () => {
                                             <Link to='/' className='inline-flex items-center'>
 
                                                 <span className='ml-2 text-xl font-bold  text-gray-800 uppercase'>
-                                                    FarmsBook
+                                                    <img className='ml-2 sm:ml-2 h-4' src={logo} alt="" />
                                                 </span>
                                             </Link>
                                         </div>
-                                        {/* Dropdown menu close button */}
+                                        {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
+                                            <img src={user?.photoURL} className='h-10 w-10 rounded-full' alt="" />
+                                            <h2>{user?.displayName}</h2>
+                                        </div>}
                                         <div>
                                             <button
                                                 aria-label='Close Menu'
@@ -108,7 +119,7 @@ const Navbar = () => {
                                         <ul className='space-y-4'>
                                             <li>
                                                 <NavLink
-                                                    to='/aboutUs'
+                                                    to='/about'
                                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                                 >
                                                     About Us
@@ -116,33 +127,34 @@ const Navbar = () => {
                                             </li>
                                             <li>
                                                 <NavLink
-                                                    to='/buyersConnect'
+                                                    to='/products'
                                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                                 >
-                                                    Buyers Connect
+                                                    Products
                                                 </NavLink>
                                             </li>
                                             <li>
                                                 <NavLink
-                                                    to='/harvestManagement'
+                                                    to='/ourFarms'
                                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                                 >
-                                                    Harvest Management
+                                                    OurFarms
                                                 </NavLink>
                                             </li>
                                             <li>
                                                 <NavLink
-                                                    to='/demandForecast'
+                                                    to='/community'
                                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                                 >
-                                                    Demand Forecast
+                                                    Community
                                                 </NavLink>
                                             </li>
                                         </ul>
-                                        <div className='flex justify-center gap-2 mt-2 '>
+                                        <div className='flex justify-evenly itemc gap-0 mt-2 '>
 
-                                            <Link to='https://play.google.com/store/apps/details?id=com.farmerspp.com&hl=en_IN&gl=US&pli=1'><button className='md:px-[16px] md:py-[8px] px-4 border-2 border-black rounded-full hover:bg-white hover:text-black hover:duration-500 hover:shadow-xl'>Download App</button></Link>
-                                            <Link to='https://docs.google.com/forms/d/e/1FAIpQLSfPIP8JddDoDkeMFgXOWYv2eZq3yp68zM06i0JmScN32oqQ8w/viewform'><button className='md:px-[16px] md:py-[8px] px-4 border-2 border-black text-white bg-black rounded-full flex gap-1'><img className='h-[24px] w-[23.92px]  hover:bg-slate-500 hover:text-white duration-500  hover:border-slate-500' src={whatsapp} alt="" />Join Us</button></Link>
+                                            <Link to='https://play.google.com/store/apps/details?id=com.farmerspp.com&hl=en_IN&gl=US&pli=1'><button className='md:py-[6px] py-2  px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button></Link>
+                                            {user ? <button onClick={handleLogOut} className='md:py-[4px] py-2 px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
+                                                <button className='md:py-[4px] py-2  px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
 
                                         </div>
                                     </nav>

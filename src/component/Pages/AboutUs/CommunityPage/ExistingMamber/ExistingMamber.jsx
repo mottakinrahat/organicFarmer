@@ -12,7 +12,7 @@ const ExistingMamber = () => {
         <div className='mt-[80px]'>
             <h2 className='text-[32px] font-bold text-center mb-[40px]'>Some of our existing members</h2>
 
-            <div className='md:grid grid-cols-3 gap-2 mx-[200px]  items-center'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-2 md:mx-[200px] mx-4  items-center'>
                 {
                     arrayData.map((sData, index) => <SingleExisting key={index} sData={sData}></SingleExisting>)
                 }
