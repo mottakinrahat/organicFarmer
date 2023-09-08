@@ -28,7 +28,7 @@ const Login = () => {
             .then(result => {
                 const googleLogin = result.user;
                 console.log(googleLogin);
-                navigate('/profileDashboard/personalInfo', { replace: true });
+                navigate('/profileDashboard/crops', { replace: true });
             })
             .catch(err => {
                 console.log(err.message);

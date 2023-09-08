@@ -4,8 +4,8 @@ import { AuthContext } from '../AuthProviders/AuthProviders';
 import Swal from 'sweetalert2'
 
 const Register = () => {
-    const { createUser,updateUserData } = useContext(AuthContext)
-    const navigate=useNavigate();
+    const { createUser, updateUserData } = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -28,30 +28,30 @@ const Register = () => {
         }
 
         createUser(Email, Password)
-        .then(result => {
-            const createdUser = result.user;
-            updateUserData(Name)
-            if(createdUser.email){
+            .then(result => {
+                const createdUser = result.user;
+                updateUserData(Name)
+                if (createdUser.email) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'user created successfully',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                    navigate('/profileDashboard/personalInfo');
+                }
+            })
+
+            .catch(err => {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'user created successfully',
+                    title: `${err.message}`,
                     showConfirmButton: false,
                     timer: 2000
                 })
-                navigate('/login');
-            }
-        })
-        
-        .catch(err => {
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: `${err.message}`,
-                showConfirmButton: false,
-                timer: 2000
             })
-        })
     }
     return (
         <div>

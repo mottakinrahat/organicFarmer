@@ -9,12 +9,13 @@ const BuisnessDetails = () => {
         e.preventDefault();
         const form = e.target;
         const nameOfBusiness = form.BusinessName.value;
+        const number =form.phoneNumber.value;
         const DateOfFoundation = form.dateOf.value;
         const TurnOver = form.turnover.value;
         const areaOfFarm = form.areaFarm.value;
         const location = form.location.value;
 
-        const farmBusiness = { role, nameOfBusiness, DateOfFoundation, TurnOver, areaOfFarm, location,email:user?.email,photo:user?.photoURL,nameOf:user?.displayName};
+        const farmBusiness = { role, nameOfBusiness, number, DateOfFoundation, TurnOver, areaOfFarm, location,email:user?.email,photo:user?.photoURL,nameOf:user?.displayName};
         fetch('http://localhost:5000/personalInfo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -76,6 +77,12 @@ const BuisnessDetails = () => {
                             <span className="label-text">Name of Business</span>
                         </label>
                         <input type="text" name='BusinessName' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Phone Number</span>
+                        </label>
+                        <input type="text" placeholder="Phone Number" name="phoneNumber" className="input input-bordered rounded-full bg-[#E8F0CA]" required />
                     </div>
                     <div className="form-control">
                         <label className="label">

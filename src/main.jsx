@@ -24,6 +24,8 @@ import Crops from './ProfileDashboard/Crops/Crops.jsx';
 import AuthProviders from './component/AuthProviders/AuthProviders.jsx';
 import Contact from './component/Contact/Contact.jsx';
 import OurFarms from './Dashboard/OurFarms/OurFarms.jsx';
+import Update from './component/Update/Update.jsx';
+import UpdateProfile from './component/UpdateProfile/UpdateProfile.jsx';
 
 
 
@@ -59,12 +61,22 @@ const router = createBrowserRouter([
       },
       {
         path: 'ourFarms',
-        element: <OurFarms/>
+        element: <OurFarms />
       },
       {
-        path:'contact/:id',
-        element:<Contact/>,
-        loader:({params})=>fetch(`http://localhost:3000/personalInfo/${params.id}`)
+        path: 'contact/:id',
+        element: <Contact />,
+        loader: ({ params }) => fetch(`http://localhost:5000/personalInfo/${params.id}`)
+      },
+      {
+        path: 'update/:id',
+        element: <Update />,
+        loader: ({ params }) => fetch(`http://localhost:5000/crops/${params.id}`)
+      },
+      {
+        path: 'updateProfile/:id',
+        element: <UpdateProfile />,
+        loader: ({ params }) => fetch(`http://localhost:5000/personalInfo/${params.id}`)
       }
 
     ]
@@ -100,6 +112,7 @@ const router = createBrowserRouter([
         path: 'crops',
         element: <Crops />
       }
+
     ]
   }
 ]);

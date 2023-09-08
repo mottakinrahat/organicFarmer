@@ -31,13 +31,11 @@ const AuthProviders = ({ children }) => {
 
         return signOut(auth)
     }
-    const updateUserData = (name, lastName, photo, number, location) => {
+    const updateUserData = (name, lastName, photo) => {
         return updateProfile(auth.currentUser, {
             displayName: name + ' ' + lastName,
-            photoURL: photo,
-            number: number,
-            location: location
-
+            photoURL: photo
+            
 
 
         })

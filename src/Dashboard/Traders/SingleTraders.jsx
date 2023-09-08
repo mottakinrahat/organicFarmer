@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleTraders = (sData) => {
-    const{photo,nameOf,location,areaOfFarm,organization,crops_name}=sData.sData;
+    const{photo,nameOf,location,areaOfFarm,organization,crops_name,_id}=sData.sData;
     console.log(sData.sData);
     return (
         <div className='w-[302px]'>
@@ -13,7 +14,7 @@ const SingleTraders = (sData) => {
             <h2>{crops_name}</h2>
         </div>
         <div className='text-[18px] mt-[16px] flex gap-10'>
-            <button className='px-[32px] py-[6px] bg-[#159122] text-white font-bold rounded-full '>Contact</button>
+            <Link to={`/contact/${_id}`}><button className='px-[32px] py-[6px] bg-[#159122] text-white font-bold rounded-full '>Contact</button></Link>
             <button className='px-[32px] py-[6px]  text-[#159122] font-bold rounded-full '>Save</button>
         </div>
    

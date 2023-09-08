@@ -9,7 +9,7 @@ const Main = () => {
     const shouldHideNavbar = pathsToHideNavbar.includes(location.pathname);
 
     return (
-        <div>
+        <div className='bg-[#FBFFED]'>
             {!shouldHideNavbar && <Navbar />}
             <Outlet />
             <Footer />

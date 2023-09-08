@@ -16,12 +16,8 @@ const PersonalInfo = () => {
         const location = form.location.value;
         console.log(firstName, lastName, image, phoneNumber, location);
         updateUserData(firstName, lastName, image, phoneNumber, location)
-        .then(result=>{
-           if(result){
-            navigate('/profileDashboard/businessDetails')
-           }
-        })           
-   
+          navigate('/profileDashboard/businessDetails')  
+
 
     }
 

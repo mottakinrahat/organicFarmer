@@ -69,7 +69,7 @@ const Navbar = () => {
                     <div className='md:flex justify-end gap-2 items-center hidden'>
                         <button className='md:py-[6px]  md:px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button>
                         {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
-                            <img src={user?.photoURL} className='h-10 w-10 rounded-full' alt="" />
+                            <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />
                             <h2>{user?.displayName}</h2>
                         </div>}
                         {user ? <button onClick={handleLogOut} className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
