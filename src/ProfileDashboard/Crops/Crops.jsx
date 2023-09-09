@@ -1,10 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../component/AuthProviders/AuthProviders';
 import Swal from 'sweetalert2'
 const Crops = () => {
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
+    const [arrayData, setArrayData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/personalInfo')
+            .then(res => res.json())
+            .then(data => setArrayData(data))
+    }, [])
+
     const handleSubmitCrops = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -13,8 +21,11 @@ const Crops = () => {
         const quantity = form.quantity.value;
         const price = form.price.value;
         const Variety = form.variety.value;
+        const findedData = arrayData.find(users => users.email === user?.email)
+        const{location,number}=findedData;
 
-        const cropsData = { productName, ProductImage, quantity, price, Variety, email: user?.email, name: user?.displayName }
+
+        const cropsData = { productName, ProductImage, quantity, price, Variety, email: user?.email, name: user?.displayName, number, location}
         console.log(cropsData);
         fetch('http://localhost:5000/crops', {
             method: 'POST',
@@ -32,7 +43,7 @@ const Crops = () => {
                         showConfirmButton: false,
                         timer: 2000
                     })
-                    navigate('/dashboard')
+                    navigate('/dashboard/farmers')
 
                 }
             });

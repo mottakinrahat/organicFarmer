@@ -26,6 +26,7 @@ import Contact from './component/Contact/Contact.jsx';
 import OurFarms from './Dashboard/OurFarms/OurFarms.jsx';
 import Update from './component/Update/Update.jsx';
 import UpdateProfile from './component/UpdateProfile/UpdateProfile.jsx';
+import ProductDetails from './component/ProductDetails/ProductDetails.jsx';
 
 
 
@@ -77,6 +78,11 @@ const router = createBrowserRouter([
         path: 'updateProfile/:id',
         element: <UpdateProfile />,
         loader: ({ params }) => fetch(`http://localhost:5000/personalInfo/${params.id}`)
+      },
+      {
+        path: 'productDetails/:id',
+        element:<ProductDetails/>,
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
       }
 
     ]

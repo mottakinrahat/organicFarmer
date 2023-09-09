@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const SingleProduct = (sData) => {
-  console.log(sData.sData);
-  const { image, product_name, product_description, price, product_quantity } = sData.sData;
+const SingleProduct = ({sData}) => {
+  const { image, product_name, product_description, price, product_quantity,_id } = sData;
   return (
     <div>
       <div className="card w-96 ">
@@ -13,7 +13,7 @@ const SingleProduct = (sData) => {
           <p className='text-[18px]'><span className='font-semibold'>Quantity:</span> {product_quantity}</p>
           <p className='text-[18px]'><span className='font-semibold'>Price:</span> {price}</p>
           <div className=" flex justify-between mt-[16px] gap-[32px] ">
-            <button className="px-[16px] py-[8px] bg-[#159122] font-bold rounded-full text-white">Contact for Order</button>
+            <Link to={`/productDetails/${_id}`}><button className="px-[16px] py-[8px] bg-[#159122] font-bold rounded-full text-white">Contact for Order</button></Link>
             <button className="px-[16px] py-[8px] text-[#159122] font-bold rounded-full">Know More</button>
           </div>
         </div>
