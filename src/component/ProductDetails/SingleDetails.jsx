@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SingleDetails = ({farmerData}) => {
+const SingleDetails = ({farmerData,index}) => {
     return (
-        <tr>
-            <th>1</th>
+        <tr className='bg-[#E8F0CA]'>
+            <th>{index+1}</th>
             <td>{farmerData?.name}</td>
             <td>{farmerData?.number}</td>
             <td>{farmerData?.quantity}</td>

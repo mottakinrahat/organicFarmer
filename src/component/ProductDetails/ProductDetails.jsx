@@ -36,10 +36,10 @@ const ProductDetails = () => {
             <div>
                 <h2 className='text-[32px] mt-10 font-semibold'>Farmer who are  Selling </h2>
 
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto mt-4 mb-4  border border-[#989898] rounded-xl">
                     <table className="table">
                         {/* head */}
-                        <thead>
+                        <thead className='bg-[#C4D290]  text-base text-black'>
                             <tr>
                                 <th></th>
                                 <th>Farmers Name</th>
@@ -50,7 +50,7 @@ const ProductDetails = () => {
                         </thead>
                         <tbody>
                             {
-                                arrayData.map(farmerData => <SingleDetails key={farmerData._id} farmerData={farmerData} ></SingleDetails>)
+                                arrayData.map((farmerData,index) => <SingleDetails key={farmerData._id} index={index} farmerData={farmerData} ></SingleDetails>)
                             }
 
                         </tbody>
