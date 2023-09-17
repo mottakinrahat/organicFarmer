@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { BoltIcon, Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import logo from '../../assets/logo/Organic Farmer.png';
@@ -11,6 +11,7 @@ const Navbars = () => {
     const pathsToHideNavbar = ['/dashboard/farmers', '/dashboard/traders'];
     const shouldHideNavbar = pathsToHideNavbar.includes(location.pathname);
     const { user, logOut } = useContext(AuthContext)
+    const [arrayData, setArrayData] = useState([]);
     console.log(user);
     const handleLogOut = () => {
         logOut()
@@ -21,6 +22,14 @@ const Navbars = () => {
                 console.log(err.message);
             })
     }
+
+    useEffect(() => {
+        fetch(`https://organic-farmers-server.vercel.app/personalInfo?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setArrayData(data)
+            })
+    }, [user])
     return (
         <div className=' md:w-full   mx-auto'>
             <div className='  py-5  w-full  sm:max-w-xl   md:h-[70px] md:mt-0 md:max-w-full lg:px-8 bg-[#FBFFED] text-black'>
@@ -70,10 +79,14 @@ const Navbars = () => {
                     <div className='md:flex justify-end gap-2 items-center hidden'>
                         <button className='md:py-[6px]  md:px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button>
 
-                        {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
-                            <img src={user?.photoURL} className='h-10 w-10 rounded-full' alt="" />
-                        <h2>{user?.displayName}</h2>
-                        </div>}
+                        <Link to={user ? `/profile/${arrayData[0]?._id}` : '/default-profile'}>
+                            {user && (
+                                <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
+                                    <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />
+                                    <h2>{user?.displayName}</h2>
+                                </div>
+                            )}
+                        </Link>
                         {user ? <button onClick={handleLogOut} className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
                             <button className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
 

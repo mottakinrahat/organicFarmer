@@ -27,6 +27,8 @@ import OurFarms from './Dashboard/OurFarms/OurFarms.jsx';
 import Update from './component/Update/Update.jsx';
 import UpdateProfile from './component/UpdateProfile/UpdateProfile.jsx';
 import ProductDetails from './component/ProductDetails/ProductDetails.jsx';
+import ProfileRoute from './component/ProfileRoute/ProfileRoute.jsx';
+import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 
 
 
@@ -66,23 +68,28 @@ const router = createBrowserRouter([
       },
       {
         path: 'contact/:id',
-        element: <Contact />,
-        loader: ({ params }) => fetch(`http://localhost:5000/personalInfo/${params.id}`)
+        element: <PrivateRoute><Contact /></PrivateRoute>,
+        loader: ({ params }) => fetch(`https://organic-farmers-server.vercel.app/personalInfo/${params.id}`)
       },
       {
         path: 'update/:id',
         element: <Update />,
-        loader: ({ params }) => fetch(`http://localhost:5000/crops/${params.id}`)
+        loader: ({ params }) => fetch(`https://organic-farmers-server.vercel.app/crops/${params.id}`)
       },
       {
         path: 'updateProfile/:id',
         element: <UpdateProfile />,
-        loader: ({ params }) => fetch(`http://localhost:5000/personalInfo/${params.id}`)
+        loader: ({ params }) => fetch(`https://organic-farmers-server.vercel.app/personalInfo/${params.id}`)
       },
       {
         path: 'productDetails/:id',
-        element:<ProductDetails/>,
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+        element: <ProductDetails />,
+        loader: ({ params }) => fetch(`https://organic-farmers-server.vercel.app/product/${params.id}`)
+      },
+      {
+        path: '/profile/:id',
+        element: <ProfileRoute />,
+        loader: ({ params }) => fetch(`https://organic-farmers-server.vercel.app/personalInfo/${params.id}`)
       }
 
     ]

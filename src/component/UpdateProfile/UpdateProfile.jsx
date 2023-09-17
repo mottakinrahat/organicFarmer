@@ -22,7 +22,7 @@ const UpdateProfile = () => {
         updateUserData(firstName,lastName,photo)
         const farmBusiness = {nameOf:firstName+''+lastName,photo:photo,nameOfBusiness, number, DateOfFoundation, TurnOver, areaOfFarm, location, email: user?.email};
 
-        fetch(`http://localhost:5000/personalInfo/${userData._id}`, {
+        fetch(`https://organic-farmers-server.vercel.app/personalInfo/${userData._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(farmBusiness)

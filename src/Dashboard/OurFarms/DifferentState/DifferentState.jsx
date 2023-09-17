@@ -9,7 +9,7 @@ const DifferentState = () => {
     const [farmersData, setFarmersData] = useState([])
     console.log(activeTab);
     useEffect(() => {
-        fetch(`http://localhost:5000/farmerState/${activeTab}`)
+        fetch(`https://organic-farmers-server.vercel.app/farmerState/${activeTab}`)
             .then((res) => res.json())
             .then((data) => {
                 setFarmersData(data);

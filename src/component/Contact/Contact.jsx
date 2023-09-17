@@ -7,9 +7,9 @@ const Contact = () => {
     const [arrayData, setArrayData] = useState([]);
     const userData = useLoaderData()
     const [showAll, setShowAll] = useState(false)
-
+    console.log(userData);
     useEffect(() => {
-        fetch('http://localhost:5000/crops')
+        fetch('https://organic-farmers-server.vercel.app/crops')
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(item => item.email === userData.email);
@@ -28,7 +28,7 @@ const Contact = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/crops/${id}`, {
+                fetch(`https://organic-farmers-server.vercel.app/crops/${id}`, {
                     method: 'DELETE'
                 })
                     .then((res) => res.json())
@@ -59,7 +59,7 @@ const Contact = () => {
         <div className='pt-40 bg-[#FBFFED]'>
             <div className='flex justify-around '>
                 <div className='bg-[#FFFFFF] border-2 rounded-xl'>
-                    <div className='flex justify-between text-xl items-center px-8 py-5'><h2 className=' font-bold'>Personal Information</h2> <Link to={`/updateProfile/${userData._id}`}><button className='text-[14px] bg-[#159122] px-4 text-white rounded-xl'>Edit</button></Link> </div>
+                    <div className='flex justify-between text-xl items-center px-8 py-5'><h2 className=' font-bold'>Personal Information</h2></div>
                     <div className=' grid grid-cols-2 justify-evenly items-center p-4  rounded-xl w-[440px] h-auto'>
                         <div><img src={userData.photo} className='w-[100px] h-[100px] ml-4' alt="" /></div>
                         <div>
@@ -82,7 +82,6 @@ const Contact = () => {
                 <div className='w-4/3 bg-[#FFFFFF] border-2 rounded-xl'>
                     <div className='flex justify-between items-center '>
                         <h3 className='text-xl font-bold p-4'>Product listing</h3>
-                        <Link to='/profileDashboard/crops'><button className='flex items-center gap-2 px-[40px] py-[8px] bg-[#159122] text-white font-semibold rounded-full mr-8'><FaPlus />Add</button></Link>
                     </div>
                     {showAll ? <div className='grid grid-cols-3 gap-4 my-[20px] mx-[32px]'>
                         {

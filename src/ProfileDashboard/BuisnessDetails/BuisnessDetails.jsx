@@ -16,7 +16,7 @@ const BuisnessDetails = () => {
         const location = form.location.value;
 
         const farmBusiness = { role, nameOfBusiness, number, DateOfFoundation, TurnOver, areaOfFarm, location,email:user?.email,photo:user?.photoURL,nameOf:user?.displayName};
-        fetch('http://localhost:5000/personalInfo', {
+        fetch('https://organic-farmers-server.vercel.app/personalInfo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(farmBusiness)
