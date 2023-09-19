@@ -9,7 +9,7 @@ const Contact = () => {
     const [showAll, setShowAll] = useState(false)
     console.log(userData);
     useEffect(() => {
-        fetch('https://organic-farmers-server.vercel.app/crops')
+        fetch('http://localhost:5000/crops')
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(item => item.email === userData.email);
@@ -28,7 +28,7 @@ const Contact = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://organic-farmers-server.vercel.app/crops/${id}`, {
+                fetch(`http://localhost:5000/crops/${id}`, {
                     method: 'DELETE'
                 })
                     .then((res) => res.json())
@@ -56,21 +56,23 @@ const Contact = () => {
         });
     };
     return (
-        <div className='pt-40 bg-[#FBFFED]'>
-            <div className='flex justify-around '>
-                <div className='bg-[#FFFFFF] border-2 rounded-xl'>
-                    <div className='flex justify-between text-xl items-center px-8 py-5'><h2 className=' font-bold'>Personal Information</h2></div>
-                    <div className=' grid grid-cols-2 justify-evenly items-center p-4  rounded-xl w-[440px] h-auto'>
+        <div className='md:pt-40 sm:mt-20 bg-[#FBFFED]'>
+            <div className='md:flex sm:flex justify-around '>
+                <div className='md:bg-[#FFFFFF] sm:bg-[#FFFFFF] md:border-2 sm:rounded-xl'>
+                    <div className=' px-8 py-5'><h2 className=' font-bold'>Personal Information</h2></div>
+                    <div className=' md:grid grid-cols-2 justify-evenly items-center p-4  rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
                         <div><img src={userData.photo} className='w-[100px] h-[100px] ml-4' alt="" /></div>
                         <div>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Name:</span> {userData?.nameOf}</h2>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Location:</span> {userData?.location}</h2>
-                            {userData?.role == 'farmers' ? <h2 className='text-[16px]'><span className='font-bold'>Farm area:</span> {userData?.areaOfFarm}</h2> :
+                            {userData?.role == 'farmer' ? <h2 className='text-[16px]'><span className='font-bold'>Farm area:</span> {userData?.areaOfFarm}</h2> :
                                 <h2 className='text-[16px]'><span className='font-bold'>Business Name:</span> {userData?.nameOfBusiness
                                 }</h2>}
+                                 <h2 className='text-[16px] mb-2'><span className='font-bold'>Date of Foundation:</span> {userData?.DateOfFoundation}</h2>
+                                     <h2 className='text-[16px] mb-2'><span className='font-bold'>Turn Over:</span> {userData?.TurnOver}</h2>
                         </div>
 
-                        <div className='text-[16px]  pl-8 mt-20'>
+                        <div className='text-[16px]  md:pl-8 mt-20'>
                             <h2 className='font-bold'>Contact Information:</h2>
                             <h2 className='text-[16px]'><span className='font-bold'>Email_id:</span>{userData?.email}</h2>
                             <h2 className='text-[16px]'><span className='font-bold'>contact_no:</span>{userData?.number}</h2>
@@ -79,16 +81,16 @@ const Contact = () => {
                 </div>
 
 
-                <div className='w-4/3 bg-[#FFFFFF] border-2 rounded-xl'>
-                    <div className='flex justify-between items-center '>
+                <div className='md:w-4/3 md:bg-[#FFFFFF] sm:bg-[#FFFFFF] border-2 rounded-xl'>
+                    <div className='md:flex justify-between items-center '>
                         <h3 className='text-xl font-bold p-4'>Product listing</h3>
                     </div>
-                    {showAll ? <div className='grid grid-cols-3 gap-4 my-[20px] mx-[32px]'>
+                    {showAll ? <div className='md:grid sm:grid md:grid-cols-3 sm:grid-cols-2 gap-4 my-[20px] md:mx-[32px] mx-4'>
                         {
                             arrayData.map((sData, index) => <SingleContact key={index} sData={sData}></SingleContact>)
                         }
                     </div> :
-                        <div className='grid grid-cols-3 gap-4 my-[20px] mx-[32px]'>
+                        <div className='md:grid sm:grid md:grid-cols-3 sm:grid-cols-2 gap-4 md:mx-[32px] mx-4'>
                             {
                                 arrayData.slice(0, 6).map((sData, index) => <SingleContact key={index} sData={sData} handleDelete={handleDelete}></SingleContact>)
                             }

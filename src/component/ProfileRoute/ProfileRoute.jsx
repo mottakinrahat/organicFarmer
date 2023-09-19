@@ -11,12 +11,9 @@ const ProfileRoute = () => {
     const [showAll, setShowAll] = useState(false)
     const [arrayData, setArrayData] = useState([])
     const [cropsData, setCropsData] = useState([])
-
     const userData = useLoaderData();
-    console.log(userData);
-    setLoading(true)
     useEffect(() => {
-        fetch('https://organic-farmers-server.vercel.app/crops')
+        fetch('http://localhost:5000/crops')
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(item => item.email === user?.email);
@@ -34,7 +31,7 @@ const ProfileRoute = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://organic-farmers-server.vercel.app/crops/${id}`, {
+                fetch(`http://localhost:5000/crops/${id}`, {
                     method: 'DELETE'
                 })
                     .then((res) => res.json())
@@ -68,14 +65,16 @@ const ProfileRoute = () => {
 
                     <div className='bg-[#FFFFFF] border-2 rounded-xl'>
                         <div className='flex justify-between text-xl items-center px-8 py-5'><h2 className=' font-bold'>Personal Information</h2> <Link to={`/updateProfile/${userData._id}`}><button className='text-[14px] bg-[#159122] px-4 text-white rounded-xl'>Edit</button></Link> </div>
-                        <div className=' grid grid-cols-2 justify-evenly items-center p-4  rounded-xl w-[440px] h-auto'>
+                        <div className=' grid grid-cols-2 justify-evenly items-center p-4  rounded-xl w-[460px] h-auto'>
                             <div><img src={userData.photo} className='w-[100px] h-[100px] ml-4' alt="" /></div>
-                            <div>
+                            <div className=''>
                                 <h2 className='text-[16px] mb-2'><span className='font-bold'>Name:</span> {userData?.nameOf}</h2>
-                                <h2 className='text-[16px] mb-2'><span className='font-bold'>Location:</span> {userData?.location}</h2>
+                                <h2 className='text-[16px] mb-2'><span className='font-bold'>Location:</span> {userData?.location} ,{userData?.states}</h2>
                                 {userData?.role == 'farmers' ? <h2 className='text-[16px]'><span className='font-bold'>Farm area:</span> {userData?.areaOfFarm}</h2> :
                                     <h2 className='text-[16px]'><span className='font-bold'>Business Name:</span> {userData?.nameOfBusiness
                                     }</h2>}
+                                     <h2 className='text-[16px] mb-2'><span className='font-bold'>Date of Foundation:</span> {userData?.DateOfFoundation}</h2>
+                                     <h2 className='text-[16px] mb-2'><span className='font-bold'>Turn Over:</span> {userData?.TurnOver} {userData?.amount}</h2>
                             </div>
 
                             <div className='text-[16px]  pl-8 mt-20'>

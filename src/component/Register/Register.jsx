@@ -55,22 +55,22 @@ const Register = () => {
     }
     return (
         <div>
-            <div className='flex justify-evenly  bg-[#FBFFED]'>
-                <div className='w-1/2 grid grid-cols-2 gap-6 px-4 py-[34px]'>
-                    <img src="https://i.ibb.co/zF94fnS/who-s-denilo-xj7-HV0-Fv-Sg0-unsplash.jpg" className='rounded-xl w-[254px] h-[312px] ml-8 object-cover' alt="" />
+            <div className='md:flex justify-evenly  bg-[#FBFFED]'>
+                <div className='md:w-1/2 grid grid-cols-2 md:gap-6 gap-2 px-4 py-[34px]'>
+                    <img src="https://i.ibb.co/zF94fnS/who-s-denilo-xj7-HV0-Fv-Sg0-unsplash.jpg" className='rounded-xl w-[254px] h-[312px] md:ml-8 object-cover' alt="" />
                     <img src="https://i.ibb.co/MDv8SYk/rajat-sarki-AOhc-R6l-KQM-unsplash.jpg" className='rounded-xl w-[234px] h-[219px] object-cover' alt="" />
                     <img src="https://i.ibb.co/cxZNvNc/tim-mossholder-Kx060c-Rsmt0-unsplash.jpg" className='rounded-xl w-[351px] h-[234px] object-cover' alt="" />
                     <img src="https://i.ibb.co/8xS4kZt/mae-mu-h-2jr-L9c-MU-unsplash.jpg" className='rounded-xl w-[234px] h-[278px] object-cover' alt="" />
-                    <img src="https://i.ibb.co/GnDwSVZ/hopers-studio-5-Mh-BVr-X69fg-unsplash.jpg" className='rounded-xl w-[254px] h-[312px] object-cover ml-20' alt="" />
+                    <img src="https://i.ibb.co/GnDwSVZ/hopers-studio-5-Mh-BVr-X69fg-unsplash.jpg" className='rounded-xl w-[254px] h-[312px] object-cover md:ml-20' alt="" />
                     <img src="https://i.ibb.co/rpSrDXr/lifestyle-ecofriendly-person.jpg" className='rounded-xl w-[307px] h-[234px] object-cover' alt="" />
                 </div>
 
-                <div className='w-1/2 mt-[200px]'>
+                <div className='md:w-1/2 md:mt-[200px] mt-8'>
                     <h2 className='text-4xl font-bold text-center mb-4'>Registration on this</h2>
 
-                    <div className="flex flex-col w-full border-opacity-50 px-[160px]">
+                    <div className="flex flex-col w-full border-opacity-50 md:px-[160px]">
                         <div className="flex flex-col justify-center items-center gap-2">
-                            <div><button className='flex items-center gap-2 text-[18px] px-[70px] py-[8px] border-2 border-black rounded-full font-bold'><img src="https://i.ibb.co/HKpFW6x/devicon-google.png" alt="" />Continue with Google</button></div>
+                            <div><button className='flex items-center gap-2 text-[18px] md:px-[70px] py-[8px] px-4 border-2 border-black rounded-full font-bold'><img src="https://i.ibb.co/HKpFW6x/devicon-google.png" alt="" />Continue with Google</button></div>
 
 
                         </div>

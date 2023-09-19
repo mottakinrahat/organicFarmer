@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SingleFarmers = ({sData}) => {
     const { photo, nameOf, location, areaOfFarm, organization, crops_name, _id } = sData;
     return (
-        <div className='w-[302px]'>
+        <div className='md:w-[302px] mt-10'>
             <div><img src={photo} className='h-[168px] w-full rounded-xl object-cover' alt="" /></div>
             <div className='text-[18px] mt-[16px]'>
                 <h2>{nameOf}</h2>

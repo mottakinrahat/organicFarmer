@@ -11,18 +11,19 @@ const UpdateProfile = () => {
         e.preventDefault();
         const form = e.target;
         const firstName = form.firstName.value;
-        const lastName = form.lastName.value;
         const photo = form.image.value;
         const nameOfBusiness = form.BusinessName.value;
         const number = form.phoneNumber.value;
         const DateOfFoundation = form.dateOf.value;
         const TurnOver = form.turnover.value;
-        const areaOfFarm = form.areaOfFarm.value;
+        const amount = form.amount.value;
+        const areaOfFarm = form.areaFarm.value;
+        const unit = form.unit.value;
         const location = form.location.value;
-        updateUserData(firstName,lastName,photo)
-        const farmBusiness = {nameOf:firstName+''+lastName,photo:photo,nameOfBusiness, number, DateOfFoundation, TurnOver, areaOfFarm, location, email: user?.email};
+        updateUserData(firstName,photo)
+        const farmBusiness = {nameOf:firstName,photo:photo,nameOfBusiness, number, DateOfFoundation, TurnOver,amount, areaOfFarm,unit, location, email: user?.email};
 
-        fetch(`https://organic-farmers-server.vercel.app/personalInfo/${userData._id}`, {
+        fetch(`http://localhost:5000/personalInfo/${userData._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(farmBusiness)
@@ -52,21 +53,16 @@ const UpdateProfile = () => {
                         </label>
                         <input type="text" defaultValue={userData?.photo} placeholder="imageUrl" name="image" className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" required />
                     </div>
-                    <div className='flex justify-between items-center'>
+                   
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">First Name</span>
+                                <span className="label-text"> Name</span>
                             </label>
-                            <input type="text" placeholder="Name" name="firstName" className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                            <input type="text" defaultValue={userData?.nameOf} placeholder="Name" name="firstName" className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
                         </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Last Name</span>
-                            </label>
-                            <input type="text" placeholder="Last Name" name="lastName" className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
-                        </div>
-                    </div>
+                      
+                   
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email_id</span>
@@ -93,18 +89,46 @@ const UpdateProfile = () => {
 
                     </div>
 
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Turnover(yearly)</span>
-                        </label>
-                        <input type="text" defaultValue={userData?.TurnOver} name='turnover' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                    <div className='flex items-center gap-6'>
+                        <div className="form-control w-9/12">
+                            <label className="label">
+                                <span className="label-text">Turnover(yearly)</span>
+                            </label>
+                            <input type="text" defaultValue={userData?.TurnOver} name='turnover' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
 
+                        </div>
+                        <div className="form-control ">
+                            <label className="label">
+                                <span className="label-text">Turnover(amount)</span>
+                            </label>
+                            <select defaultValue={userData?.amount} name='amount' className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs">
+                                <option disabled selected>{userData?.amount}</option>
+                                <option>Thousand</option>
+                                <option>Lakh</option>
+                                <option>Crore</option>
+                            </select>
+                        </div>
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Area of Farm(only for farmers)</span>
-                        </label>
-                        <input type="text" defaultValue={userData?.areaOfFarm} name='areaOfFarm' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                    <div className='flex items-center gap-6'>
+                        <div className="form-control w-9/12">
+                            <label className="label">
+                                <span className="label-text">Area of Farm(only for farmers)</span>
+                            </label>
+                            <input type="text" defaultValue={userData?.areaOfFarm} name='areaFarm' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+
+                        </div>
+                        <div className="form-control ">
+                            <label className="label">
+                                <span className="label-text">Unit of area</span>
+                            </label>
+                            <select name="unit"  className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs">
+                                <option disabled selected>{userData?.unit}</option>
+                                <option>square metres</option>
+                                <option>square kilometers</option>
+                                <option>hectare</option>
+                            </select>
+
+                        </div>
                     </div>
 
                     <div className="form-control">

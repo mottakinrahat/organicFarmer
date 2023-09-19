@@ -9,7 +9,7 @@ const DifferentState = () => {
     const [farmersData, setFarmersData] = useState([])
     console.log(activeTab);
     useEffect(() => {
-        fetch(`https://organic-farmers-server.vercel.app/farmerState/${activeTab}`)
+        fetch(`http://localhost:5000/farmerState/${activeTab}`)
             .then((res) => res.json())
             .then((data) => {
                 setFarmersData(data);
@@ -60,7 +60,7 @@ const DifferentState = () => {
                 </TabList>
 
 
-                <div className="overflow-x-auto mx-[200px] mt-20 mb-10">
+                <div className="overflow-x-auto md:mx-[200px] sm:mx-[100px]  mt-20 mb-10">
                     <table className="table">
                         {/* head */}
                         <thead>

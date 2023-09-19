@@ -31,9 +31,9 @@ const AuthProviders = ({ children }) => {
 
         return signOut(auth)
     }
-    const updateUserData = (name, lastName, photo) => {
+    const updateUserData = (name, photo) => {
         return updateProfile(auth.currentUser, {
-            displayName: name + ' ' + lastName,
+            displayName: name ,
             photoURL: photo
             
 
@@ -52,6 +52,8 @@ const AuthProviders = ({ children }) => {
             return unsubscribe;
         }
     }, [])
+
+    
 
     const authInfo = {
         user, loading,

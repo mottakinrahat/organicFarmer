@@ -5,8 +5,8 @@ const SingleProduct = ({sData}) => {
   const { image, product_name, product_description, price, product_quantity,_id } = sData;
   return (
     <div>
-      <div className="card w-96 ">
-        <figure><img src={image} alt="Shoes" className='h-[246px] w-[400px] object-cover ' /></figure>
+      <div className="card md:w-96 w-[324px] mx-auto">
+        <figure><img src={image} alt="Shoes" className='h-[246px] md:w-[400px] w-[324px] object-cover ' /></figure>
         <div className="card-body">
           <h2 className="text-[24px] font-bold">{product_name}</h2>
           <p className='text-[18px]'>{product_description}</p>

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const SingleTraders = (sData) => {
     const{photo,nameOf,location,areaOfFarm,organization,crops_name,_id}=sData.sData;
-    console.log(sData.sData);
     return (
         <div className='w-[302px]'>
         <div><img src={photo} className='h-[168px] w-full rounded-xl object-cover' alt="" /></div>

@@ -11,10 +11,10 @@ const  ProfileDashboard = () => {
     
     <div className="drawer lg:drawer-open px-[70px] py-[40px] mr-10 ">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content  ">
+                <div className="drawer-content ">
                     <Outlet/>
     
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button  lg:hidden">Open drawer</label>
     
                 </div>
                 <div className="drawer-side">
