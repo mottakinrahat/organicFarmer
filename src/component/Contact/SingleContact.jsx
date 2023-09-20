@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
     return (
         <div className="card md:w-[300px] h-auto ">
             <figure><img src={ProductImage} alt="Shoes" className='h-[144px] w-[238px] object-cover rounded-t-lg' /></figure>
-            <div className="card-body">
+            <div className="card-body sm:mx-0 md:mx-0 mx-auto">
                 <h2 className="md:text-[24px] text-[20px] font-bold">{productName}</h2>
 
                 <p className='text-[15px]'><span className='font-semibold'>Quantity:</span> {quantity} {sData?.unit}</p>

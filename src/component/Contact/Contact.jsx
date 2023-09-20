@@ -9,7 +9,7 @@ const Contact = () => {
     const [showAll, setShowAll] = useState(false)
     console.log(userData);
     useEffect(() => {
-        fetch('http://localhost:5000/crops')
+        fetch('https://organic-farmers-server.vercel.app/crops')
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(item => item.email === userData.email);
@@ -28,7 +28,7 @@ const Contact = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/crops/${id}`, {
+                fetch(`https://organic-farmers-server.vercel.app/crops/${id}`, {
                     method: 'DELETE'
                 })
                     .then((res) => res.json())
@@ -56,12 +56,12 @@ const Contact = () => {
         });
     };
     return (
-        <div className='md:pt-40 sm:mt-20 bg-[#FBFFED]'>
-            <div className='md:flex sm:flex justify-around '>
-                <div className='md:bg-[#FFFFFF] sm:bg-[#FFFFFF] md:border-2 sm:rounded-xl'>
-                    <div className=' px-8 py-5'><h2 className=' font-bold'>Personal Information</h2></div>
-                    <div className=' md:grid grid-cols-2 justify-evenly items-center p-4  rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
-                        <div><img src={userData.photo} className='w-[100px] h-[100px] ml-4' alt="" /></div>
+        <div className='md:pt-40 sm:mt-20 md:mt-2 bg-[#FBFFED]'>
+            <div className='md:flex sm:flex justify-around  '>
+                <div className='md:bg-[#FFFFFF] sm:bg-[#FFFFFF]  md:border-2 sm:rounded-xl '>
+                    <div className=' px-8 py-5 '><h2 className=' font-bold'>Personal Information</h2></div>
+                    <div className=' md:grid grid-cols-2 justify-evenly items-center p-4 text-center  rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
+                        <div className='mx-auto'><img src={userData.photo} className='w-[100px] h-[100px] md:ml-4 sm:ml-4 ml-32 ' alt="" /></div>
                         <div>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Name:</span> {userData?.nameOf}</h2>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Location:</span> {userData?.location}</h2>
@@ -85,12 +85,12 @@ const Contact = () => {
                     <div className='md:flex justify-between items-center '>
                         <h3 className='text-xl font-bold p-4'>Product listing</h3>
                     </div>
-                    {showAll ? <div className='md:grid sm:grid md:grid-cols-3 sm:grid-cols-2 gap-4 my-[20px] md:mx-[32px] mx-4'>
+                    {showAll ? <div className='md:grid sm:grid md:grid-cols-3 sm:grid-cols-2 gap-4 my-[20px] md:mx-[32px] sm:mx-4'>
                         {
                             arrayData.map((sData, index) => <SingleContact key={index} sData={sData}></SingleContact>)
                         }
                     </div> :
-                        <div className='md:grid sm:grid md:grid-cols-3 sm:grid-cols-2 gap-4 md:mx-[32px] mx-4'>
+                        <div className='md:grid sm:grid md:grid-cols-3 sm:grid-cols-2 gap-4 md:mx-[32px] sm:mx-4'>
                             {
                                 arrayData.slice(0, 6).map((sData, index) => <SingleContact key={index} sData={sData} handleDelete={handleDelete}></SingleContact>)
                             }

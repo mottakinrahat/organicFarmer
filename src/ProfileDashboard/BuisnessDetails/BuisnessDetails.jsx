@@ -14,12 +14,12 @@ const BuisnessDetails = () => {
         const TurnOver = form.turnover.value;
         const amount = form.amount.value;
         const areaOfFarm = form.areaFarm.value;
-        const unit= form.unit.value;
+        const unit = form.unit.value;
         const location = form.location.value;
-        const states = form.states.value;
-        console.log(states);
-        const farmBusiness = { role, nameOfBusiness, number, DateOfFoundation, TurnOver,amount, areaOfFarm,unit, location, email: user?.email, photo: user?.photoURL, nameOf: user?.displayName, states: states };
-        fetch('http://localhost:5000/personalInfo', {
+        const state_name = form.states.value;
+        const farmBusiness = { role, nameOfBusiness, number, DateOfFoundation, TurnOver, amount, areaOfFarm, unit, location, email: user?.email, photo: user?.photoURL, nameOf: user?.displayName, state_name: state_name };
+        const farmerStates = { farmer_name: user?.displayName, farm_area: areaOfFarm,unit:unit, joining_year: DateOfFoundation, state_name: state_name };
+        fetch('https://organic-farmers-server.vercel.app/personalInfo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(farmBusiness)
@@ -28,9 +28,15 @@ const BuisnessDetails = () => {
             .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
-                    navigate('/profileDashboard/crops')
+                    fetch('https://organic-farmers-server.vercel.app/farmerState', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(farmerStates)
+                    })
+                    navigate('/dashboard/farmers')
                 }
             });
+
     }
 
     // Function to handle radio button change

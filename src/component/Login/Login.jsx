@@ -16,7 +16,7 @@ const Login = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
-                navigate('/profileDashboard/personalInfo', { replace: true });
+                navigate('/dashboard/farmers', { replace: true });
             })
             .catch(err => {
                 console.log(err.message);
@@ -28,7 +28,7 @@ const Login = () => {
             .then(result => {
                 const googleLogin = result.user;
                 console.log(googleLogin);
-                navigate('/profileDashboard/crops', { replace: true });
+                navigate('/profileDashboard/personalInfo', { replace: true });
             })
             .catch(err => {
                 console.log(err.message);

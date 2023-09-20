@@ -6,7 +6,7 @@ const Farmers = () => {
     const [arrayData, setArrayData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/personalInfo')
+        fetch('https://organic-farmers-server.vercel.app/personalInfo')
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(item => item.role === 'farmer');
@@ -15,7 +15,7 @@ const Farmers = () => {
             }, [])
         return (
             <div>
-                <div className='md:flex justify-around text-center pt-[32px]'>
+                <div className='md:flex justify-around text-center pt-[38px]'>
                     <div><h2 className='text-[32px] font-semibold'>Our Farmers</h2></div>
                     <div className='border border-black rounded-full flex items-center bg-white'><span className='mx-4'><FaSearch /></span><input type="text" placeholder="Type here" className="input h-[43px] rounded-r-full w-80 max-w-xs" /></div>
                 </div>

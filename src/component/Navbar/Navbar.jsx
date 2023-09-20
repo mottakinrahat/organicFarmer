@@ -23,7 +23,7 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/personalInfo?email=${user?.email}`)
+        fetch(`https://organic-farmers-server.vercel.app/personalInfo?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setArrayData(data);
@@ -35,33 +35,33 @@ const Navbar = () => {
 
     console.log(arrayData);
     return (
-        <div className='w-[1280px] mx-auto sticky  sm:-mb-[80px] md:-mb-[100px]'>
+        <div className='md:w-[1280px] mx-auto sticky  sm:-mb-[80px] md:-mb-[100px]'>
             <div className={'py-5 mx-auto sm:max-w-xl sm:rounded-full md:rounded-full  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#FBFFED] text-black'}>
                 <div className='relative flex md:justify-between md:items-center md:px-[10px]  '>
 
-                    <div className='flex justify-between items-center md:gap-[60px]'><Link to='/' className='inline-flex items-center'>
+                    <div className='md:flex justify-between items-center md:gap-[60px]'><Link to='/' className='inline-flex items-center'>
 
                         <img className='ml-10 sm:ml-5' src={logo} alt="" />
                     </Link>
 
 
                         <ul className=' hidden md:space-x-8 text-[16px] lg:flex'>
-                            <li>
+                            {!user && <li>
                                 <NavLink
                                     to='/about'
                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                 >
                                     About Us
                                 </NavLink>
-                            </li>
-                            <li>
+                            </li>}
+                            {!user && <li>
                                 <NavLink
                                     to='/products'
                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                 >
                                     Products
                                 </NavLink>
-                            </li>
+                            </li>}
                             <li>
                                 <NavLink
                                     to='/ourFarms'
@@ -70,42 +70,44 @@ const Navbar = () => {
                                     OurFarms
                                 </NavLink>
                             </li>
-                            <li>
+                            {!user && <li>
                                 <NavLink
                                     to='/community'
                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                 >
                                     Community
                                 </NavLink>
-                            </li>
+                            </li>}
+                            {user && <li>
+                                <NavLink
+                                    to='/dashboard/farmers'
+                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
+                                >
+                                    Our Community
+                                </NavLink>
+                            </li>}
 
                         </ul></div>
                     <div className='md:flex justify-end gap-2 items-center hidden'>
                         <button className='md:py-[6px]  md:px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button>
 
-                        {/* <Link to={user ? `/profile/${arrayData[0]?._id || 'default'}` : '/default-profile'}>
-                            {user && (
-                                <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
-                                    {user.photoURL && <img src={user.photoURL} className='h-8 w-8 rounded-full' alt="" />}
-                                    {user.displayName && <h2>{user.displayName}</h2>}
-                                </div>
+                        <div>
+                            {arrayData && arrayData.length > 0 ? (
+                                <Link to={`/profile/${arrayData[0]?._id || 'default'}`}>
+                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
+                                        {user?.photoURL && <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />}
+                                        <h2>{user?.displayName}</h2>
+                                    </div>}
+                                </Link>
+                            ) : (
+                                <Link to='/default-profile'>
+                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
+                                        {user?.photoURL && <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />}
+                                        <h2>{user?.displayName}</h2>
+                                    </div>}
+                                </Link>
                             )}
-                        </Link> */}
-                        {arrayData && arrayData.length > 0 ? (
-                            <Link to={`/profile/${arrayData[0]?._id || 'default'}`}>
-                                <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
-                                    <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />
-                                    <h2>{user?.displayName}</h2>
-                                </div>
-                            </Link>
-                        ) : (
-                            <Link to='/default-profile'>
-                                <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
-                                    <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />
-                                    <h2>{user?.displayName}</h2>
-                                </div>
-                            </Link>
-                        )}
+                        </div>
                         {user ? <button onClick={handleLogOut} className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
                             <button className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
 
@@ -119,7 +121,7 @@ const Navbar = () => {
                             title='Open Menu'
                             onClick={() => setIsMenuOpen(true)}
                         >
-                            <Bars3BottomRightIcon className='w-8  ml-[80px] sm:ml-80 text-black' />
+                            <Bars3BottomRightIcon className='w-8  ml-[180px] sm:ml-80 text-black' />
                         </button>
                         {isMenuOpen && (
                             <div className='absolute top-0 left-0 w-full z-10'>
@@ -135,7 +137,7 @@ const Navbar = () => {
                                             </Link>
                                         </div>
                                         {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
-                                            <img src={user?.photoURL} className='h-10 w-10 rounded-full' alt="" />
+                                            {user?.photoURL && <img src={user?.photoURL} className='h-10 w-10 rounded-full' alt="" />}
                                             <h2>{user?.displayName}</h2>
                                         </div>}
                                         <div>
@@ -151,22 +153,22 @@ const Navbar = () => {
                                     {/* Mobile Nav Items Section */}
                                     <nav>
                                         <ul className='space-y-4'>
-                                            <li>
+                                            {!user && <li>
                                                 <NavLink
                                                     to='/about'
                                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                                 >
                                                     About Us
                                                 </NavLink>
-                                            </li>
-                                            <li>
+                                            </li>}
+                                            {!user && <li>
                                                 <NavLink
                                                     to='/products'
                                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                                 >
                                                     Products
                                                 </NavLink>
-                                            </li>
+                                            </li>}
                                             <li>
                                                 <NavLink
                                                     to='/ourFarms'
@@ -175,14 +177,22 @@ const Navbar = () => {
                                                     OurFarms
                                                 </NavLink>
                                             </li>
-                                            <li>
+                                            {!user && <li>
                                                 <NavLink
                                                     to='/community'
                                                     className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
                                                 >
                                                     Community
                                                 </NavLink>
-                                            </li>
+                                            </li>}
+                                            {user && <li>
+                                                <NavLink
+                                                    to='/dashboard/farmers'
+                                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
+                                                >
+                                                    Our Community
+                                                </NavLink>
+                                            </li>}
                                         </ul>
                                         <div className='flex justify-evenly itemc gap-0 mt-2 '>
 

@@ -20,10 +20,11 @@ const UpdateProfile = () => {
         const areaOfFarm = form.areaFarm.value;
         const unit = form.unit.value;
         const location = form.location.value;
-        updateUserData(firstName,photo)
-        const farmBusiness = {nameOf:firstName,photo:photo,nameOfBusiness, number, DateOfFoundation, TurnOver,amount, areaOfFarm,unit, location, email: user?.email};
+        const state_name = form.states.value;
+        updateUserData(firstName, photo)
+        const farmBusiness = { nameOf: firstName, photo: photo, nameOfBusiness, number, DateOfFoundation, TurnOver, amount, areaOfFarm, unit, location, email: user?.email,state_name:state_name };
 
-        fetch(`http://localhost:5000/personalInfo/${userData._id}`, {
+        fetch(`https://organic-farmers-server.vercel.app/personalInfo/${userData._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(farmBusiness)
@@ -53,16 +54,16 @@ const UpdateProfile = () => {
                         </label>
                         <input type="text" defaultValue={userData?.photo} placeholder="imageUrl" name="image" className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" required />
                     </div>
-                   
 
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text"> Name</span>
-                            </label>
-                            <input type="text" defaultValue={userData?.nameOf} placeholder="Name" name="firstName" className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
-                        </div>
-                      
-                   
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text"> Name</span>
+                        </label>
+                        <input type="text" defaultValue={userData?.nameOf} placeholder="Name" name="firstName" className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                    </div>
+
+
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email_id</span>
@@ -121,7 +122,7 @@ const UpdateProfile = () => {
                             <label className="label">
                                 <span className="label-text">Unit of area</span>
                             </label>
-                            <select name="unit"  className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs">
+                            <select name="unit" className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs">
                                 <option disabled selected>{userData?.unit}</option>
                                 <option>square metres</option>
                                 <option>square kilometers</option>
@@ -136,6 +137,43 @@ const UpdateProfile = () => {
                             <span className="label-text">Location</span>
                         </label>
                         <input type="text" defaultValue={userData?.location} name='location' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">States Location</span>
+                        </label>
+                        <select name='states' className="select w-full border-2  border-[#252525] rounded-full bg-[#E8F0CA]">
+                            <option disabled selected>{userData?.state_name}</option>
+                            <option>Andhra Pradesh</option>
+                            <option>Arunachal Pradesh</option>
+                            <option>Assam</option>
+                            <option>Bihar</option>
+                            <option>Chhattisgarh</option>
+                            <option>Goa</option>
+                            <option>Gujarat</option>
+                            <option>Haryana</option>
+                            <option>Himachal Pradesh</option>
+                            <option>Jharkhand</option>
+                            <option>Karnataka</option>
+                            <option>Kerala</option>
+                            <option>Madhya Pradesh</option>
+                            <option>Maharashtra</option>
+                            <option>Manipur</option>
+                            <option>Meghalaya</option>
+                            <option>Mizoram</option>
+                            <option>Nagaland</option>
+                            <option>Odisha</option>
+                            <option>Punjab</option>
+                            <option>Rajasthan</option>
+                            <option>Sikkim</option>
+                            <option>Tamil Nadu</option>
+                            <option>Telangana</option>
+                            <option>Tripura</option>
+                            <option>Uttar Pradesh</option>
+                            <option>Uttarakhand</option>
+                            <option>West Bengal</option>
+                        </select>
 
                     </div>
                     <div className="form-control text-center mt-6">

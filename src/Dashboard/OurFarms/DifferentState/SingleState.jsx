@@ -9,7 +9,7 @@ const SingleState = ({ farmer }) => {
                 <tr className='bg-[#29692F] text-white text-[16px]'>
                     <td></td>
                     <td>{farmer.farmer_name}</td>
-                    <td>{farmer.farm_area}</td>
+                    <td>{farmer.farm_area} {farmer?.unit}</td>
                     <td>{farmer.joining_year}</td>
                 </tr>
       
