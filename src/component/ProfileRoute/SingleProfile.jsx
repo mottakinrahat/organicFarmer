@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SingleProfile = ({ sData, handleDelete }) => {
     const { ProductImage, productName, quantity, price, _id,amount} = sData;
+    console.log(sData);
     return (
         <div className="card md:w-[300px] h-auto ">
             <figure><img src={ProductImage} alt="Shoes" className='h-[144px] w-[238px] object-cover rounded-t-lg' /></figure>

@@ -23,7 +23,7 @@ const Navbars = () => {
     }
 
     useEffect(() => {
-        fetch(`https://organic-farmers-server.vercel.app/personalInfo?email=${user?.email}`)
+        fetch(`http://localhost:5000/personalInfo?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setArrayData(data);
@@ -32,8 +32,6 @@ const Navbars = () => {
                 console.error(error);
             });
     }, [user?.email]);
-
-    console.log(arrayData);
     return (
         <div className='md:w-full mx-auto sticky sm:-mb-[80px] md:-mb-0'>
             <div className='py-5 mx-auto sm:max-w-xl sm:rounded-full md:rounded-none  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#FBFFED] text-black'>
@@ -153,46 +151,46 @@ const Navbars = () => {
                                     {/* Mobile Nav Items Section */}
                                     <nav>
                                         <ul className='space-y-4'>
-                                        {!user && <li>
-                                <NavLink
-                                    to='/about'
-                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
-                                >
-                                    About Us
-                                </NavLink>
-                            </li>}
-                            {!user && <li>
-                                <NavLink
-                                    to='/products'
-                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
-                                >
-                                    Products
-                                </NavLink>
-                            </li>}
-                            <li>
-                                <NavLink
-                                    to='/ourFarms'
-                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
-                                >
-                                    OurFarms
-                                </NavLink>
-                            </li>
-                            {!user && <li>
-                                <NavLink
-                                    to='/community'
-                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
-                                >
-                                    Community
-                                </NavLink>
-                            </li>}
-                            {user && <li>
-                                <NavLink
-                                    to='/dashboard/farmers'
-                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
-                                >
-                                    Our Community
-                                </NavLink>
-                            </li>}
+                                            {!user && <li>
+                                                <NavLink
+                                                    to='/about'
+                                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
+                                                >
+                                                    About Us
+                                                </NavLink>
+                                            </li>}
+                                            {!user && <li>
+                                                <NavLink
+                                                    to='/products'
+                                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
+                                                >
+                                                    Products
+                                                </NavLink>
+                                            </li>}
+                                            <li>
+                                                <NavLink
+                                                    to='/ourFarms'
+                                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
+                                                >
+                                                    OurFarms
+                                                </NavLink>
+                                            </li>
+                                            {!user && <li>
+                                                <NavLink
+                                                    to='/community'
+                                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
+                                                >
+                                                    Community
+                                                </NavLink>
+                                            </li>}
+                                            {user && <li>
+                                                <NavLink
+                                                    to='/dashboard/farmers'
+                                                    className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}
+                                                >
+                                                    Our Community
+                                                </NavLink>
+                                            </li>}
                                         </ul>
                                         <div className='flex justify-evenly itemc gap-0 mt-2 '>
 

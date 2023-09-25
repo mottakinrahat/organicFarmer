@@ -11,6 +11,7 @@ const Navbar = () => {
     const pathsToHideNavbar = ['/contact/:id'];
     const shouldHideNavbar = pathsToHideNavbar.includes(location.pathname);
     const { user, logOut } = useContext(AuthContext)
+    console.log(user);
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const handleLogOut = () => {
         logOut()
@@ -23,7 +24,7 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        fetch(`https://organic-farmers-server.vercel.app/personalInfo?email=${user?.email}`)
+        fetch(`http://localhost:5000/personalInfo?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setArrayData(data);
@@ -32,8 +33,6 @@ const Navbar = () => {
                 console.error(error);
             });
     }, [user?.email]);
-
-    console.log(arrayData);
     return (
         <div className='md:w-[1280px] mx-auto sticky  sm:-mb-[80px] md:-mb-[100px]'>
             <div className={'py-5 mx-auto sm:max-w-xl sm:rounded-full md:rounded-full  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#FBFFED] text-black'}>

@@ -19,7 +19,7 @@ const BuisnessDetails = () => {
         const state_name = form.states.value;
         const farmBusiness = { role, nameOfBusiness, number, DateOfFoundation, TurnOver, amount, areaOfFarm, unit, location, email: user?.email, photo: user?.photoURL, nameOf: user?.displayName, state_name: state_name };
         const farmerStates = { farmer_name: user?.displayName, farm_area: areaOfFarm,unit:unit, joining_year: DateOfFoundation, state_name: state_name };
-        fetch('https://organic-farmers-server.vercel.app/personalInfo', {
+        fetch('http://localhost:5000/personalInfo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(farmBusiness)
@@ -28,7 +28,7 @@ const BuisnessDetails = () => {
             .then((data) => {
                 console.log(data);
                 if (data.insertedId) {
-                    fetch('https://organic-farmers-server.vercel.app/farmerState', {
+                    fetch('http://localhost:5000/farmerState', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(farmerStates)
