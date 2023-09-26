@@ -17,7 +17,7 @@ const BuisnessDetails = () => {
         const unit = form.unit.value;
         const location = form.location.value;
         const state_name = form.states.value;
-        const farmBusiness = { role, nameOfBusiness, number, DateOfFoundation, TurnOver, amount, areaOfFarm, unit, location, email: user?.email, photo: user?.photoURL, nameOf: user?.displayName, state_name: state_name };
+        const farmBusiness = { role, nameOfBusiness, number, DateOfFoundation, TurnOver, amount, areaOfFarm, unit, location, email: user?.email, image: user?.imageURL, nameOf: user?.displayName, state_name: state_name };
         const farmerStates = { farmer_name: user?.displayName, farm_area: areaOfFarm,unit:unit, joining_year: DateOfFoundation, state_name: state_name };
         fetch('http://localhost:5000/personalInfo', {
             method: 'POST',

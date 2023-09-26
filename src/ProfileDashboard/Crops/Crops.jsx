@@ -76,7 +76,7 @@ const Crops = () => {
                         .then((data) => {
                             console.log(data);
                             if (data.insertedId) {
-                                navigate('/dashboard/farmers');
+                                navigate(-1);
                             }
                         });
                 }

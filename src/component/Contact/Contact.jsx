@@ -61,7 +61,7 @@ const Contact = () => {
                 <div className='md:bg-[#FFFFFF] sm:bg-[#FFFFFF]  md:border-2 sm:rounded-xl '>
                     <div className=' px-8 py-5 '><h2 className=' font-bold'>Personal Information</h2></div>
                     <div className=' md:grid grid-cols-2 justify-evenly items-center p-4 text-center  rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
-                        <div className='mx-auto'><img src={userData.photo} className='w-[100px] h-[100px] md:ml-4 sm:ml-4 ml-32 ' alt="" /></div>
+                        <div className='mx-auto'><img src={userData.image} className='w-[100px] h-[100px] md:ml-4 sm:ml-4 ml-32 ' alt="" /></div>
                         <div>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Name:</span> {userData?.nameOf}</h2>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Location:</span> {userData?.location}</h2>

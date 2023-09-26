@@ -8,45 +8,7 @@ const PersonalInfo = () => {
     const img_hosting_url = 'https://api.imgbb.com/1/upload?key=fd51fa12e105fd973cf18f51fb6659de';
 
     const navigate = useNavigate()
-    // const handleUserProfile = (e) => {
-    //     e.preventDefault();
-    //     const form = e.target;
-    //     const image = form.image.value;
-    //     const firstName = form.firstName.value;
-    //     const phoneNumber = form.phoneNumber.value;
-    //     const location = form.location.value;
-    //    
-
-    //     fetch(img_hosting_url, {
-    //         method: 'POST',
-    //         body: formData
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             // Assuming that ImgBB response has a "data.url" field with the image URL
-    //             const imageUrl = data.data.url;
-    //             console.log('Image URL:', imageUrl);
-
-    //             const personalInformation = { image: imageUrl, firstName, phoneNumber, location };
-    //             console.log(personalInformation);
-
-    //             updateUserData(firstName, imageUrl, phoneNumber, location);
-
-    //             fetch('http://localhost:5000/personalInfo', {
-    //                 method: 'POST',
-    //                 headers: { 'Content-Type': 'application/json' },
-    //                 body: JSON.stringify(personalInformation)
-    //             })
-    //                 .then((res) => res.json())
-    //                 .then((data) => {
-    //                     console.log(data);
-    //                     if (data.insertedId) {
-    //                         navigate('/profileDashboard/businessDetails');
-    //                     }
-    //                 });
-    //         });
-    // }
+   
     const onSubmit = (data) => {
         const formData = new FormData();
         formData.append('image', data.image[0]);

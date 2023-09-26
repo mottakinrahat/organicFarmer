@@ -10,11 +10,10 @@ const Register = () => {
     const handleRegister = (e) => {
         e.preventDefault();
         const form = e.target;
-        const Name = form.Name.value;
         const Email = form.Email.value;
         const Password = form.Password.value;
         const ConfirmPassword = form.ConfirmPassword.value;
-        const loginData = { Name, Email, Password, ConfirmPassword }
+        const loginData = {Email, Password, ConfirmPassword }
         console.log(loginData);
         if (Password !== ConfirmPassword) {
             Swal.fire({
@@ -30,7 +29,6 @@ const Register = () => {
         createUser(Email, Password)
             .then(result => {
                 const createdUser = result.user;
-                updateUserData(Name)
                 if (createdUser.email) {
                     Swal.fire({
                         position: 'center',
@@ -76,12 +74,7 @@ const Register = () => {
                         </div>
                         <div className="divider">OR</div>
                         <form onSubmit={handleRegister} className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Name</span>
-                                </label>
-                                <input type="text" placeholder="Name" name="Name" className="input input-bordered rounded-full bg-[#E8F0CA]" />
-                            </div>
+                            
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>

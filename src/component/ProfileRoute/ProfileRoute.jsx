@@ -67,7 +67,7 @@ const ProfileRoute = () => {
                         <div className='flex justify-between md:text-xl gap-4 items-center px-8 py-5'><h2 className=' font-bold'>Personal Information</h2>
                             <Link to={`/updateProfile/${userData._id}`}><button className='text-[14px] bg-[#159122] px-4 text-white rounded-xl'>Edit</button></Link> </div>
                         <div className='  md:grid sm:grid grid-cols-2 justify-evenly items-center md:p-4 sm:p-1 text-center  rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
-                            <div><img src={userData.photo} className='md:w-[100px] w-[90px] md:h-[100px] h-[90px] md:ml-4 sm:ml-2 ml-32' alt="" /></div>
+                            <div><img src={user?.photoURL} className='md:w-[100px] w-[90px] md:h-[100px] h-[90px] md:ml-4 sm:ml-2 ml-32' alt="" /></div>
                             <div className=''>
                                 <h2 className='md:md:text-[16px] mb-2'><span className='font-bold'>Name:</span> {user?.displayName}</h2>
                                 <h2 className='md:text-[16px] mb-2'><span className='font-bold'>Location:</span> {userData?.location} ,{userData?.states}</h2>
