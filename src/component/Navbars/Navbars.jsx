@@ -92,8 +92,8 @@ const Navbars = () => {
                         <div>
                             {arrayData && arrayData.length > 0 && user ? (
                                 <Link to={`/profile/${arrayData[0]?._id || 'default'}`}>
-                                    <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
-                                        <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />
+                                    <div className='flex items-center border-2 border-[#159122] rounded-full px-2 py-1 gap-2'>
+                                        <img src={user?.photoURL} className='h-6 w-6 rounded-full' alt="" />
                                         <h2>{user?.displayName}</h2>
                                     </div>
                                 </Link>

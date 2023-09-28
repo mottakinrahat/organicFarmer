@@ -42,7 +42,7 @@ const PersonalInfo = () => {
     }
 
     return (
-        <div className='md:mx-[400px] mt-10'>
+        <div className='md:mx-[550px] mt-10'>
           
 
             <div className='md:w-[550px]'>

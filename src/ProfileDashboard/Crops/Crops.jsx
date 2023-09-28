@@ -97,27 +97,27 @@ const Crops = () => {
                                 <label className="label">
                                     <span className="label-text">Product Name</span>
                                 </label>
-                                <input type="text" {...register("productName")} className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                <input type="text" {...register("productName")} className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Product Image URL</span>
                                 </label>
-                                <input type="file"  {...register("image")} className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                <input type="file"  {...register("image")} className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" />
                             </div>
                             <div className='flex item-center gap-4'>
                                 <div className="form-control w-9/12">
                                     <label className="label">
                                         <span className="label-text">Quantity</span>
                                     </label>
-                                    <input type="text" {...register("quantity")} className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                    <input type="text" {...register("quantity")} className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" />
 
                                 </div>
                                 <div className="form-control w-1/3">
                                     <label className="label">
                                         <span className="label-text">Unit</span>
                                     </label>
-                                    <select {...register("unit")} className="select select-bordered  bg-[#FBFFED] w-full max-w-xs">
+                                    <select {...register("unit")} className="select select-bordered  bg-[#C4D290] w-full max-w-xs">
                                         <option disabled selected>Unit</option>
                                         <option>Kilograms</option>
                                         <option>Tons</option>
@@ -131,14 +131,14 @@ const Crops = () => {
                                     <label className="label">
                                         <span className="label-text">Price</span>
                                     </label>
-                                    <input type="text" {...register("price")} className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                    <input type="text" {...register("price")} className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" />
 
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Price</span>
                                     </label>
-                                    <select {...register("amount")} className="select select-bordered  bg-[#FBFFED]  w-full max-w-xs">
+                                    <select {...register("amount")} className="select select-bordered  bg-[#C4D290]  w-full max-w-xs">
                                         <option disabled selected>amount</option>
                                         <option>Per Kilogram</option>
                                         <option>Per ton</option>
@@ -156,7 +156,7 @@ const Crops = () => {
                                 <label className="label">
                                     <span className="label-text">Variety (Optional)</span>
                                 </label>
-                                <input type="text" {...register("Variety")} className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                <input type="text" {...register("Variety")} className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" />
 
                             </div>
 
