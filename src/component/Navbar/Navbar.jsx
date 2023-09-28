@@ -88,13 +88,12 @@ const Navbar = () => {
 
                         </ul></div>
                     <div className='md:flex justify-end gap-2 items-center hidden'>
-                        <button className='md:py-[6px]  md:px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button>
 
                         <div>
                             {arrayData && arrayData.length > 0 ? (
                                 <Link to={`/profile/${arrayData[0]?._id || 'default'}`}>
-                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
-                                        {user?.photoURL && <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />}
+                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full gap-2 px-2 py-1'>
+                                        {user?.photoURL && <img src={user?.photoURL} className='h-6 w-6 rounded-full' alt="" />}
                                         <h2>{user?.displayName}</h2>
                                     </div>}
                                 </Link>

@@ -13,7 +13,7 @@ const SingleProfile = ({ sData, handleDelete }) => {
                 <p className='text-[15px]'><span className='font-semibold'>Quantity:</span> {quantity} {sData?.unit}</p>
                 <p className='text-[15px]'><span className='font-semibold'>Price:</span> ₹ {price} {sData?.amount}</p>
                 <div className=" flex justify-between mt-[16px] gap-[32px] ">
-                    <button onClick={() => handleDelete(_id)} className="px-[16px] py-[8px] text-[#159122] font-bold rounded-full">Delete</button>
+                    <button onClick={() => handleDelete(_id)} className="px-[16px] py-[8px] text-[#808080] font-bold rounded-full">Delete</button>
                     <Link to={`/update/${_id}`}><button className="px-[10px] py-[8px] bg-[#159122] font-bold rounded-full text-white">Update</button></Link>
                 </div>
             </div>

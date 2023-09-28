@@ -1,0 +1,13 @@
+/* Add this to your CSS or SCSS file */
+.custom-stepper .MuiStepIcon-root.MuiStepIcon-active {
+    background-color: green; /* Set the background color for the active step index */
+  }
+  
+  .custom-stepper .MuiStepIcon-root.MuiStepIcon-completed {
+    background-color: purple; /* Set the background color for completed step indexes */
+  }
+  
+  .custom-stepper .MuiStepIcon-text {
+    fill: white; /* Set the text color for the step index */
+  }
+  

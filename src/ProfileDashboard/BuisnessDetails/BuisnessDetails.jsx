@@ -18,7 +18,7 @@ const BuisnessDetails = () => {
         const location = form.location.value;
         const state_name = form.states.value;
         const farmBusiness = { role, nameOfBusiness, number, DateOfFoundation, TurnOver, amount, areaOfFarm, unit, location, email: user?.email, image: user?.imageURL, nameOf: user?.displayName, state_name: state_name };
-        const farmerStates = { farmer_name: user?.displayName, farm_area: areaOfFarm,unit:unit, joining_year: DateOfFoundation, state_name: state_name };
+        const farmerStates = { farmer_name: user?.displayName, farm_area: areaOfFarm, unit: unit, joining_year: DateOfFoundation, state_name: state_name };
         fetch('http://localhost:5000/personalInfo', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -33,7 +33,7 @@ const BuisnessDetails = () => {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(farmerStates)
                     })
-                    navigate('/dashboard/farmers')
+                    navigate('/profileDashboard/crops')
                 }
             });
 
@@ -45,7 +45,7 @@ const BuisnessDetails = () => {
     }
 
     return (
-        <div className='md:mx-[200px]'>
+        <div className='md:mx-[400px] bg-[#FBFFED] rounded-xl p-10 mt-8'>
             <h2 className='text-[32px] font-semibold '>Farm/Business Details</h2>
 
             <fieldset className='flex  mb-[16px] md:gap-[113px] gap-5 mt-[24px] text-black'>

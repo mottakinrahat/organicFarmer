@@ -7,7 +7,7 @@ import Navbars from '../../component/Navbars/Navbars';
 const Dashboard = () => {
     return (
         <div>
-            <Navbars/>
+            <Navbars />
             <div className='bg-[#FBFFED] h-full w-full '>
 
                 <div className="md:drawer lg:drawer-open md:px-[70px] md:py-[40px] md:mr-10 ">

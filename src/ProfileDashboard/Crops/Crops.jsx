@@ -76,7 +76,7 @@ const Crops = () => {
                         .then((data) => {
                             console.log(data);
                             if (data.insertedId) {
-                                navigate(-1);
+                                navigate('/dashboard/farmers');
                             }
                         });
                 }
@@ -85,15 +85,12 @@ const Crops = () => {
     }
     return (
         <div className='md:mx-[100px]'>
-            <h2 className='text-[32px] font-semibold '>Upload Your Crops</h2>
-
-
 
             <div className='md:flex justify-evenly items-center gap-2'>
                 <div>
-                    <div className='md:w-[611px] bg-[#E8F0CA] md:px-[32px] md:py-[32px] px-4 py-4  rounded-xl'>
+                    <div className='md:w-[611px] bg-[#E8F0CA] md:px-[32px] md:py-[32px] px-4 py-4 mt-8  rounded-xl'>
 
-                        <h2 className='text-[24px] font-semibold mb-[24px]'>Listing Details</h2>
+                    <h2 className='text-[24px] font-semibold '>Upload Your Crops</h2>
                         <form   onSubmit={handleSubmit(onSubmit)}>
 
                             <div className="form-control">

@@ -8,10 +8,10 @@ const PersonalInfo = () => {
     const img_hosting_url = 'https://api.imgbb.com/1/upload?key=fd51fa12e105fd973cf18f51fb6659de';
 
     const navigate = useNavigate()
-   
+
     const onSubmit = (data) => {
         const formData = new FormData();
-        formData.append('image', data.image[0]);
+        formData.append('image', data.image ? data.image[0] : '');
         fetch(img_hosting_url, {
             method: 'POST',
             body: formData
@@ -42,16 +42,19 @@ const PersonalInfo = () => {
     }
 
     return (
-        <div className='md:mx-[200px]'>
-            <h2 className='text-[32px] font-semibold '>Personal Information</h2>
+        <div className='md:mx-[400px] mt-10'>
+          
 
             <div className='md:w-[550px]'>
-                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+
+                
+                <form onSubmit={handleSubmit(onSubmit)} className="card-body bg-[#E8F0CA]  rounded-xl">
+                <h2 className='text-[24px] font-semibold '>Personal Information</h2>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Your Image</span>
                         </label>
-                        <input type="file" placeholder="imageUrl"  {...register("image")} className="input input-bordered rounded-full bg-[#E8F0CA]" required />
+                        <input type="file" placeholder="imageUrl"  {...register("image")} className="input input-bordered rounded-full bg-[#C4D290]" />
                     </div>
 
 
@@ -59,7 +62,7 @@ const PersonalInfo = () => {
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type="text" defaultValue={user?.displayName} placeholder="Name"  {...register("firstName")} className="input input-bordered rounded-full bg-[#E8F0CA]" required />
+                        <input type="text" defaultValue={user?.displayName} placeholder="Name"  {...register("firstName")} className="input input-bordered rounded-full bg-[#C4D290]" required />
                     </div>
 
 
@@ -72,7 +75,7 @@ const PersonalInfo = () => {
                             id="email"
                             defaultValue={user?.email}
                             {...register("email")}
-                            className="input input-bordered rounded-full bg-[#E8F0CA]"
+                            className="input input-bordered rounded-full bg-[#C4D290]"
                             placeholder="Enter your email"
                         />
                     </div>
@@ -85,15 +88,15 @@ const PersonalInfo = () => {
                             type="phoneNumber"
                             id="phoneNumber"
                             {...register("phoneNumber")}
-                            className="input input-bordered rounded-full bg-[#E8F0CA]"
-                            placeholder="Enter your phoneNumber"
+                            className="input input-bordered rounded-full bg-[#C4D290]"
+                            placeholder="Enter your phone Number"
                         />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Location</span>
                         </label>
-                        <input type="text" placeholder="Location" {...register("location")} className="input input-bordered rounded-full bg-[#E8F0CA]" required />
+                        <input type="text" placeholder="Location" {...register("location")} className="input input-bordered rounded-full bg-[#C4D290]" required />
                     </div>
                     <div className="form-control text-center mt-6">
                         <button className="btn bg-[#159122] px-[61px] py-[16px] text-white  rounded-xl">Next</button>

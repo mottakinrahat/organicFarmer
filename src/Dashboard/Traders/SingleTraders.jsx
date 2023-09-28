@@ -6,10 +6,10 @@ const SingleTraders = (sData) => {
     return (
         <div>
             <Link  to={`/contact/${_id}`}>
-                <div className='w-[302px] hover:bg-yellow-400 hover:rounded-xl cursor-pointer hover:transition-500'>
+                <div className='md:w-[302px] md:h-[302px] mt-10 hover:bg-[#E8F0CA] hover:rounded-xl cursor-pointer hover:transition-500'>
                     <div><img src={image} className='h-[168px] w-full rounded-xl object-cover' alt="" /></div>
-                    <div className='text-[18px] mt-[16px]'>
-                        <h2>{nameOf}</h2>
+                    <div className='text-[18px] ml-2 mt-[16px]'>
+                        <h2 className='font-bold'>{nameOf}</h2>
                         <h2>{location}</h2>
                         <h2>{organization}</h2>
                         <h2>{crops_name}</h2>
