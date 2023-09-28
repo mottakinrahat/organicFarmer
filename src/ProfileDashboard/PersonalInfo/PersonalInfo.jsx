@@ -24,7 +24,7 @@ const PersonalInfo = () => {
                     const personalInformation = { email, phoneNumber, location, firstName, image: imageUrl }
                     updateUserData(firstName, imageUrl, phoneNumber, location);
 
-                    fetch('https://organic-farmers-server.vercel.app/userData', {
+                    fetch('http://localhost:5000/userData', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(personalInformation)

@@ -6,13 +6,13 @@ import Navbars from '../../component/Navbars/Navbars';
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className='bg-[#C4D190] pt-2'>
             <Navbars />
-            <div className='bg-[#FBFFED] h-full w-full '>
+            <div className=' h-full w-full '>
 
                 <div className="md:drawer lg:drawer-open md:px-[70px] md:py-[40px] md:mr-10 ">
                     <input id="md:my-drawer-2" type="checkbox" className="drawer-toggle" />
-                    <div className="drawer-content  bg-[#F8F2F2]">
+                    <div className="drawer-content  bg-[#E8F0CA] rounded-r-xl">
                         <Outlet />
 
                         <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
@@ -20,7 +20,7 @@ const Dashboard = () => {
                     </div>
                     <div className="drawer-side">
                         <label htmlFor="md:my-drawer-2" className="md:drawer-overlay"></label>
-                        <ul className="menu p-4 md:w-[240px] min-h-full bg-[#E8F0CA] pl-10 pt-[120px] text-[18px] font-bold text-base-content">
+                        <ul className="menu p-4 md:w-[240px] min-h-full rounded-l-xl bg-[#E8F0CA] pl-10 pt-[120px] text-[18px] font-bold text-base-content">
                             {/* Sidebar content here */}
                             <li className=''>
                                 <NavLink
@@ -43,7 +43,6 @@ const Dashboard = () => {
 
                     </div>
                 </div>
-                <Footer />
             </div>
         </div>
     );

@@ -29,7 +29,7 @@ const Update = () => {
                     const { productName, quantity, price, Variety, unit, amount } = data;
                     const cropsInfo = { productName, quantity, unit, price, amount, Variety, ProductImage: imageUrl };
                     console.log(cropsInfo);
-                    fetch(`https://organic-farmers-server.vercel.app/crops/${updatedData._id}`, {
+                    fetch(`http://localhost:5000/crops/${updatedData._id}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(cropsInfo)

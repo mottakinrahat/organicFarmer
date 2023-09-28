@@ -8,11 +8,15 @@ const Main = () => {
     const pathsToHideNavbar = ['/login', '/register'];
     const shouldHideNavbar = pathsToHideNavbar.includes(location.pathname);
 
+    const pathsToHideFooter = ['/contact', '/profile'];
+    const shouldHideFooter = pathsToHideFooter.some((path) =>
+        location.pathname.startsWith(path)
+    );
     return (
         <div className='bg-[#FBFFED] pt-2'>
             {!shouldHideNavbar && <Navbar />}
             <Outlet />
-            <Footer />
+          
         </div>
     );
 };

@@ -23,7 +23,7 @@ const Navbars = () => {
     }
 
     useEffect(() => {
-        fetch(`https://organic-farmers-server.vercel.app/personalInfo?email=${user?.email}`)
+        fetch(`http://localhost:5000/personalInfo?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setArrayData(data);
@@ -34,7 +34,7 @@ const Navbars = () => {
     }, [user?.email]);
     return (
         <div className='md:w-full mx-auto sticky sm:-mb-[80px] md:-mb-0'>
-            <div className='py-5 mx-auto sm:max-w-xl sm:rounded-full md:rounded-none  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#FBFFED] text-black'>
+            <div className='py-5 mx-auto sm:max-w-xl sm:rounded-full md:rounded-none  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#C4D190] text-black'>
                 <div className='relative flex md:justify-between md:items-center md:px-[10px]  '>
 
                     <div className='md:flex justify-between items-center  md:gap-[60px]'><Link to='/' className='inline-flex items-center'>
