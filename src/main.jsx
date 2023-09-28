@@ -29,6 +29,7 @@ import UpdateProfile from './component/UpdateProfile/UpdateProfile.jsx';
 import ProductDetails from './component/ProductDetails/ProductDetails.jsx';
 import ProfileRoute from './component/ProfileRoute/ProfileRoute.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
+import Error from './component/Error/Error.jsx';
 
 
 
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<Error></Error>,
     children: [
       {
         path: '/',
@@ -97,6 +99,7 @@ const router = createBrowserRouter([
   {
     path: 'dashboard',
     element: <Dashboard />,
+    errorElement:<Error></Error>,
     children: [
       {
         path: 'traders',
@@ -112,6 +115,7 @@ const router = createBrowserRouter([
   {
     path: 'profileDashboard',
     element: <ProfileDashboard />,
+    errorElement:<Error></Error>,
     children: [
       {
         path: 'personalInfo',

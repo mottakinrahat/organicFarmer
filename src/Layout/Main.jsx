@@ -5,18 +5,20 @@ import Footer from '../component/Footer/Footer';
 
 const Main = () => {
     const location = useLocation();
-    const pathsToHideNavbar = ['/login', '/register'];
-    const shouldHideNavbar = pathsToHideNavbar.includes(location.pathname);
+    const pathsToHideNavbar = ['/login', '/register','/updateProfile','/update'];
+    const shouldHideNavbar = pathsToHideNavbar.some((path) =>
+    location.pathname.startsWith(path)
+);
 
-    const pathsToHideFooter = ['/contact', '/profile'];
+    const pathsToHideFooter = ['/contact', '/profile','/update'];
     const shouldHideFooter = pathsToHideFooter.some((path) =>
         location.pathname.startsWith(path)
     );
     return (
-        <div className='bg-[#FBFFED] pt-2'>
+        <div className='bg-[#E8F0CA] pt-2'>
             {!shouldHideNavbar && <Navbar />}
             <Outlet />
-          
+            {!shouldHideFooter && <Footer />}
         </div>
     );
 };

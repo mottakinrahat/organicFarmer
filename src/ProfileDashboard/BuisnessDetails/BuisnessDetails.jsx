@@ -45,7 +45,7 @@ const BuisnessDetails = () => {
     }
 
     return (
-        <div className='md:mx-[400px] bg-[#E8F0CA] rounded-xl p-10 mt-8'>
+        <div className='md:mx-[400px] bg-[#FBFFED] rounded-xl p-10 mt-8'>
             <h2 className='text-[32px] font-semibold '>Farm/Business Details</h2>
 
             <fieldset className='flex  mb-[16px] md:gap-[113px] gap-5 mt-[24px] text-black'>
@@ -85,19 +85,19 @@ const BuisnessDetails = () => {
                         <label className="label">
                             <span className="label-text">Name of Business</span>
                         </label>
-                        <input type="text" name='BusinessName' className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" />
+                        <input type="text" name='BusinessName' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Phone Number</span>
                         </label>
-                        <input type="text" placeholder="Phone Number" name="phoneNumber" className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" required />
+                        <input type="text" placeholder="Phone Number" name="phoneNumber" className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Date of Foundation</span>
                         </label>
-                        <input type="date" name='dateOf' className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" />
+                        <input type="date" name='dateOf' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
 
                     </div>
 
@@ -106,14 +106,14 @@ const BuisnessDetails = () => {
                             <label className="label">
                                 <span className="label-text">Turnover(yearly)</span>
                             </label>
-                            <input type="text" name='turnover' className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" />
+                            <input type="text" name='turnover' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
 
                         </div>
                         <div className="form-control ">
                             <label className="label">
                                 <span className="label-text">Turnover(amount)</span>
                             </label>
-                            <select name='amount' className="select select-bordered bg-[#C4D290]  w-full max-w-xs">
+                            <select name='amount' className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs">
                                 <option disabled selected>amount</option>
                                 <option>Thousand</option>
                                 <option>Lakh</option>
@@ -126,14 +126,14 @@ const BuisnessDetails = () => {
                             <label className="label">
                                 <span className="label-text">Area of Farm(only for farmers)</span>
                             </label>
-                            <input type="text" name='areaFarm' className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" />
+                            <input type="text" name='areaFarm' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
 
                         </div>
                         <div className="form-control ">
                             <label className="label">
                                 <span className="label-text">Unit of area</span>
                             </label>
-                            <select name="unit" className="select select-bordered bg-[#C4D290]  w-full max-w-xs">
+                            <select name="unit" className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs">
                                 <option disabled selected>Unit</option>
                                 <option>square metres</option>
                                 <option>square kilometers</option>
@@ -146,14 +146,14 @@ const BuisnessDetails = () => {
                         <label className="label">
                             <span className="label-text">Farm Location</span>
                         </label>
-                        <input type="text" name='location' className="input border-2 border-[#252525] rounded-full bg-[#C4D290]" />
+                        <input type="text" name='location' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
 
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">States Location</span>
                         </label>
-                        <select name='states' className="select w-full border-2  border-[#252525] rounded-full bg-[#C4D290]">
+                        <select name='states' className="select w-full border-2  border-[#252525] rounded-full bg-[#E8F0CA]">
                             <option disabled selected>Select your states?</option>
                             <option>Andhra Pradesh</option>
                             <option>Arunachal Pradesh</option>

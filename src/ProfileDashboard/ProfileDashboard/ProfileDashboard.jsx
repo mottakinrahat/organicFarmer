@@ -41,14 +41,14 @@ const ProfileDashboard = () => {
     };
 
     return (
-        <div>
+        <div className='bg-[#E8F0CA] pt-2'>
             <Navbars />
 
-            <div className='bg-[#C4D290] h-full w-full '>
+            <div className=' h-full  w-full '>
                 <div className="drawer lg:drawer-open px-[70px] py-[40px] mr-10 ">
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content ">
-                        <Stepper activeStep={activeStep} alternativeLabel className="w-auto sm:w-auto md:w-auto sm:mt-20">
+                        <Stepper activeStep={activeStep} alternativeLabel className="w-auto sm:w-auto md:w-auto sm:mt-20 md:mt-0">
                             {steps.map((label, index) => (
                                 <Step key={label}>
                                     <StepLabel StepIconComponent={CustomStepIcon}>{label}</StepLabel>
@@ -91,7 +91,6 @@ const ProfileDashboard = () => {
                         </ul>
                     </div>
                 </div>
-                <Footer />
             </div>
         </div>
     );

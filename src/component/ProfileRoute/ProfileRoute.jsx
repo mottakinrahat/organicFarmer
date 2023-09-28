@@ -69,7 +69,7 @@ const ProfileRoute = () => {
 
                     <div className='md:bg-[#FFFFFF] sm:bg-[#FFFFFF] w-[460px] h-[884px]  md:border-2 sm:rounded-xl '>
                         <div className='flex justify-between md:text-xl  items-center px-8 py-5'><h2 className=' font-bold'>Personal Information</h2>
-                            <Link to={`/updateProfile/${userData._id}`}><button className='text-[14px] bg-[#159122] px-4 text-white rounded-xl'>Edit</button></Link> </div>
+                            <Link to={`/updateProfile/${userData._id}`}><button className='text-[14px] bg-[#159122] px-4 text-white rounded-xl hover:bg-[#29692F] transition duration-300 ease-in-out'>Edit</button></Link> </div>
                         <div className='  md:grid sm:grid grid-cols-2 justify-evenly items-center md:p-4 sm:p-1  rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
                             <div><img src={user?.photoURL} className='md:w-[100px] w-[90px] md:h-[100px] h-[90px] md:ml-4 sm:ml-2 ml-32' alt="" /></div>
                             <div className=''>
@@ -110,7 +110,7 @@ const ProfileRoute = () => {
                     <div className='md:w-[880px]  md:bg-[#FFFFFF] sm:bg-[#FFFFFF] border-2 rounded-xl'>
                         <div className='flex justify-between items-center '>
                             <h3 className='text-xl font-bold p-4'>Product listing</h3>
-                            <Link to='/profileDashboard/crops'><button className={'flex items-center gap-2 px-[40px] py-[8px] bg-[#159122] text-white font-semibold rounded-full mr-8'}><FaPlus />Add</button></Link>
+                            <Link to='/profileDashboard/crops'><button className={'flex items-center gap-2 px-[40px] py-[8px] bg-[#159122] text-white font-semibold rounded-full mr-8 hover:bg-[#29692F] transition duration-300 ease-in-out '}><FaPlus />Add</button></Link>
                         </div>
                         {arrayData.length <= 0 ? (
                             <div className='text-black'><h2 className='text-3xl text-center font-bold mt-4'>No Products added</h2></div>

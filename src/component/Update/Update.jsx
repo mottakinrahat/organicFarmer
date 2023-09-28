@@ -29,7 +29,7 @@ const Update = () => {
                     const { productName, quantity, price, Variety, unit, amount } = data;
                     const cropsInfo = { productName, quantity, unit, price, amount, Variety, ProductImage: imageUrl };
                     console.log(cropsInfo);
-                    fetch(`http://localhost:5000/crops/${updatedData._id}`, {
+                    fetch(`https://organic-farmers-server.vercel.app/crops/${updatedData._id}`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(cropsInfo)
@@ -51,43 +51,40 @@ const Update = () => {
             });
     };
     return (
-        <div className='mx-[100px] mt-[160px] mb-20'>
-
-
-
+        <div className='mx-[100px] mt-[20px]  pb-24'>
 
             <div className='flex justify-evenly items-center gap-2'>
                 <div>
                     <div className='w-[611px] bg-[#E8F0CA] px-[32px] py-[32px] rounded-xl'>
 
                         <h2 className='text-[24px] text-center font-semibold mb-[24px]'>Update your Crops</h2>
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onSubmit)}  className='bg-[#FBFFED] p-6 rounded-xl'>
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Product Name</span>
                                 </label>
-                                <input type="text" defaultValue={productName} {...register("productName")} className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                <input type="text" defaultValue={productName} {...register("productName")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Product Image URL</span>
                                 </label>
-                                <input type="file" {...register("image")} className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                <input type="file" {...register("image")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
                             </div>
                             <div className='flex item-center gap-4'>
                                 <div className="form-control w-9/12">
                                     <label className="label">
                                         <span className="label-text">Quantity</span>
                                     </label>
-                                    <input type="text" defaultValue={quantity} {...register("quantity")} className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                    <input type="text" defaultValue={quantity} {...register("quantity")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
 
                                 </div>
                                 <div className="form-control w-1/3">
                                     <label className="label">
                                         <span className="label-text">Unit</span>
                                     </label>
-                                    <select {...register("unit")} className="select select-bordered  bg-[#FBFFED] w-full max-w-xs">
+                                    <select {...register("unit")} className="select select-bordered  bg-[#E8F0CA] w-full max-w-xs">
                                         <option disabled selected>{unit}</option>
                                         <option>Kilograms</option>
                                         <option>Tons</option>
@@ -101,14 +98,14 @@ const Update = () => {
                                     <label className="label">
                                         <span className="label-text">Price</span>
                                     </label>
-                                    <input type="text" defaultValue={price} {...register("price")} className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                    <input type="text" defaultValue={price} {...register("price")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
 
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Price</span>
                                     </label>
-                                    <select {...register("amount")} className="select select-bordered  bg-[#FBFFED]  w-full max-w-xs">
+                                    <select {...register("amount")} className="select select-bordered  bg-[#E8F0CA]  w-full max-w-xs">
                                         <option disabled selected>amount</option>
                                         <option>Per Kilogram</option>
                                         <option>Per ton</option>
@@ -126,7 +123,7 @@ const Update = () => {
                                 <label className="label">
                                     <span className="label-text">Variety (Optional)</span>
                                 </label>
-                                <input type="text" defaultValue={Variety} {...register("Variety")} className="input border-2 border-[#252525] rounded-full bg-[#FBFFED]" />
+                                <input type="text" defaultValue={Variety} {...register("Variety")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
 
                             </div>
 

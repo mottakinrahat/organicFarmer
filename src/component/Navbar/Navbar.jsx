@@ -106,8 +106,8 @@ const Navbar = () => {
                                 </Link>
                             )}
                         </div>
-                        {user ? <button onClick={handleLogOut} className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
-                            <button className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
+                        {user ? <button onClick={handleLogOut} className='md:py-[4px] hover:bg-[#29692F] hover:text-white transition duration-300 ease-in-out  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
+                            <button className='md:py-[4px] hover:bg-[#29692F] hover:text-white transition duration-300 ease-in-out  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
 
 
                     </div>
@@ -195,8 +195,8 @@ const Navbar = () => {
                                         <div className='flex justify-evenly itemc gap-0 mt-2 '>
 
                                             <Link to='https://play.google.com/store/apps/details?id=com.farmerspp.com&hl=en_IN&gl=US&pli=1'><button className='md:py-[6px] py-2  px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button></Link>
-                                            {user ? <button onClick={handleLogOut} className='md:py-[4px] py-2 px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
-                                                <button className='md:py-[4px] py-2  px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
+                                            {user ? <button onClick={handleLogOut} className='md:py-[4px] hover:bg-[#29692F] hover:text-white transition duration-300 ease-in-out py-2 px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
+                                                <button className='md:py-[4px] py-2  px-[24px] border-2 hover:bg-[#29692F] hover:text-white transition duration-300 ease-in-out border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
 
                                         </div>
                                     </nav>

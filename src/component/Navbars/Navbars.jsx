@@ -34,7 +34,7 @@ const Navbars = () => {
     }, [user?.email]);
     return (
         <div className='md:w-full mx-auto sticky sm:-mb-[80px] md:-mb-0'>
-            <div className='py-5 mx-auto sm:max-w-xl sm:rounded-full md:rounded-none  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#C4D190] text-black'>
+            <div className='py-5 mx-auto sm:max-w-xl sm:rounded-full md:rounded-none  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#E8F0CA] text-black'>
                 <div className='relative flex md:justify-between md:items-center md:px-[10px]  '>
 
                     <div className='md:flex justify-between items-center  md:gap-[60px]'><Link to='/' className='inline-flex items-center'>
@@ -87,7 +87,6 @@ const Navbars = () => {
 
                         </ul></div>
                     <div className='md:flex justify-end gap-2 items-center hidden'>
-                        <button className='md:py-[6px]  md:px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button>
 
                         <div>
                             {arrayData && arrayData.length > 0 && user ? (
@@ -106,8 +105,8 @@ const Navbars = () => {
                                 </Link>
                             )}
                         </div>
-                        {user ? <button onClick={handleLogOut} className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
-                            <button className='md:py-[4px]  md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
+                        {user ? <button onClick={handleLogOut} className='md:py-[4px] hover:bg-[#29692F] hover:text-white transition duration-300 ease-in-out md:px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
+                            <button className='md:py-[4px]  md:px-[24px] border-2 hover:bg-[#29692F] hover:text-white transition duration-300 ease-in-out border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
 
 
                     </div>
@@ -195,8 +194,8 @@ const Navbars = () => {
                                         <div className='flex justify-evenly itemc gap-0 mt-2 '>
 
                                             <Link to='https://play.google.com/store/apps/details?id=com.farmerspp.com&hl=en_IN&gl=US&pli=1'><button className='md:py-[6px] py-2  px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button></Link>
-                                            {user ? <button onClick={handleLogOut} className='md:py-[4px] py-2 px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
-                                                <button className='md:py-[4px] py-2  px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
+                                            {user ? <button onClick={handleLogOut} className='hover:bg-[#29692F] hover:text-white transition duration-300 ease-in-out md:py-[4px] py-2 px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
+                                                <button className='md:py-[4px] py-2 hover:bg-[#29692F] hover:text-white transition duration-300 ease-in-out  px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
 
                                         </div>
                                     </nav>
