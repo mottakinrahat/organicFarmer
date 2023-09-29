@@ -64,8 +64,8 @@ const UpdateProfile = () => {
         <div className=' bg-[#E8F0CA] h-full w-full pt-1 pb-10'>
             <div className='md:w-[611px] mx-4 sm:mx-4 pt-2 md:mx-auto'>
                 <h2 className='text-2xl font-bold text-center mt-4 mb-4 '>Update Your Profile</h2>
-                <form onSubmit={handleSubmit(onSubmit)} className='bg-[#FBFFED] md:w-[800px] p-10 mb-10 rounded-xl md:mt-20 ' >
-                    <div className='md:flex justify-center items-center gap-6'>
+                <form onSubmit={handleSubmit(onSubmit)} className='bg-[#FBFFED] md:w-[690px] w-auto p-10 mb-10 rounded-xl md:mt-20 ' >
+                    <div className=''>
                         <div>
                             <div className="form-control">
                                 <label className="label">
@@ -111,8 +111,8 @@ const UpdateProfile = () => {
 
                             </div>
 
-                            <div className='flex items-center gap-6'>
-                                <div className="form-control w-9/12">
+                            <div className='md:flex  items-center gap-6'>
+                                <div className="form-control md:w-9/12">
                                     <label className="label">
                                         <span className="label-text">Turnover(yearly)</span>
                                     </label>
@@ -123,7 +123,7 @@ const UpdateProfile = () => {
                                     <label className="label">
                                         <span className="label-text">Turnover(amount)</span>
                                     </label>
-                                    <select defaultValue={userData?.amount} {...register("amount")} className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs">
+                                    <select defaultValue={userData?.amount} {...register("amount")} className="select select-bordered bg-[#E8F0CA]   ">
                                         <option disabled selected>{userData?.amount}</option>
                                         <option>Thousand</option>
                                         <option>Lakh</option>
@@ -131,8 +131,8 @@ const UpdateProfile = () => {
                                     </select>
                                 </div>
                             </div>
-                            <div className='flex items-center gap-6'>
-                                <div className="form-control w-9/12">
+                            <div className='md:flex items-center gap-6'>
+                                <div className="form-control md:w-9/12">
                                     <label className="label">
                                         <span className="label-text">Area of Farm(only for farmers)</span>
                                     </label>
