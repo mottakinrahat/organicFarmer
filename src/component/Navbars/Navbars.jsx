@@ -23,7 +23,7 @@ const Navbars = () => {
     }
 
     useEffect(() => {
-        fetch(`https://organic-farmers-server.vercel.app/personalInfo?email=${user?.email}`)
+        fetch(`http://localhost:5000/personalInfo?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setArrayData(data);
@@ -118,7 +118,7 @@ const Navbars = () => {
                             title='Open Menu'
                             onClick={() => setIsMenuOpen(true)}
                         >
-                            <Bars3BottomRightIcon className='w-8  ml-[180px] sm:ml-80 text-black' />
+                            <Bars3BottomRightIcon className='w-8  ml-[80px] sm:ml-80 text-black' />
                         </button>
                         {isMenuOpen && (
                             <div className='absolute top-0 left-0 w-full z-10'>

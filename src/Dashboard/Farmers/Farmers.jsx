@@ -6,7 +6,7 @@ const Farmers = () => {
     const [arrayData, setArrayData] = useState([]);
 
     useEffect(() => {
-        fetch('https://organic-farmers-server.vercel.app/personalInfo')
+        fetch('http://localhost:5000/personalInfo')
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(item => item.role === 'farmer');

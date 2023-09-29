@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 const Banner = ({ upText, title, paratext,img,smText,display }) => {
     const bannerImgUrl = {img};
     return (
@@ -19,7 +20,7 @@ const Banner = ({ upText, title, paratext,img,smText,display }) => {
 
                                 <p className=' md:w-[475px] mb-[54px]  text-[20px]'>{smText}</p>
 
-                                <button className={`md:py-[12px] mb-2 py-[7px] md:px-[40px] px-[6.5px] ${display} bg-[#159122] rounded-xl text-white flex items-center mt-4 gap-2 `}>Join Our Community</button>
+                               <Link to='/community'> <button className={`md:py-[12px] mb-2 py-[7px] md:px-[40px] px-[6.5px] ${display} bg-[#159122] rounded-xl text-white flex items-center mt-4 gap-2 `}>Join Our Community</button></Link>
                             </div>
                             <div className=' md:mt-[200px]'>
                                 <p className='md:w-[475px] hidden  md:block  text-[16px]'>{paratext}</p>

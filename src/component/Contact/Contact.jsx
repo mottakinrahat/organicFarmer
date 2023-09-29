@@ -9,7 +9,7 @@ const Contact = () => {
     const [showAll, setShowAll] = useState(false)
     console.log(userData);
     useEffect(() => {
-        fetch('https://organic-farmers-server.vercel.app/crops')
+        fetch('http://localhost:5000/crops')
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(item => item.email === userData.email);
@@ -28,7 +28,7 @@ const Contact = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://organic-farmers-server.vercel.app/crops/${id}`, {
+                fetch(`http://localhost:5000/crops/${id}`, {
                     method: 'DELETE'
                 })
                     .then((res) => res.json())
@@ -56,12 +56,12 @@ const Contact = () => {
         });
     };
     return (
-        <div className='md:pt-40 sm:mt-20 md:mt-2 pb-40 bg-[#FBFFED] sm:px-2 md:px-0'>
-            <div className='md:flex sm:flex justify-evenly sm:gap-2 '>
-                <div className='md:bg-[#FFFFFF] sm:bg-[#FFFFFF] md:w-[460px] h-[940px]  md:border-2 sm:rounded-xl '>
-                    <div className=' px-8 py-5 '><h2 className=' font-bold'>Personal Information</h2></div>
-                    <div className=' md:grid grid-cols-2  items-center p-2   rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
-                        <div className='mx-auto'><img src={userData.image} className='w-[100px] h-[100px] md:ml-0 sm:ml-0 ml-32 ' alt="" /></div>
+        <div className='md:pt-40 sm:mt-20 md:mt-2 pb-40 bg-[#E8F0CA] sm:px-2 md:px-0'>
+            <div className='md:flex sm:flex justify-evenly sm:gap-2  '>
+                <div className='md:bg-[#FBFFED] sm:bg-[#FBFFED] md:w-[460px] px-2 md:px-0 sm:w-auto sm:mt-4 md:mt-0  md:h-[940px]  md:border-2 sm:rounded-xl '>
+                    <div className=' px-8 py-5 '><h2 className='text-[18px] font-bold'>Personal Information</h2></div>
+                    <div className=' md:flex   items-center p-2   rounded-xl md:w-[440px] sm:w-auto h-auto'>
+                        <div className=''><img src={userData.image} className='w-[100px] mx-auto h-[100px] md:ml-0 sm:ml-0 ml-32 ' alt="" /></div>
                         <div>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Name:</span> {userData?.nameOf}</h2>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Location:</span> {userData?.location}</h2>
@@ -72,40 +72,40 @@ const Contact = () => {
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Turn Over:</span> {userData?.TurnOver}</h2>
                         </div>
 
-                        <div className='text-[16px]  md:pl-8 mt-20'>
-                            <h2 className='font-bold'>Contact Information:</h2>
-                            <h2 className='text-[16px]'><span className='font-bold'>Email_id:</span>{userData?.email}</h2>
-                            <h2 className='text-[16px]'><span className='font-bold'>contact_no:</span>{userData?.number}</h2>
+                    </div>
+                    <div className='text-[16px]  md:pl-8 mt-20'>
+                        <h2 className='font-bold'>Contact Information:</h2>
+                        <h2 className='text-[16px]'><span className='font-bold'>Email_id:</span>{userData?.email}</h2>
+                        <h2 className='text-[16px]'><span className='font-bold'>contact_no:</span>{userData?.number}</h2>
+                    </div>
+                    <div className='divider px-8'></div>
+                    <div className='px-[32px]'>
+                        <h2 className='text-[18px] font-bold'>Crops</h2>
+                        <div className='grid md:grid-cols-3 sm:grid-cols-2  grid-cols-2  gap-4'>
+                            {
+                                arrayData.slice(0, 6).map(crops => (
+                                    <>
+                                        <div className='mt-6'>
+                                            <img src={crops?.ProductImage} className='md:w-[100px] w-[90px] h-[90px] object-cover md:h-[100px] mb-2' alt="" />
+                                            <h2 className="md:text-[18px] text-[14px] font-semibold">{crops?.productName}</h2>
+                                        </div>
+                                    </>
+                                ))
+                            }
                         </div>
                     </div>
-                        <div className='divider px-8'></div>
-                        <div className='px-[32px]'>
-                            <h2 className='text-[18px] font-bold'>Crops</h2>
-                            <div className='grid md:grid-cols-3  gap-4'>
-                                {
-                                    arrayData.slice(0, 6).map(crops => (
-                                        <>
-                                            <div className='mt-6'>
-                                                <img src={crops?.ProductImage} className='w-[100px] h-[100px] mb-2' alt="" />
-                                                <h2 className="md:text-[18px] text-[20px] font-semibold">{crops?.productName}</h2>
-                                            </div>
-                                        </>
-                                    ))
-                                }
-                            </div>
-                        </div>
                 </div>
 
 
-                <div className='md:w-[880px]  md:bg-[#FFFFFF] sm:bg-[#FFFFFF] border-2 rounded-xl'>
+                <div className='md:w-[880px]  md:bg-[#FBFFED] sm:bg-[#FBFFED] border-2 rounded-xl sm:mt-4 md:mt-0'>
                     <div className='md:flex justify-between items-center '>
-                        <h3 className='text-xl font-bold p-4'>Product listing</h3>
+                        <h3 className='text-[24px] font-bold p-4'>Product listing</h3>
                     </div>
                     {arrayData.length <= 0 ? (<div className='text-black'><h2 className='text-3xl text-center font-bold mt-4'>No Products added</h2></div>
                     ) : (
                         <>
                             {
-                                showAll ? <div className='md:grid sm:grid md:grid-cols-3 sm:grid-cols-2  md:pr-6 my-[20px]  sm:mx-4'>
+                                showAll ? <div className='md:grid sm:grid md:grid-cols-3 sm:grid-cols-2 md:pr-6 my-[20px]  sm:mx-4'>
                                     {
                                         arrayData.map((sData, index) => <SingleContact key={index} sData={sData}></SingleContact>)
                                     }

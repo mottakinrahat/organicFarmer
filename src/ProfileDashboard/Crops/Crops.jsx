@@ -9,7 +9,7 @@ const Crops = () => {
     const [arrayData, setArrayData] = useState([]);
 
     useEffect(() => {
-        fetch('https://organic-farmers-server.vercel.app/personalInfo')
+        fetch('http://localhost:5000/personalInfo')
             .then(res => res.json())
             .then(data => setArrayData(data))
     }, [])
@@ -30,7 +30,7 @@ const Crops = () => {
 
     //     const cropsData = { productName, ProductImage, quantity, unit, price,amount, Variety, email: user?.email, name: user?.displayName, number, location }
     //     console.log(cropsData);
-    //     fetch('https://organic-farmers-server.vercel.app/crops', {
+    //     fetch('http://localhost:5000/crops', {
     //         method: 'POST',
     //         headers: { 'Content-Type': 'application/json' },
     //         body: JSON.stringify(cropsData)
@@ -67,7 +67,7 @@ const Crops = () => {
                     const {productName, quantity,price,Variety,unit,amount} = data;
                     const cropsInfo = { productName, quantity,unit,price,amount,Variety, ProductImage: imageUrl,email:user.email,name:user.displayName}
 
-                    fetch('https://organic-farmers-server.vercel.app/crops', {
+                    fetch('http://localhost:5000/crops', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(cropsInfo)

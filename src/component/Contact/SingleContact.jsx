@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
     const SingleContact = ({sData,handleDelete}) => {
     const { ProductImage, productName, quantity, price,_id,amount}= sData;
     return (
-        <div className="card md:w-[300px] h-auto ">
+        <div className="card md:w-[300px] sm:mr-2 md:mr-0 h-auto ">
             <figure><img src={ProductImage} alt="Shoes" className='h-[144px] w-[238px] object-cover rounded-t-lg' /></figure>
             <div className="card-body sm:mx-0 md:mx-0 mx-auto">
                 <h2 className="md:text-[24px] text-[20px] font-bold">{productName}</h2>

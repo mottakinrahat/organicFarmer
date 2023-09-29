@@ -1,6 +1,6 @@
 import React from 'react';
 import { TabPanel, Tabs } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+
 const SingleState = ({ farmer }) => {
     console.log(farmer);
     return (

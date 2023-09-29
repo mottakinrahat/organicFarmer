@@ -11,7 +11,7 @@ const Offering = () => {
                 <div className='md:w-[584px]'>
                     <h2 className='text-[32px] font-semibold md:mb-[40px] sm:mb-[20px] mb-2 '>Our Products </h2>
                     <p className='md:mb-[40px]'>Welcome to our Organic Harvest! Explore a range of naturally nurtured delights that embrace both taste and wellness. From nutritious staples to unique high-profit crops, dive into a world where flavor meets sustainability. Join us in celebrating the goodness of organic farming and its positive impact on you and the environment.</p>
-                    <button className='px-[40px] text-white font-bold py-[12px] bg-[#159122] rounded-xl'>Explore Products</button>
+                    <button className='px-[40px] text-white font-bold py-[12px] mt-4 mb-4 md:mt-0 md:mb-0 bg-[#159122] rounded-xl'>Explore Products</button>
                 </div>
 
                 <div className='w-1/2'>

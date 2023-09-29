@@ -5,7 +5,7 @@ const ProductCard = () => {
     const [arrayData, setArrayData] = useState([]);
 
     useEffect(() => {
-        fetch('https://organic-farmers-server.vercel.app/product')
+        fetch('http://localhost:5000/product')
             .then(res => res.json())
             .then(data => setArrayData(data))
     }, [])

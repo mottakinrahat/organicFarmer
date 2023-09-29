@@ -4,11 +4,11 @@ import india from '../../../assets/farms/in 1.png';
 const Farms = () => {
     return (
         <div>
-            <div className='pb-20'>
+            <div className='pb-20 mt-20'>
                 <div className='md:h-[632px]  md:mx-[40px] mx-2 rounded-xl md:mb-[96px] '>
-                    <h2 className='text-[32px] font-bold text-center mb-[70px] pt-10'>Our Farms</h2>
+            
                    <div className=''>
-                    <img src="https://i.ibb.co/w7sgfpF/Group-21-1.png" className='mx-auto' alt="" />
+                    <img src="https://i.ibb.co/Wz3cfks/Group-22.png" className='mx-auto' alt="" />
                    </div>
                 </div>
             </div>

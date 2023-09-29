@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
 import SingleState from './SingleState';
 
 const DifferentState = () => {
     const [clickedIndex, setClickedIndex] = useState(-1);
     const [activeTab, setActiveTab] = useState('Haryana')
     const [farmersData, setFarmersData] = useState([])
-    console.log(activeTab);
+    
     useEffect(() => {
-        fetch(`https://organic-farmers-server.vercel.app/farmerState/${activeTab}`)
+        fetch(`http://localhost:5000/farmerState/${activeTab}`)
             .then((res) => res.json())
             .then((data) => {
                 setFarmersData(data);
@@ -23,37 +22,37 @@ const DifferentState = () => {
                 <TabList className='flex justify-evenly items-center mb-10'>
                     <Tab>
                         <div
-                            className={`image-container ${activeTab === 'Haryana' ? 'active' : 'inactive-tab'}`}
+                            className={`image-container ${activeTab === 'Haryana' ? 'active drop-shadow-2xl' : 'inactive-tab'}`}
                             onClick={() => setActiveTab('Haryana')}
                         >
-                            <img src="https://i.ibb.co/nQH2Jqf/39.png" className='w-[100px]' alt="" />
+                            <img src="https://i.ibb.co/nQH2Jqf/39.png" className={`${activeTab==='Haryana' ? 'w-[160px] text-green-500':'w-[120px]'}`} alt="" />
                             <h2 className='text-center'>Haryana</h2>
                         </div>
                     </Tab>
                     <Tab>
                         <div
-                            className={`image-container ${activeTab === 'Rajasthan' ? 'active' : 'inactive-tab'}`}
+                            className={`image-container ${activeTab === 'Rajasthan' ? 'active drop-shadow-2xl' : 'inactive-tab'}`}
                             onClick={() => setActiveTab('Rajasthan')}
                         >
-                            <img src="https://i.ibb.co/Xyw2NKw/29-1.png" alt="" />
+                            <img src="https://i.ibb.co/Xyw2NKw/29-1.png" className={`${activeTab==='Rajasthan' ? 'w-[160px] text-green-500':'w-[120px]'}`} alt="" />
                             <h2 className='text-center'>Rajasthan</h2>
                         </div>
                     </Tab>
                     <Tab>
                         <div
-                            className={`image-container ${activeTab === 'Uttar Pradesh' ? 'active' : 'inactive-tab'}`}
+                            className={`image-container  ${activeTab === 'Uttar Pradesh' ? 'active drop-shadow-2xl ' : 'inactive-tab'}`}
                             onClick={() => setActiveTab('Uttar Pradesh')}
                         >
-                            <img src="https://i.ibb.co/JFT3nvC/33.png" alt="" />
+                            <img src="https://i.ibb.co/JFT3nvC/33.png" className={`${activeTab==='Uttar Pradesh' ? 'w-[160px] text-green-500':'w-[120px]'}`} alt="" />
                             <h2 className='text-center'>Uttar Pradesh</h2>
                         </div>
                     </Tab>
                     <Tab>
                         <div
-                            className={`image-container ${activeTab === 'Uttrakhand' ? 'active' : 'inactive-tab'}`}
+                            className={`image-container ${activeTab === 'Uttrakhand' ? 'active drop-shadow-2xl ' : 'inactive-tab'}`}
                             onClick={() => setActiveTab('Uttrakhand')}
                         >
-                            <img src="https://i.ibb.co/F5vf6vt/34.png" alt="" />
+                            <img src="https://i.ibb.co/F5vf6vt/34.png" className={`${activeTab==='Uttrakhand' ? 'w-[160px] text-green-500':'w-[120px]'}`} alt="" />
                             <h2 className='text-center'>Uttrakhand</h2>
                         </div>
                     </Tab>

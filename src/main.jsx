@@ -71,27 +71,27 @@ const router = createBrowserRouter([
       {
         path: 'contact/:id',
         element: <PrivateRoute><Contact /></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://organic-farmers-server.vercel.app/personalInfo/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/personalInfo/${params.id}`)
       },
       {
         path: 'update/:id',
         element: <Update />,
-        loader: ({ params }) => fetch(`https://organic-farmers-server.vercel.app/crops/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/crops/${params.id}`)
       },
       {
         path: 'updateProfile/:id',
         element: <UpdateProfile />,
-        loader: ({ params }) => fetch(`https://organic-farmers-server.vercel.app/personalInfo/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/personalInfo/${params.id}`)
       },
       {
         path: 'productDetails/:id',
         element: <ProductDetails />,
-        loader: ({ params }) => fetch(`https://organic-farmers-server.vercel.app/product/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
       },
       {
         path: '/profile/:id',
         element: <PrivateRoute><ProfileRoute /></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://organic-farmers-server.vercel.app/personalInfo/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/personalInfo/${params.id}`)
       }
 
     ]

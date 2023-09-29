@@ -8,7 +8,7 @@ import Farms from '../Farms/Farms';
 
 const Home = () => {
     return (
-        <div className='bg-[#FBFFED]'>
+        <div className='bg-[#FBFFED] pb-2 '>
             <Banner title={'Go Organic'} smText={'Discover the Benefits of Sustainable Agriculture for a Greener Tomorrow'} img={'https://i.ibb.co/xFx5TPs/banner.jpg'} />
             <WhyOrganic />
             <WhyUs />

@@ -4,6 +4,7 @@ import { AuthContext } from '../../component/AuthProviders/AuthProviders';
 import { useForm } from 'react-hook-form';
 const PersonalInfo = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    console.log(errors);
     const { user, updateUserData } = useContext(AuthContext)
     const img_hosting_url = 'https://api.imgbb.com/1/upload?key=fd51fa12e105fd973cf18f51fb6659de';
 
@@ -11,7 +12,9 @@ const PersonalInfo = () => {
 
     const onSubmit = (data) => {
         const formData = new FormData();
-        formData.append('image', data.image ? data.image[0] : '');
+        if (data.image && data.image[0]) {
+            formData.append('image', data.image[0]);
+        }
         fetch(img_hosting_url, {
             method: 'POST',
             body: formData
@@ -21,10 +24,10 @@ const PersonalInfo = () => {
                 if (imageResponse.success) {
                     const imageUrl = imageResponse.data.display_url;
                     const { email, phoneNumber, location, firstName } = data;
-                    const personalInformation = { email, phoneNumber, location, firstName, image: imageUrl }
+                    const personalInformation = { email, phoneNumber, location, firstName }
                     updateUserData(firstName, imageUrl, phoneNumber, location);
 
-                    fetch('https://organic-farmers-server.vercel.app/userData', {
+                    fetch('http://localhost:5000/userData', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(personalInformation)
@@ -43,18 +46,18 @@ const PersonalInfo = () => {
 
     return (
         <div className='md:mx-[550px] mt-10'>
-          
+
 
             <div className='md:w-[550px]'>
 
-                
+
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body bg-[#FBFFED]  rounded-xl">
-                <h2 className='text-[24px] font-semibold '>Personal Information</h2>
+                    <h2 className='text-[24px] font-semibold '>Personal Information</h2>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Your Image</span>
                         </label>
-                        <input type="file" placeholder="imageUrl"  {...register("image")} className="input input-bordered rounded-full bg-[#E8F0CA]" />
+                        <input type="file" placeholder="imageUrl"  {...register("image")} className="input input-bordered rounded-full bg-[#E8F0CA]" required={false} />
                     </div>
 
 

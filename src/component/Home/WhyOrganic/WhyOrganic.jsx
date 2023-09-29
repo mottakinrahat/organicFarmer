@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import frame from '../../../assets/frame/organicFrame.png'
+import frame from '../../../assets/frame/organicFrame.png';
+import { FaAngleDown } from "react-icons/fa";
 
 const WhyOrganic = () => {
     const [arrayData, setArrayData] = useState([]);
@@ -20,8 +21,9 @@ const WhyOrganic = () => {
                 <div className='md:ml-0 md:px-2 md:w-full'>
                     {arrayData.map((sdata, index) => (
                         <div key={index} tabIndex={0} className="collapse bg-[#399C43] text-white focus:bg-[#29692F] focus:text-[white] mb-4">
-                            <div className="collapse-title text-xl font-bold">
-                                {sdata.title}
+                            <div className="collapse-title text-xl font-bold flex justify-between items-center">
+                               <h2> {sdata.title}</h2>
+                               <FaAngleDown/>
                             </div>
                             <div className="collapse-content">
                                 <p className='text-[18px]'>{sdata.description}</p>
