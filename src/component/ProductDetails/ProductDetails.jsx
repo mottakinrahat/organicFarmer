@@ -7,7 +7,7 @@ const ProductDetails = () => {
     const [arrayData, setArrayData] = useState([]);
     useEffect(() => {
         // Fetch product data
-        fetch('http://localhost:5000/crops')
+        fetch('https://organic-farmers-server.vercel.app/crops')
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(item => item.productName === productsData.product_name);

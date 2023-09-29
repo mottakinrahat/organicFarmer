@@ -13,7 +13,7 @@ const ProfileRoute = () => {
     const userData = useLoaderData();
 
     useEffect(() => {
-        fetch('http://localhost:5000/crops')
+        fetch('https://organic-farmers-server.vercel.app/crops')
             .then(res => res.json())
             .then(data => {
 
@@ -34,7 +34,7 @@ const ProfileRoute = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/crops/${id}`, {
+                fetch(`https://organic-farmers-server.vercel.app/crops/${id}`, {
                     method: 'DELETE'
                 })
                     .then((res) => res.json())
@@ -67,7 +67,7 @@ const ProfileRoute = () => {
             <div className='md:pt-40 sm:pt-20 pb-40 sm:bg-[#FBFFED] md:bg-[#FBFFED] '>
                 <div className='md:flex sm:flex justify-around  gap-2'>
 
-                    <div className='md:bg-[#FFFFFF] sm:bg-[#FFFFFF] w-[460px] h-[884px]  md:border-2 sm:rounded-xl '>
+                    <div className='md:bg-[#FFFFFF] sm:bg-[#FFFFFF] px-4 md:w-[460px] mb-10 md:mb-0 md:h-[884px]  md:border-2 sm:rounded-xl '>
                         <div className='flex justify-between md:text-xl  items-center px-8 py-5'><h2 className=' font-bold'>Personal Information</h2>
                             <Link to={`/updateProfile/${userData._id}`}><button className='text-[14px] bg-[#159122] px-4 text-white rounded-xl hover:bg-[#29692F] transition duration-300 ease-in-out'>Edit</button></Link> </div>
                         <div className='  md:grid sm:grid grid-cols-2 justify-evenly items-center md:p-4 sm:p-1  rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
@@ -91,7 +91,7 @@ const ProfileRoute = () => {
                         <div className='divider px-8'></div>
                         <div className='px-[32px]'>
                             <h2 className='text-[18px] font-bold'>Crops</h2>
-                            <div className='grid md:grid-cols-3  gap-4'>
+                            <div className='grid md:grid-cols-3 sm:grid grid-cols-2 gap-4'>
                                 {
                                     cropsData.slice(0, 6).map(crops => (
                                         <>
