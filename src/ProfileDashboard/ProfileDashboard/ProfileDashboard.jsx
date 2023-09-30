@@ -44,11 +44,11 @@ const ProfileDashboard = () => {
         <div className='bg-[#E8F0CA] pt-2'>
             <Navbars />
 
-            <div className=' h-full  w-full '>
-                <div className="drawer lg:drawer-open px-[70px] py-[40px] mr-10 ">
+            <div className=' md:h-full  md:w-full '>
+                <div className="drawer lg:drawer-open md:px-[70px] px-[30px] py-[40px] mr-10 ">
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content ">
-                        <Stepper activeStep={activeStep} alternativeLabel className="w-auto sm:w-auto md:w-auto sm:mt-20 md:mt-0">
+                        <Stepper activeStep={activeStep} alternativeLabel className=" sm:w-auto md:w-auto sm:mt-20 md:mt-0">
                             {steps.map((label, index) => (
                                 <Step key={label}>
                                     <StepLabel StepIconComponent={CustomStepIcon}>{label}</StepLabel>
@@ -62,7 +62,7 @@ const ProfileDashboard = () => {
                     </div>
                     <div className="drawer-side">
                         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                        <ul className="menu p-4 w-[240px] min-h-full pt-[20px] text-[18px] md:hidden font-bold text-base-content">
+                        <ul className="menu p-4 w-[240px] min-h-full pt-[20px] text-[18px] hidden font-bold text-base-content">
                             {/* Sidebar content here */}
                             <li className='mb-6'>
                                 <NavLink

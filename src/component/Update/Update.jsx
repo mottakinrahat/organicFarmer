@@ -51,11 +51,11 @@ const Update = () => {
             });
     };
     return (
-        <div className='mx-[100px] mt-[20px]  pb-24'>
+        <div className='md:mx-[100px] mt-[20px]  md:pb-24 pb-40'>
 
             <div className='flex justify-evenly items-center gap-2'>
                 <div>
-                    <div className='w-[611px] bg-[#E8F0CA] px-[32px] py-[32px] rounded-xl'>
+                    <div className='md:w-[611px] bg-[#E8F0CA] px-[32px] py-[32px] rounded-xl'>
 
                         <h2 className='text-[24px] text-center font-semibold mb-[24px]'>Update your Crops</h2>
                         <form onSubmit={handleSubmit(onSubmit)}  className='bg-[#FBFFED] p-6 rounded-xl'>

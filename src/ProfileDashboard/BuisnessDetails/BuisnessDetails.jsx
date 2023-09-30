@@ -78,7 +78,7 @@ const BuisnessDetails = () => {
 
             </fieldset>
 
-            <div className='md:w-auto'>
+            <div className='md:w-auto w-[250px]'>
                 <form onSubmit={handleBuisnessDetails} className="">
 
                     <div className="form-control">
@@ -101,8 +101,8 @@ const BuisnessDetails = () => {
 
                     </div>
 
-                    <div className='flex items-center gap-6'>
-                        <div className="form-control w-9/12">
+                    <div className='md:flex items-center gap-6'>
+                        <div className="form-control md:w-9/12">
                             <label className="label">
                                 <span className="label-text">Turnover(yearly)</span>
                             </label>
@@ -121,8 +121,8 @@ const BuisnessDetails = () => {
                             </select>
                         </div>
                     </div>
-                    <div className='flex items-center gap-6'>
-                        <div className="form-control w-9/12">
+                    <div className='md:flex items-center gap-6'>
+                        <div className="form-control md:w-9/12">
                             <label className="label">
                                 <span className="label-text">Area of Farm(only for farmers)</span>
                             </label>
