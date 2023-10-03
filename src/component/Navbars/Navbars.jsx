@@ -133,10 +133,23 @@ const Navbars = () => {
                                                 </span>
                                             </Link>
                                         </div>
-                                        {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
-                                            <img src={user?.photoURL} className='h-10 w-10 rounded-full' alt="" />
-                                            <h2>{user?.displayName}</h2>
-                                        </div>}
+                                        <div className='hidden md:block'>
+                                            {arrayData && arrayData.length > 0 ? (
+                                                <Link to={`/profile/${arrayData[0]?._id || 'default'}`}>
+                                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full gap-2 px-2 py-1 cursor-pointer'>
+                                                        {user?.photoURL && <img src={user?.photoURL} className='h-6 w-6 rounded-full' alt="" />}
+                                                        <h2>{user?.displayName}</h2>
+                                                    </div>}
+                                                </Link>
+                                            ) : (
+                                                <Link to='/default-profile'>
+                                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2 cursor-pointer'>
+                                                        {user?.photoURL && <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />}
+                                                        <h2>{user?.displayName}</h2>
+                                                    </div>}
+                                                </Link>
+                                            )}
+                                        </div>
                                         <div>
                                             <button
                                                 aria-label='Close Menu'

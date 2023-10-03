@@ -92,14 +92,14 @@ const Navbar = () => {
                         <div>
                             {arrayData && arrayData.length > 0 ? (
                                 <Link to={`/profile/${arrayData[0]?._id || 'default'}`}>
-                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full gap-2 px-2 py-1'>
+                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full gap-2 px-2 py-1 cursor-pointer'>
                                         {user?.photoURL && <img src={user?.photoURL} className='h-6 w-6 rounded-full' alt="" />}
                                         <h2>{user?.displayName}</h2>
                                     </div>}
                                 </Link>
                             ) : (
                                 <Link to='/default-profile'>
-                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
+                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2 cursor-pointer'>
                                         {user?.photoURL && <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />}
                                         <h2>{user?.displayName}</h2>
                                     </div>}
@@ -134,10 +134,23 @@ const Navbar = () => {
                                                 </span>
                                             </Link>
                                         </div>
-                                        {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2'>
-                                            {user?.photoURL && <img src={user?.photoURL} className='h-10 w-10 rounded-full' alt="" />}
-                                            <h2>{user?.displayName}</h2>
-                                        </div>}
+                                        <div>
+                                            {arrayData && arrayData.length > 0 ? (
+                                                <Link to={`/profile/${arrayData[0]?._id || 'default'}`}>
+                                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full gap-2 px-2 py-1 cursor-pointer'>
+                                                        {user?.photoURL && <img src={user?.photoURL} className='h-6 w-6 rounded-full' alt="" />}
+                                                        <h2>{user?.displayName}</h2>
+                                                    </div>}
+                                                </Link>
+                                            ) : (
+                                                <Link to='/default-profile'>
+                                                    {user && <div className='flex items-center border-2 border-[#159122] rounded-full px-2 cursor-pointer'>
+                                                        {user?.photoURL && <img src={user?.photoURL} className='h-8 w-8 rounded-full' alt="" />}
+                                                        <h2>{user?.displayName}</h2>
+                                                    </div>}
+                                                </Link>
+                                            )}
+                                        </div>
                                         <div>
                                             <button
                                                 aria-label='Close Menu'
@@ -194,7 +207,7 @@ const Navbar = () => {
                                         </ul>
                                         <div className='flex justify-evenly itemc gap-0 mt-2 '>
 
-                                            <Link to='https://play.google.com/store/apps/details?id=com.farmerspp.com&hl=en_IN&gl=US&pli=1'><button className='md:py-[6px] py-2  px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button></Link>
+                                            <Link to=''><button className='md:py-[6px] py-2  px-[24px]  bg-[#159122] text-[16px] rounded-xl text-white  '>Join Our Community</button></Link>
                                             {user ? <button onClick={handleLogOut} className='md:py-[4px] hover:bg-[#29692F] hover:text-white transition duration-300 ease-in-out py-2 px-[24px] border-2 border-[#159122] text-[16px] rounded-xl text-[#159122]'>Logout</button> : <Link to='/login'>
                                                 <button className='md:py-[4px] py-2  px-[24px] border-2 hover:bg-[#29692F] hover:text-white transition duration-300 ease-in-out border-[#159122] text-[16px] rounded-xl text-[#159122]'>Login</button></Link>}
 
