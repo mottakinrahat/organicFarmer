@@ -60,7 +60,7 @@ const Contact = () => {
             <div className='md:flex sm:flex justify-evenly sm:gap-2  '>
                 <div className='md:bg-[#FBFFED] sm:bg-[#FBFFED] md:w-[460px] px-2 md:px-0 sm:w-auto sm:mt-4 md:mt-0  md:h-[940px]  md:border-2 sm:rounded-xl '>
                     <div className=' px-8 py-5 '><h2 className='text-[18px] font-bold'>Personal Information</h2></div>
-                    <div className=' md:flex   items-center p-2   rounded-xl md:w-[440px] sm:w-auto h-auto'>
+                    <div className=' md:flex  justify-evenly items-center p-2   rounded-xl md:w-[440px] sm:w-auto h-auto'>
                         <div className=''><img src={userData.image} className='w-[100px] mx-auto h-[100px] md:ml-0 sm:ml-0 ml-32 ' alt="" /></div>
                         <div>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Name:</span> {userData?.nameOf}</h2>

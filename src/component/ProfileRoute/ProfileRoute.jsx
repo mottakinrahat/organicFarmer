@@ -67,26 +67,26 @@ const ProfileRoute = () => {
                 <div className='md:flex sm:flex justify-around sm:mt-6 md:mt-0 sm:px-2 gap-2'>
 
                     <div className='md:bg-[#FBFFED] sm:bg-[#FBFFED] md:px-4 px-2 md:w-[460px] sm:w-auto  md:mb-0 md:h-[884px]  md:border-2 sm:rounded-xl '>
-                        <div className='flex justify-between   items-center md:px-8 sm:px-2 py-5'><h2 className='md:text-[18px] font-bold'>Personal Information</h2>
+                        <div className='flex  gap-2 justify-between items-center md:px-8 sm:px-2 py-5'><h2 className='md:text-[18px] font-bold'>Personal Information</h2>
                             <Link to={`/updateProfile/${userData._id}`}><button className='text-[14px] bg-[#159122] px-4 text-white rounded-xl hover:bg-[#29692F] transition duration-300 ease-in-out'>Edit</button></Link> </div>
-                        <div className='  md:flex  g justify-evenly items-center md:p-4 sm:p-1  rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
-                            <div className=''><img src={user?.photoURL} className='md:w-[100px] w-[90px] md:h-[100px] h-[90px] md:ml-4 sm:mx-auto ' alt="" /></div>
+                        <div className='  md:flex   justify-evenly items-center md:p-4 sm:p-1  rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
+                            <div className=''><img src={user?.photoURL} className='md:w-[100px] w-[90px] md:h-[100px] h-[90px] sm:mx-auto ' alt="" /></div>
                             <div className=''>
                                 <h2 className='md:md:text-[16px] sm:text-[14px] mb-2'><span className='font-bold'>Name:</span> {user?.displayName}</h2>
-                                <h2 className='md:text-[16px] sm:text-[14px] mb-2'><span className='font-bold'>Location:</span> {userData?.location} ,{userData?.states}</h2>
-                                {userData?.role == 'farmers' ? <h2 className='md:text-[16px]'><span className='font-bold'>Farm area:</span> {userData?.areaOfFarm}</h2> :
-                                    <h2 className='md:text-[16px] sm:text-[14px]'><span className='font-bold'>Business Name:</span> {userData?.nameOfBusiness
+                                <h2 className='md:text-[16px] sm:text-[14px] mb-2'><span className='font-bold'>Location:</span> {userData?.location} ,{userData?.state_name}</h2>
+                                {userData?.role == 'farmer' ? <h2 className='text-[16px]'><span className='font-bold'>Farm area:</span> {userData?.areaOfFarm}</h2> :
+                                    <h2 className='text-[16px]'><span className='font-bold'>Business Name:</span> {userData?.nameOfBusiness
                                     }</h2>}
                                 <h2 className='md:text-[16px] mb-2 sm:text-[14px]'><span className='font-bold'>Date of Foundation:</span> {userData?.DateOfFoundation}</h2>
                                 <h2 className='md:text-[16px] mb-2 sm:text-[14px]'><span className='font-bold'>Turn Over:</span> {userData?.TurnOver} {userData?.amount}</h2>
                             </div>
 
                         </div>
-                            <div className='md:text-[16px] sm:text-[14px]  md:pl-8 mt-10 '>
-                                <h2 className='font-bold'>Contact Information:</h2>
-                                <h2 className='md:text-[16px] sm:text-[14px]'><span className='font-bold'>Email_id:</span>{userData?.email}</h2>
-                                <h2 className='md:text-[16px] '><span className='font-bold'>contact_no:</span>{userData?.number}</h2>
-                            </div>
+                        <div className='md:text-[16px] sm:text-[14px]  md:pl-8 mt-10 '>
+                            <h2 className='font-bold'>Contact Information:</h2>
+                            <h2 className='md:text-[16px] sm:text-[14px]'><span className='font-bold'>Email_id:</span>{userData?.email}</h2>
+                            <h2 className='md:text-[16px] '><span className='font-bold'>contact_no:</span>{userData?.number}</h2>
+                        </div>
                         <div className='divider px-8'></div>
                         <div className='px-[32px]'>
                             <h2 className='text-[18px] font-bold'>Crops</h2>

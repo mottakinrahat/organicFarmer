@@ -4,7 +4,7 @@ import { AuthContext } from '../AuthProviders/AuthProviders';
 import Swal from 'sweetalert2'
 
 const Register = () => {
-    const { createUser, updateUserData } = useContext(AuthContext)
+    const { createUser, updateUserData, loginWithGoogle } = useContext(AuthContext)
     const navigate = useNavigate();
 
     const handleRegister = (e) => {
@@ -13,7 +13,7 @@ const Register = () => {
         const Email = form.Email.value;
         const Password = form.Password.value;
         const ConfirmPassword = form.ConfirmPassword.value;
-        const loginData = {Email, Password, ConfirmPassword }
+        const loginData = { Email, Password, ConfirmPassword }
         console.log(loginData);
         if (Password !== ConfirmPassword) {
             Swal.fire({
@@ -51,6 +51,17 @@ const Register = () => {
                 })
             })
     }
+    const handleGoogle = () => {
+        loginWithGoogle()
+            .then(result => {
+                const googleLogin = result.user;
+                console.log(googleLogin);
+                navigate('/profileDashboard/personalInfo', { replace: true });
+            })
+            .catch(err => {
+                console.log(err.message);
+            });
+    };
     return (
         <div>
             <div className='md:flex justify-evenly  bg-[#FBFFED]'>
@@ -68,13 +79,13 @@ const Register = () => {
 
                     <div className="flex flex-col w-full border-opacity-50 md:px-[160px]">
                         <div className="flex flex-col justify-center items-center gap-2">
-                            <div><button className='flex items-center gap-2 text-[18px] md:px-[70px] py-[8px] px-4 border-2 border-black rounded-full font-bold'><img src="https://i.ibb.co/HKpFW6x/devicon-google.png" alt="" />Continue with Google</button></div>
+                            <div><button onClick={handleGoogle} className='flex items-center gap-2 text-[18px] md:px-[70px] py-[8px] px-4 border-2 border-black rounded-full font-bold'><img src="https://i.ibb.co/HKpFW6x/devicon-google.png" alt="" />Continue with Google</button></div>
 
 
                         </div>
                         <div className="divider">OR</div>
                         <form onSubmit={handleRegister} className="card-body">
-                            
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>

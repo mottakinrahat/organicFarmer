@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../component/AuthProviders/AuthProviders';
 import { useForm } from 'react-hook-form';
+
 const PersonalInfo = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     console.log(errors);
@@ -14,61 +15,68 @@ const PersonalInfo = () => {
         const formData = new FormData();
         if (data.image && data.image[0]) {
             formData.append('image', data.image[0]);
-        }
-        fetch(img_hosting_url, {
-            method: 'POST',
-            body: formData
-        })
-            .then(res => res.json())
-            .then(imageResponse => {
-                if (imageResponse.success) {
-                    const imageUrl = imageResponse.data.display_url;
-                    const { email, phoneNumber, location, firstName } = data;
-                    const personalInformation = { email, phoneNumber, location, firstName }
-                    updateUserData(firstName, imageUrl, phoneNumber, location);
-
-                    fetch('https://organic-farmers-server.vercel.app/userData', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(personalInformation)
-                    })
-                        .then((res) => res.json())
-                        .then((data) => {
-                            console.log(data);
-                            if (data.insertedId) {
-                                navigate('/profileDashboard/businessDetails');
-                            }
-                        });
-                }
+            fetch(img_hosting_url, {
+                method: 'POST',
+                body: formData
             })
+                .then(res => res.json())
+                .then(imageResponse => {
+                    if (imageResponse.success) {
+                        const imageUrl = imageResponse.data.display_url;
+                        const { email, phoneNumber, location, firstName } = data;
+                        const personalInformation = { email, phoneNumber, location, firstName, image: imageUrl }
+                        updateUserData(firstName, imageUrl, phoneNumber, location);
 
+                        fetch('https://organic-farmers-server.vercel.app/userData', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(personalInformation)
+                        })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                console.log(data);
+                                if (data.insertedId) {
+                                    navigate('/profileDashboard/businessDetails');
+                                }
+                            });
+                    }
+                });
+        } else {
+            const { email, phoneNumber, location, firstName } = data;
+            const personalInformation = { email, phoneNumber, location, firstName }
+
+            fetch('https://organic-farmers-server.vercel.app/userData', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(personalInformation)
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data.insertedId) {
+                        navigate('/profileDashboard/businessDetails');
+                    }
+                });
+        }
     }
 
     return (
         <div className='md:mx-[550px]  mt-10'>
-
-
             <div className='md:w-[550px] w-[340px]'>
-
-
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body bg-[#FBFFED]  rounded-xl">
                     <h2 className='text-[24px] font-semibold '>Personal Information</h2>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Your Image</span>
                         </label>
-                        <input type="file" placeholder="imageUrl"  {...register("image")} className="input input-bordered rounded-full bg-[#E8F0CA]" required={false} />
+                        <input type="file" placeholder="imageUrl"  {...register("image")} className="input input-bordered rounded-full bg-[#E8F0CA]" />
                     </div>
-
-
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
                         <input type="text" defaultValue={user?.displayName} placeholder="Name"  {...register("firstName")} className="input input-bordered rounded-full bg-[#E8F0CA]" required />
                     </div>
-
-
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email_id</span>
@@ -82,7 +90,6 @@ const PersonalInfo = () => {
                             placeholder="Enter your email"
                         />
                     </div>
-
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Phone Number</span>
@@ -104,14 +111,11 @@ const PersonalInfo = () => {
                     <div className="form-control text-center mt-6">
                         <button className="btn bg-[#159122] px-[61px] py-[16px] text-white  rounded-xl">Next</button>
                     </div>
-
-
                 </form>
-
             </div>
-            <div>
-            </div>
+            <div></div>
         </div>
     );
 };
+
 export default PersonalInfo;

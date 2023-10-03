@@ -1,5 +1,5 @@
 import { updateProfile } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProviders/AuthProviders';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
@@ -14,50 +14,84 @@ const UpdateProfile = () => {
     const img_hosting_url = 'https://api.imgbb.com/1/upload?key=fd51fa12e105fd973cf18f51fb6659de';
     const onSubmit = (data) => {
         console.log(data);
-        const formData = new FormData();
-        formData.append('image', data.image[0]);
-        fetch(img_hosting_url, {
-            method: 'POST',
-            body: formData
-        })
-            .then(res => res.json())
-            .then(imageResponse => {
-                if (imageResponse.success) {
-                    const imageUrl = imageResponse.data.display_url;
-                    const { nameOfBusiness, DateOfFoundation, TurnOver, areaOfFarm, location,
-                        nameOf, state_name, number, amount, unit } = data;
-                    console.log(data);
-                    const personalInfoUpdated = {
-                        nameOfBusiness, DateOfFoundation, TurnOver, areaOfFarm, location,
-                        nameOf, state_name, image: imageUrl, email: user?.email, number, amount, unit
-                    }
-                    console.log(personalInfoUpdated);
 
-                    updateUserData(data.nameOf, imageUrl)
-                    console.log(userData._id);
-                    fetch(`https://organic-farmers-server.vercel.app/personalInfo/${userData._id}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(personalInfoUpdated)
-                    })
-                        .then((res) => res.json())
-                        .then((data) => {
-                            console.log(data);
-                            if (data.modifiedCount > 0) {
-                                Swal.fire({
-                                    position: 'center',
-                                    icon: 'success',
-                                    title: 'Data Updated successfully',
-                                    showConfirmButton: false,
-                                    timer: 2000
-                                })
-                                navigate(-1)
-                            }
-                        });
-                }
+        // Check if a new image has been selected for upload
+        if (data.image[0]) {
+            // If a new image is selected, upload it
+            const formData = new FormData();
+            formData.append('image', data.image[0]);
+            fetch(img_hosting_url, {
+                method: 'POST',
+                body: formData
             })
-    }
+                .then(res => res.json())
+                .then(imageResponse => {
+                    if (imageResponse.success) {
+                        const imageUrl = imageResponse.data.display_url;
 
+                        // Update user data with the new image URL
+                        updateUserData(data.nameOf, imageUrl);
+
+                        const { nameOfBusiness, DateOfFoundation, TurnOver, areaOfFarm, location,
+                            nameOf, state_name, number, amount, unit } = data;
+
+                        const personalInfoUpdated = {
+                            nameOfBusiness, DateOfFoundation, TurnOver, areaOfFarm, location,
+                            nameOf, state_name, image: imageUrl, email: user?.email, number, amount, unit
+                        }
+
+                        // Update user data with new fields and image URL
+                        fetch(`https://organic-farmers-server.vercel.app/personalInfo/${userData._id}`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(personalInfoUpdated)
+                        })
+                            .then((res) => res.json())
+                            .then((data) => {
+                                if (data.modifiedCount > 0) {
+                                    Swal.fire({
+                                        position: 'center',
+                                        icon: 'success',
+                                        title: 'Data Updated successfully',
+                                        showConfirmButton: false,
+                                        timer: 2000
+                                    })
+                                    navigate(-1)
+                                }
+                            });
+                    }
+                });
+        } else {
+            // If no new image is selected, update user data without changing the image
+            const { nameOfBusiness, DateOfFoundation, TurnOver, areaOfFarm, location,
+                nameOf, state_name, number, amount, unit } = data;
+
+            const personalInfoUpdated = {
+                nameOfBusiness, DateOfFoundation, TurnOver, areaOfFarm, location,
+                nameOf, state_name, email: user?.email, number, amount, unit
+            }
+
+            // Update user data without changing the image
+            fetch(`https://organic-farmers-server.vercel.app/personalInfo/${userData._id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(personalInfoUpdated)
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.modifiedCount > 0) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Data Updated successfully',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
+                        navigate(-1)
+                    }
+                });
+        }
+    }
 
 
     return (
@@ -67,12 +101,14 @@ const UpdateProfile = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className='bg-[#FBFFED] md:w-[690px] w-auto p-10 mb-10 rounded-xl md:mt-20 ' >
                     <div className=''>
                         <div>
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Image URL</span>
                                 </label>
-                                <input type="file" placeholder="imageUrl" {...register("image")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" required />
+                                <input type="file" placeholder="imageUrl" {...register("image")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
                             </div>
+
 
 
                             <div className="form-control">
