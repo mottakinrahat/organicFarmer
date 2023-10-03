@@ -12,16 +12,14 @@ const Update = () => {
     const img_hosting_url = 'https://api.imgbb.com/1/upload?key=fd51fa12e105fd973cf18f51fb6659de';
     const onSubmit = (data) => {
         const formData = new FormData();
-
+    
         // Check if a new image is selected
         if (data.image[0]) {
             formData.append('image', data.image[0]);
-        }
-
-        fetch(img_hosting_url, {
-            method: 'POST',
-            body: formData
-        })
+            fetch(img_hosting_url, {
+                method: 'POST',
+                body: formData
+            })
             .then(res => res.json())
             .then(imageResponse => {
                 if (imageResponse.success) {
@@ -34,22 +32,48 @@ const Update = () => {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(cropsInfo)
                     })
-                        .then((res) => res.json())
-                        .then((data) => {
-                            console.log(data);
-                            if (data.modifiedCount > 0) {
-                                Swal.fire({
-                                    position: 'center',
-                                    icon: 'success',
-                                    title: 'Crops updated successfully',
-                                    showConfirmButton: false,
-                                    timer: 2000
-                                })
-                            }
-                        });
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        if (data.modifiedCount > 0) {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Crops updated successfully',
+                                showConfirmButton: false,
+                                timer: 2000
+                            })
+                            navigate(-1)
+                        }
+                    });
                 }
             });
-    };
+        } else {
+            // No new image uploaded, handle the case here
+            const { productName, quantity, price, Variety, unit, amount } = data;
+            const cropsInfo = { productName, quantity, unit, price, amount, Variety, ProductImage };
+            console.log(cropsInfo);
+            fetch(`https://organic-farmers-server.vercel.app/crops/${updatedData._id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cropsInfo)
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Crops updated successfully',
+                        showConfirmButton: false,
+                        timer: 2000
+                    })
+                    navigate(-1)
+                }
+            });
+        }
+    }
     return (
         <div className='md:mx-[100px] mt-[20px]  md:pb-24 pb-40'>
 
@@ -58,7 +82,7 @@ const Update = () => {
                     <div className='md:w-[611px] bg-[#E8F0CA] px-[32px] py-[32px] rounded-xl'>
 
                         <h2 className='text-[24px] text-center font-semibold mb-[24px]'>Update your Crops</h2>
-                        <form onSubmit={handleSubmit(onSubmit)}  className='bg-[#FBFFED] p-6 rounded-xl'>
+                        <form onSubmit={handleSubmit(onSubmit)} className='bg-[#FBFFED] p-6 rounded-xl'>
 
                             <div className="form-control">
                                 <label className="label">
