@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 import { AuthContext } from '../AuthProviders/AuthProviders';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import SingleProfile from './SingleProfile';
+import LazyLoad from 'react-lazy-load';
 
 const ProfileRoute = () => {
     const { user, loading, setLoading } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const ProfileRoute = () => {
     const userData = useLoaderData();
 
     useEffect(() => {
-        fetch('https://organic-farmers-server.vercel.app/crops')
+        fetch('http://localhost:5000/crops')
             .then(res => res.json())
             .then(data => {
 
@@ -34,7 +35,7 @@ const ProfileRoute = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://organic-farmers-server.vercel.app/crops/${id}`, {
+                fetch(`http://localhost:5000/crops/${id}`, {
                     method: 'DELETE'
                 })
                     .then((res) => res.json())
@@ -70,7 +71,7 @@ const ProfileRoute = () => {
                         <div className='flex  gap-2 justify-between items-center md:px-8 sm:px-2 py-5'><h2 className='md:text-[18px] font-bold'>Personal Information</h2>
                             <Link to={`/updateProfile/${userData._id}`}><button className='text-[14px] bg-[#159122] px-4 text-white rounded-xl hover:bg-[#29692F] transition duration-300 ease-in-out'>Edit</button></Link> </div>
                         <div className='  md:flex   justify-evenly items-center md:p-4 sm:p-1  rounded-xl md:w-[440px] sm:w-[270px] h-auto'>
-                            <div className=''><img src={user?.photoURL} className='md:w-[100px] w-[90px] md:h-[100px] h-[90px] sm:mx-auto ' alt="" /></div>
+                            <div className=''><LazyLoad offset={100} debounce={false} throttle={100} onContentVisible={() => { console.log('loaded!') }}><img src={user?.photoURL} className='md:w-[100px] w-[90px] md:h-[100px] h-[90px] sm:mx-auto ' alt="" /></LazyLoad></div>
                             <div className=''>
                                 <h2 className='md:md:text-[16px] sm:text-[14px] mb-2'><span className='font-bold'>Name:</span> {user?.displayName}</h2>
                                 <h2 className='md:text-[16px] sm:text-[14px] mb-2'><span className='font-bold'>Location:</span> {userData?.location} ,{userData?.state_name}</h2>
@@ -95,7 +96,7 @@ const ProfileRoute = () => {
                                     cropsData.slice(0, 6).map(crops => (
                                         <>
                                             <div className='mt-6'>
-                                                <img src={crops?.ProductImage} className='w-[100px] h-[100px] mb-2' alt="" />
+                                               <img src={crops?.ProductImage} className='w-[100px] h-[100px] mb-2' alt="" />
                                                 <h2 className="md:text-[18px] text-[20px] font-semibold">{crops?.productName}</h2>
                                             </div>
                                         </>

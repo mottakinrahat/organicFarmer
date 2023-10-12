@@ -3,13 +3,13 @@ import { Link, useLoaderData } from 'react-router-dom';
 import SingleContact from './SingleContact';
 import { FaPlus } from "react-icons/fa";
 import Swal from 'sweetalert2';
+import LazyLoad from 'react-lazy-load';
 const Contact = () => {
     const [arrayData, setArrayData] = useState([]);
     const userData = useLoaderData()
     const [showAll, setShowAll] = useState(false)
-    console.log(userData);
     useEffect(() => {
-        fetch('https://organic-farmers-server.vercel.app/crops')
+        fetch('http://localhost:5000/crops')
             .then(res => res.json())
             .then(data => {
                 const filteredData = data.filter(item => item.email === userData.email);
@@ -28,7 +28,7 @@ const Contact = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://organic-farmers-server.vercel.app/crops/${id}`, {
+                fetch(`http://localhost:5000/crops/${id}`, {
                     method: 'DELETE'
                 })
                     .then((res) => res.json())
@@ -61,7 +61,7 @@ const Contact = () => {
                 <div className='md:bg-[#FBFFED] sm:bg-[#FBFFED] md:w-[460px] px-2 md:px-0 sm:w-auto sm:mt-4 md:mt-0  md:h-[940px]  md:border-2 sm:rounded-xl '>
                     <div className=' px-8 py-5 '><h2 className='text-[18px] font-bold'>Personal Information</h2></div>
                     <div className=' md:flex  justify-evenly items-center p-2   rounded-xl md:w-[440px] sm:w-auto h-auto'>
-                        <div className=''><img src={userData.image} className='w-[100px] mx-auto h-[100px] md:ml-0 sm:ml-0 ml-32 ' alt="" /></div>
+                        <div className=''><LazyLoad  offset={100} debounce={false} throttle={100} onContentVisible={() => { console.log('loaded!') }}><img src={userData.image} className='w-[100px] mx-auto h-[100px] md:ml-0 sm:ml-0 ml-32 ' alt="" /></LazyLoad></div>
                         <div>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Name:</span> {userData?.nameOf}</h2>
                             <h2 className='text-[16px] mb-2'><span className='font-bold'>Location:</span> {userData?.location}</h2>

@@ -9,48 +9,12 @@ const Crops = () => {
     const [arrayData, setArrayData] = useState([]);
 
     useEffect(() => {
-        fetch('https://organic-farmers-server.vercel.app/personalInfo')
+        fetch('http://localhost:5000/personalInfo')
             .then(res => res.json())
             .then(data => setArrayData(data))
     }, [])
 
-    // const handleSubmitCrops = (e) => {
-    //     e.preventDefault();
-    //     const form = e.target;
-    //     const productName = form.name.value;
-    //     const ProductImage = form.image.value;
-    //     const quantity = form.quantity.value;
-    //     const unit = form.unit.value;
-    //     const price = form.price.value;
-    //     const amount = form.amount.value;
-    //     const Variety = form.variety.value;
-    //     const findedData = arrayData.find(users => users.email === user?.email)
-    //     const { location, number } = findedData;
-
-
-    //     const cropsData = { productName, ProductImage, quantity, unit, price,amount, Variety, email: user?.email, name: user?.displayName, number, location }
-    //     console.log(cropsData);
-    //     fetch('https://organic-farmers-server.vercel.app/crops', {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(cropsData)
-    //     })
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             console.log(data);
-    //             if (data.insertedId) {
-    //                 Swal.fire({
-    //                     position: 'center',
-    //                     icon: 'success',
-    //                     title: 'crops added successfully',
-    //                     showConfirmButton: false,
-    //                     timer: 2000
-    //                 })
-    //                 navigate('/dashboard/farmers')
-
-    //             }
-    //         });
-    // }
+ 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const img_hosting_url = 'https://api.imgbb.com/1/upload?key=fd51fa12e105fd973cf18f51fb6659de';
     const onSubmit = (data) => {
@@ -67,7 +31,7 @@ const Crops = () => {
                     const {productName, quantity,price,Variety,unit,amount} = data;
                     const cropsInfo = { productName, quantity,unit,price,amount,Variety, ProductImage: imageUrl,email:user.email,name:user.displayName}
 
-                    fetch('https://organic-farmers-server.vercel.app/crops', {
+                    fetch('http://localhost:5000/crops', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(cropsInfo)

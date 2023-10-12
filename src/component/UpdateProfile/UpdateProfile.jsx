@@ -41,7 +41,7 @@ const UpdateProfile = () => {
                         }
 
                         // Update user data with new fields and image URL
-                        fetch(`https://organic-farmers-server.vercel.app/personalInfo/${userData._id}`, {
+                        fetch(`http://localhost:5000/personalInfo/${userData._id}`, {
                             method: 'PUT',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(personalInfoUpdated)
@@ -72,7 +72,7 @@ const UpdateProfile = () => {
             }
 
             // Update user data without changing the image
-            fetch(`https://organic-farmers-server.vercel.app/personalInfo/${userData._id}`, {
+            fetch(`http://localhost:5000/personalInfo/${userData._id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(personalInfoUpdated)
