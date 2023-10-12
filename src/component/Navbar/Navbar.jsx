@@ -23,7 +23,7 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/personalInfo?email=${user?.email}`)
+        fetch(`https://organic-farmers-server.vercel.app/personalInfo?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setArrayData(data);

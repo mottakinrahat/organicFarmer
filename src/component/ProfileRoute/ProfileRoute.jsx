@@ -14,7 +14,7 @@ const ProfileRoute = () => {
     const userData = useLoaderData();
 
     useEffect(() => {
-        fetch('http://localhost:5000/crops')
+        fetch('https://organic-farmers-server.vercel.app/crops')
             .then(res => res.json())
             .then(data => {
 
@@ -35,7 +35,7 @@ const ProfileRoute = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/crops/${id}`, {
+                fetch(`https://organic-farmers-server.vercel.app/crops/${id}`, {
                     method: 'DELETE'
                 })
                     .then((res) => res.json())
