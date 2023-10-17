@@ -109,11 +109,11 @@ const ProfileRoute = () => {
 
                     <div className='md:w-[880px]  md:bg-[#FBFFED] sm:bg-[#FBFFED] border-2 rounded-xl'>
                         <div className='flex justify-between items-center '>
-                            <h3 className='text-[24px] font-bold p-4'>Product listing</h3>
+                            <h3 className='text-[24px] font-bold p-4 md:ml-9'>Product listing</h3>
                             <Link to='/profileDashboard/crops'><button className={'flex items-center gap-2 px-[40px] py-[8px] bg-[#159122] text-white font-semibold rounded-full mr-8 hover:bg-[#29692F] transition duration-300 ease-in-out '}><FaPlus />Add</button></Link>
                         </div>
                         {arrayData.length <= 0 ? (
-                            <div className='text-black'><h2 className='text-3xl text-center font-bold mt-4'>No Products added</h2></div>
+                            <div className='text-black'><h2 className='text-3xl text-center font-bold md:mt-60'>You have no Product for selling</h2></div>
                         ) : (
                             <>
                                 {showAll ? (

@@ -45,7 +45,7 @@ const Register = () => {
             .catch(err => {
                 Swal.fire({
                     position: 'center',
-                    icon: 'success',
+                    icon: 'error',
                     title: `${err.message}`,
                     showConfirmButton: false,
                     timer: 2000

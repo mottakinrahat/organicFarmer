@@ -101,7 +101,7 @@ const Contact = () => {
                     <div className='md:flex justify-between items-center '>
                         <h3 className='text-[24px] font-bold p-4'>Product listing</h3>
                     </div>
-                    {arrayData.length <= 0 ? (<div className='text-black'><h2 className='text-3xl text-center font-bold mt-4'>No Products added</h2></div>
+                    {arrayData.length <= 0 ? (<div className='text-black'><h2 className='text-3xl text-center font-bold mt-60'>{userData?.nameOf} has no product for selling</h2></div>
                     ) : (
                         <>
                             {

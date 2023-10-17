@@ -61,8 +61,8 @@ const PersonalInfo = () => {
     }
 
     return (
-        <div className='md:mx-[550px]  mt-10'>
-            <div className='md:w-[550px] w-[340px]'>
+        <div className='md:mx-[500px] lg:mx-[500px]  mt-10'>
+            <div className='md:w-auto w-[340px]'>
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body bg-[#FBFFED]  rounded-xl">
                     <h2 className='text-[24px] font-semibold '>Personal Information</h2>
                     <div className="form-control">

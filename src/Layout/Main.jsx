@@ -10,7 +10,7 @@ const Main = () => {
     location.pathname.startsWith(path)
 );
 
-    const pathsToHideFooter = ['/contact', '/profile','/update'];
+    const pathsToHideFooter = ['/contact', '/profile','/update','/ourFarms'];
     const shouldHideFooter = pathsToHideFooter.some((path) =>
         location.pathname.startsWith(path)
     );
