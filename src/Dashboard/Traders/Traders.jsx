@@ -21,7 +21,7 @@ const Traders = () => {
                 {/* <div className='border hidden border-black rounded-full  items-center bg-white'><span className='mx-4 '><FaSearch /></span><input type="text" placeholder="Type here" className="input h-[43px] rounded-r-full w-80 max-w-xs" /></div> */}
             </div>
 
-            <div className='grid grid-cols-3 gap-4 my-[101px] '>
+            <div className='grid grid-cols-3 gap-4 my-[101px] md:px-20 '>
                 {
                     arrayData.map((sData, index) => (
                         <SingleTraders key={index} sData={sData}></SingleTraders>

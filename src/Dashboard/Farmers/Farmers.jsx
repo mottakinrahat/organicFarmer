@@ -23,7 +23,7 @@ const Farmers = () => {
                 {/* <div className='border border-black rounded-full flex items-center bg-white'><span className='mx-4'><FaSearch /></span><input type="text" placeholder="Type here" className="input h-[43px] rounded-r-full w-80 max-w-xs" /></div> */}
             </div>
 
-            <div className='md:grid grid-cols-3 gap-4 my-[101px] '>
+            <div className='md:grid grid-cols-3 gap-4 my-[101px] md:px-20'>
                 {
                     arrayData.map((sData) => (
                         <SingleFarmers key={sData._id} sData={sData}></SingleFarmers>

@@ -143,7 +143,34 @@ const UpdateProfile = () => {
                                 <label className="label">
                                     <span className="label-text">Date of Foundation</span>
                                 </label>
-                                <input type="date" defaultValue={userData?.DateOfFoundation} {...register("DateOfFoundation")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" required />
+                                <select defaultValue={userData?.DateOfFoundation} {...register("DateOfFoundation")} className="select select-bordered bg-[#E8F0CA]  w-full ">
+                                    <option disabled selected>Select the Year</option>
+                                    <option>2023</option>
+                                    <option>2022</option>
+                                    <option>2021</option>
+                                    <option>2020</option>
+                                    <option>2019</option>
+                                    <option>2018</option>
+                                    <option>2017</option>
+                                    <option>2016</option>
+                                    <option>2015</option>
+                                    <option>2014</option>
+                                    <option>2013</option>
+                                    <option>2012</option>
+                                    <option>2011</option>
+                                    <option>2010</option>
+                                    <option>2009</option>
+                                    <option>2008</option>
+                                    <option>2007</option>
+                                    <option>2006</option>
+                                    <option>2005</option>
+                                    <option>2004</option>
+                                    <option>2003</option>
+                                    <option>2002</option>
+                                    <option>2001</option>
+                                    <option>2000</option>
+                                </select>
+
 
                             </div>
 
@@ -153,6 +180,7 @@ const UpdateProfile = () => {
                                         <span className="label-text">Turnover(yearly)</span>
                                     </label>
                                     <input type="text" defaultValue={userData?.TurnOver}{...register("TurnOver")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+
 
                                 </div>
                                 <div className="form-control ">

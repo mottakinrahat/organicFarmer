@@ -95,9 +95,35 @@ const BuisnessDetails = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Date of Foundation</span>
+                            <span className="label-text">Year of Foundation</span>
                         </label>
-                        <input type="date" name='dateOf' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                        <select name='dateOf' className="select select-bordered bg-[#E8F0CA]  w-full " required>
+                                <option disabled selected>Select the Year</option>
+                                <option>2023</option>
+                                <option>2022</option>
+                                <option>2021</option>
+                                <option>2020</option>
+                                <option>2019</option>
+                                <option>2018</option>
+                                <option>2017</option>
+                                <option>2016</option>
+                                <option>2015</option>
+                                <option>2014</option>
+                                <option>2013</option>
+                                <option>2012</option>
+                                <option>2011</option>
+                                <option>2010</option>
+                                <option>2009</option>
+                                <option>2008</option>
+                                <option>2007</option>
+                                <option>2006</option>
+                                <option>2005</option>
+                                <option>2004</option>
+                                <option>2003</option>
+                                <option>2002</option>
+                                <option>2001</option>
+                                <option>2000</option>
+                            </select>
 
                     </div>
 
@@ -106,14 +132,14 @@ const BuisnessDetails = () => {
                             <label className="label">
                                 <span className="label-text">Turnover(yearly)</span>
                             </label>
-                            <input type="text" name='turnover' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                            <input type="text" name='turnover' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]"required />
 
                         </div>
                         <div className="form-control ">
                             <label className="label">
                                 <span className="label-text">Turnover(amount)</span>
                             </label>
-                            <select name='amount' className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs">
+                            <select name='amount' className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs" required>
                                 <option disabled selected>amount</option>
                                 <option>Thousand</option>
                                 <option>Lakh</option>
@@ -133,7 +159,7 @@ const BuisnessDetails = () => {
                             <label className="label">
                                 <span className="label-text">Unit of area</span>
                             </label>
-                            <select name="unit" className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs">
+                            <select name="unit" className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs" required>
                                 <option disabled selected>Unit</option>
                                 <option>square metres</option>
                                 <option>square kilometers</option>
@@ -146,14 +172,14 @@ const BuisnessDetails = () => {
                         <label className="label">
                             <span className="label-text">Farm Location</span>
                         </label>
-                        <input type="text" name='location' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                        <input type="text" name='location' className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" required/>
 
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">States Location</span>
                         </label>
-                        <select name='states' className="select w-full border-2  border-[#252525] rounded-full bg-[#E8F0CA]">
+                        <select name='states' className="select w-full border-2  border-[#252525] rounded-full bg-[#E8F0CA]" required>
                             <option disabled selected>Select your states?</option>
                             <option>Andhra Pradesh</option>
                             <option>Arunachal Pradesh</option>

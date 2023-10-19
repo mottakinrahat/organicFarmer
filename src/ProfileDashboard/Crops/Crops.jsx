@@ -61,7 +61,7 @@ const Crops = () => {
                                 <label className="label">
                                     <span className="label-text">Product Name</span>
                                 </label>
-                                <input type="text" {...register("productName")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                                <input type="text" {...register("productName")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" required/>
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -74,14 +74,14 @@ const Crops = () => {
                                     <label className="label">
                                         <span className="label-text">Quantity</span>
                                     </label>
-                                    <input type="text" {...register("quantity")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                                    <input type="text" {...register("quantity")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" required/>
 
                                 </div>
                                 <div className="form-control w-1/3">
                                     <label className="label">
                                         <span className="label-text">Unit</span>
                                     </label>
-                                    <select {...register("unit")} className="select select-bordered  bg-[#E8F0CA] w-full max-w-xs">
+                                    <select {...register("unit")} className="select select-bordered  bg-[#E8F0CA] w-full max-w-xs" required>
                                         <option disabled selected>Unit</option>
                                         <option>Kilograms</option>
                                         <option>Tons</option>
@@ -95,7 +95,7 @@ const Crops = () => {
                                     <label className="label">
                                         <span className="label-text">Price</span>
                                     </label>
-                                    <input type="text" {...register("price")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" />
+                                    <input type="text" {...register("price")} className="input border-2 border-[#252525] rounded-full bg-[#E8F0CA]" required/>
 
                                 </div>
                                 <div className="form-control">
