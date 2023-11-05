@@ -209,9 +209,8 @@ const UpdateProfile = () => {
                                     </label>
                                     <select {...register("unit")} className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs">
                                         <option disabled selected>{userData?.unit}</option>
-                                        <option>square metres</option>
-                                        <option>square kilometers</option>
-                                        <option>hectare</option>
+                                        <option>Acre</option>
+                                        <option>Hectare</option>
                                     </select>
 
                                 </div>

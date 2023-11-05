@@ -4,7 +4,7 @@ import LazyLoad from 'react-lazy-load';
 
 const SingleFarmers = ({ sData }) => {
     const { image, nameOf, location, areaOfFarm, organization, crops_name, _id, unit,DateOfFoundation,state_name} = sData;
-    console.log(sData);
+
     return (
         <div>
             <Link to={`/contact/${_id}`}>

@@ -11,6 +11,7 @@ const Navbar = () => {
     const pathsToHideNavbar = ['/contact/:id'];
     const shouldHideNavbar = pathsToHideNavbar.includes(location.pathname);
     const { user, logOut } = useContext(AuthContext)
+    console.log(user);
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const handleLogOut = () => {
         logOut()

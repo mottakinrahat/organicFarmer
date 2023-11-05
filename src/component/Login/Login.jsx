@@ -60,9 +60,9 @@ const Login = () => {
 
 
     return (
-        <div className='bg-[#FBFFED] '>
+        <div className='bg-[#FBFFED] pt-4 md:pt-0'>
             <div className='md:flex justify-evenly'>
-                <div className='md:w-1/2 grid grid-cols-2 md:gap-6 gap-4 px-4 py-[34px] '>
+                <div className='md:w-1/2 md:grid grid-cols-2 md:gap-6 gap-4 px-4 py-[34px] hidden '>
 
 
                     <LazyLoad height={300} offset={100} debounce={false} throttle={100} onContentVisible={() => { console.log('loaded!') }}>
@@ -87,7 +87,7 @@ const Login = () => {
 
                 </div>
                 <div className='md:w-1/2 sm:w-[500px] sm:mx-auto md:mt-[200px] mt-4'>
-                    <h2 className='text-4xl font-bold text-center mb-4'>Organic Farmer</h2>
+                    <h2 className='text-4xl font-bold text-center mb-4 pt-4'>Organic Farmer</h2>
                     <div className="md:flex flex-col w-full border-opacity-50 md:px-[160px]">
                         <div className="flex flex-col justify-center items-center gap-2">
                             <div>

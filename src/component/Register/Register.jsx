@@ -65,8 +65,8 @@ const Register = () => {
     };
     return (
         <div>
-            <div className='md:flex justify-evenly  bg-[#FBFFED]'>
-                <div className='md:w-1/2 grid grid-cols-2 md:gap-6 gap-2 px-8 py-[34px]'>
+            <div className='md:flex justify-evenly  bg-[#FBFFED] pt-4'>
+                <div className='md:w-1/2 md:grid grid-cols-2 md:gap-6 gap-2 px-8 py-[34px] hidden'>
                     <LazyLoad height={300} offset={100} debounce={false} throttle={100} onContentVisible={() => { console.log('loaded!') }}>
                         <img src="https://i.ibb.co/zF94fnS/who-s-denilo-xj7-HV0-Fv-Sg0-unsplash.jpg" className='rounded-xl w-[254px] h-[312px] md:ml-8 object-cover' alt="" />
                     </LazyLoad>

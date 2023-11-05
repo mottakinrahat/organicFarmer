@@ -17,7 +17,7 @@ const BuisnessDetails = () => {
         const unit = form.unit.value;
         const location = form.location.value;
         const state_name = form.states.value;
-        const farmBusiness = { role, nameOfBusiness, number, DateOfFoundation, TurnOver, amount, areaOfFarm, unit, location, email: user?.email, image: user?.imageURL, nameOf: user?.displayName, state_name: state_name };
+        const farmBusiness = { role, nameOfBusiness, number, DateOfFoundation, TurnOver, amount, areaOfFarm, unit, location, email: user?.email, image: user?.photoURL, nameOf: user?.displayName, state_name: state_name };
         const farmerStates = { farmer_name: user?.displayName, farm_area: areaOfFarm, unit: unit, joining_year: DateOfFoundation, state_name: state_name };
         fetch('https://organic-farmers-server.vercel.app/personalInfo', {
             method: 'POST',
@@ -161,9 +161,8 @@ const BuisnessDetails = () => {
                             </label>
                             <select name="unit" className="select select-bordered bg-[#E8F0CA]  w-full max-w-xs" required>
                                 <option disabled selected>Unit</option>
-                                <option>square metres</option>
-                                <option>square kilometers</option>
-                                <option>hectare</option>
+                                <option>Acre</option>
+                                <option>Hectare</option>
                             </select>
 
                         </div>

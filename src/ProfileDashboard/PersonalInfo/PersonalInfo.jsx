@@ -43,7 +43,7 @@ const PersonalInfo = () => {
                 });
         } else {
             const { email, phoneNumber, location, firstName } = data;
-            const personalInformation = { email, phoneNumber, location, firstName }
+            const personalInformation = { email, phoneNumber, location, firstName,image:user?.photoURL}
 
             fetch('https://organic-farmers-server.vercel.app/userData', {
                 method: 'POST',
