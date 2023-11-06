@@ -11,7 +11,6 @@ const Dashboard = () => {
     //     setIsDrawerOpen(!isDrawerOpen);
     // };
     return (
-        <div>
          <div className='bg-[#E8F0CA] pt-2'>
            <Navbars />
             <div className=' h-full w-full '>
@@ -51,7 +50,6 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
-       </div>
     );
 };
 

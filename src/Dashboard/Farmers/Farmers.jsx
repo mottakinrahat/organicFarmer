@@ -17,7 +17,7 @@ const Farmers = () => {
    
 
     return (
-        <div className='mx-[32px]'>
+        <div className='mx-[25px]'>
             <div className='md:flex justify-between  text-center pt-[38px]'>
                 <div><h2 className='text-[32px] font-semibold'>Our Farmers</h2></div>
                 {/* <div className='border border-black rounded-full flex items-center bg-white'><span className='mx-4'><FaSearch /></span><input type="text" placeholder="Type here" className="input h-[43px] rounded-r-full w-80 max-w-xs" /></div> */}
