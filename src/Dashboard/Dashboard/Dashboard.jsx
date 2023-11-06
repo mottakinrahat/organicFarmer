@@ -10,16 +10,16 @@ const Dashboard = () => {
     // const toggleDrawer = () => {
     //     setIsDrawerOpen(!isDrawerOpen);
     // };
-    console.log(isDrawerOpen);
     return (
-        <div className='bg-[#E8F0CA] pt-2'>
-            <Navbars />
+        <div>
+         <div className='bg-[#E8F0CA] pt-2'>
+           <Navbars />
             <div className=' h-full w-full '>
 
                 <div className={`drawer lg:drawer-open  md:px-[70px] md:py-[40px] md:mr-10 `}>
                     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" checked={isDrawerOpen}/>
                     <div className="drawer-content   bg-[#FBFFED]  rounded-r-xl">
-                        <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button mt-4 ml-40 lg:hidden " onClick={()=>setIsDrawerOpen(!isDrawerOpen)}><FaAlignJustify></FaAlignJustify></label>
+                        <label htmlFor="my-drawer-2" className="btn bg-[#0C6315] drawer-button mt-4 ml-40 lg:hidden " onClick={()=>setIsDrawerOpen(!isDrawerOpen)}><FaAlignJustify className='text-white'></FaAlignJustify></label>
                         <Outlet />
 
 
@@ -51,6 +51,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+       </div>
     );
 };
 

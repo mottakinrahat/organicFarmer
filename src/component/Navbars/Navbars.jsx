@@ -33,7 +33,7 @@ const Navbars = () => {
             });
     }, [user?.email]);
     return (
-        <div className='md:w-full mx-auto sticky sm:-mb-[80px] md:-mb-0'>
+        <div className='md:w-full mx-auto sticky sm:-mb-[80px] md:-mb-0 z-index'>
             <div className='py-5 mx-auto sm:max-w-xl sm:rounded-full md:rounded-none  md:h-[70px] md:mt-4 md:max-w-full md:px-24 lg:px-8 bg-[#E8F0CA] text-black'>
                 <div className='relative flex md:justify-between md:items-center md:px-[10px]  '>
 
@@ -124,16 +124,16 @@ const Navbars = () => {
                             <div className='absolute top-0 left-0 w-full z-10'>
                                 <div className='p-5 bg-white border rounded shadow-sm'>
                                     {/* Logo & Button section */}
-                                    <div className='flex items-center justify-between mb-4'>
+                                    <div className='flex items-center justify-between mb-4 z-10'>
                                         <div>
-                                            <Link to='/' className='inline-flex items-center'>
+                                            <Link to='/' className='inline-flex items-center z-10'>
 
                                                 <span className='ml-2 text-xl font-bold  text-gray-800 uppercase'>
                                                     <img className='ml-2 sm:ml-2 h-4' src={logo} alt="" />
                                                 </span>
                                             </Link>
                                         </div>
-                                        <div className='hidden md:block'>
+                                        <div className='hidden md:block z-10'>
                                             {arrayData && arrayData.length > 0 ? (
                                                 <Link to={`/profile/${arrayData[0]?._id || 'default'}`}>
                                                     {user && <div className='flex items-center border-2 border-[#159122] rounded-full gap-2 px-2 py-1 cursor-pointer'>
