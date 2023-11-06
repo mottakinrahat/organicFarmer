@@ -7,9 +7,9 @@ import { FaAlignJustify } from "react-icons/fa";
 
 const Dashboard = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const toggleDrawer = () => {
-        setIsDrawerOpen(!isDrawerOpen);
-    };
+    // const toggleDrawer = () => {
+    //     setIsDrawerOpen(!isDrawerOpen);
+    // };
     console.log(isDrawerOpen);
     return (
         <div className='bg-[#E8F0CA] pt-2'>
@@ -30,7 +30,7 @@ const Dashboard = () => {
                             {/* Sidebar content here */}
                             <li className=''>
                                 <NavLink
-                                    to='farmers'
+                                    to='farmers'onClick={()=>setIsDrawerOpen(!isDrawerOpen)}
                                     className={({ isActive }) => (isActive ? 'bg-[#0C6315] text-white w-full' : 'default')}
                                 >
                                     Farmers
@@ -38,7 +38,7 @@ const Dashboard = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to='traders'
+                                    to='traders' onClick={()=>setIsDrawerOpen(!isDrawerOpen)}
                                     className={({ isActive }) => (isActive ? 'bg-[#0C6315] text-white w-full' : 'default')}
                                 >
                                     Traders
